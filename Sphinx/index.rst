@@ -1,6 +1,8 @@
 ====================================================================
-nonNoise考案　Edison開発方法
+Edison開発方法
 ====================================================================
+
+
 
 .. image:: img/intel.web.480.270.jpg
 	:scale: 40%
@@ -11,6 +13,21 @@ nonNoise考案　Edison開発方法
 
 .. image:: img/edison02.jpg
 	:scale: 30%
+
+	
+nonNoise考案　Edison開発方法
+--------------------------------------
+
+.. toctree::
+	:maxdepth: 1
+
+	index
+	init
+	python
+
+|
+
+|
 
 
 1.まずEdisonを買う。
@@ -179,46 +196,7 @@ loginまで無事に到着した方は、これからコマンドで進んでい
 
 
 
-6. EdisonにPython環境を構築する
------------------------------------------
 
-(1) Pythonが起動することを確認する
-
-	- python
-
-※終了するときは exit() で終われます。
-
-(2) pipをインストールする
-
-	- curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-
-	- python get-pip.py
-
-	- pip
-
-※もしここでエラーが出たらTwitterでご報告ください。>@nonNoise
-
-
-(3) pipを使って色々入れてみる
-
-
-	- pip install flask
-	- pip install serial
-	- pip install sphinx
-	
-などなどw
-
-(4) うまく行かないライブラリもありました。
-
-	- pip install ipython
-
-		- インストールまでうまく行ったけどコマンドを実行するとエラーが出る。(海外ユーザーでも議論されている
-
-	- pip install virtualenvwrapper
-		
-		- virtualenvは入るのにvirtualenvwrapperはインストールに失敗する罠。何かPython回りで足りないライブラリでもあるのかな。
-
-	随時、ご報告お待ちしております>@nonNoise
 
 
 
