@@ -133,7 +133,9 @@ loginまで無事に到着した方は、これからコマンドで進んでい
 
 (1) 以下のコマンドを叩いてください。
 
-> wget 
+> curl http://nonnoise.github.io/Edison/_sources/Edison/intel-iotdk.conf
+
+
 
 TBD
 
