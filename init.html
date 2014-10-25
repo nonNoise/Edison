@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Edison初期化方法（工場出荷時） &mdash; Edison-Note 1.3 documentation</title>
+    <title>Edison初期化方法（工場出荷時及び最新版FW） &mdash; Edison-Note 1.3 documentation</title>
     
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="top" title="Edison-Note 1.3 documentation" href="index.html" />
-    <link rel="next" title="EdisonにPython環境を構築する" href="python.html" />
+    <link rel="next" title="Edison開発方法（最新FWバージョン）" href="index2.html" />
     <link rel="prev" title="EdisonにPython環境を構築する" href="python.html" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0">
     <!--[if lt IE 9]>
@@ -41,7 +41,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="python.html" title="EdisonにPython環境を構築する"
+          <a href="index2.html" title="Edison開発方法（最新FWバージョン）"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="python.html" title="EdisonにPython環境を構築する"
@@ -53,13 +53,13 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Edison初期化方法（工場出荷時）</a><ul>
-<li><a class="reference internal" href="#id1">1.Edisonを初期化出来る環境</a></li>
-<li><a class="reference internal" href="#id2">2.初期化ファイルのダウンロード</a></li>
-<li><a class="reference internal" href="#id3">3. 初期化の手順</a></li>
-<li><a class="reference internal" href="#id4">参考資料</a></li>
-<li><a class="reference internal" href="#id5">提供</a></li>
-<li><a class="reference internal" href="#id6">管理情報</a></li>
+<li><a class="reference internal" href="#">Edison初期化方法（工場出荷時及び最新版FW）</a><ul>
+<li><a class="reference internal" href="#edison">1.Edisonを初期化出来る環境</a></li>
+<li><a class="reference internal" href="#id1">2.初期化ファイルのダウンロード</a></li>
+<li><a class="reference internal" href="#id2">3. 初期化の手順</a></li>
+<li><a class="reference internal" href="#id3">参考資料</a></li>
+<li><a class="reference internal" href="#id4">提供</a></li>
+<li><a class="reference internal" href="#id5">管理情報</a></li>
 </ul>
 </li>
 </ul>
@@ -68,8 +68,8 @@
   <p class="topless"><a href="python.html"
                         title="previous chapter">EdisonにPython環境を構築する</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="python.html"
-                        title="next chapter">EdisonにPython環境を構築する</a></p>
+  <p class="topless"><a href="index2.html"
+                        title="next chapter">Edison開発方法（最新FWバージョン）</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/init.txt"
@@ -96,28 +96,29 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="edison">
-<h1>Edison初期化方法（工場出荷時）<a class="headerlink" href="#edison" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="edison-fw">
+<h1>Edison初期化方法（工場出荷時及び最新版FW）<a class="headerlink" href="#edison-fw" title="Permalink to this headline">¶</a></h1>
 <a class="reference external image-reference" href="http://www.intel.com/content/www/us/en/do-it-yourself/maker.html"><img alt="_images/intel.web.480.270.jpg" src="_images/intel.web.480.270.jpg" style="width: 192.0px; height: 108.0px;" /></a>
 <a class="reference internal image-reference" href="_images/edison.png"><img alt="_images/edison.png" src="_images/edison.png" style="width: 210.4px; height: 137.2px;" /></a>
 <a class="reference internal image-reference" href="_images/edison02.jpg"><img alt="_images/edison02.jpg" src="_images/edison02.jpg" style="width: 180.0px; height: 135.0px;" /></a>
-<div class="section" id="id1">
-<h2>1.Edisonを初期化出来る環境<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="edison">
+<h2>1.Edisonを初期化出来る環境<a class="headerlink" href="#edison" title="Permalink to this headline">¶</a></h2>
 <p>Edisonの初期化は結構難しい。RasPiならSDカードを交換すれば良いのだが、EdisonはオンボードのフラッシュROMなので、
 外部から書き換えを行う必要があります。</p>
 <p>Intel社から紹介されている方法は、LinuxとWindowsのみに対応しており、Macに関しては随時行うそうです。</p>
 <p>Edisonの初期化は、本当に全部初期化にしますので、各設定類はすべて削除されます。</p>
-<p>例えば、僕見たいにパスワードを忘れたり間違えたりして、どうにもならなくなった際に使って見てください</p>
+<p>例えば、僕見たいにパスワードを忘れたり間違えたりして、どうにもならなくなった際に使って見てください。</p>
+<p>あと、最新版のFWにするには、この方法が一番です。逆に、古いFWに戻したくてもROMがどこにあるのか探すのも一苦労汗w</p>
 </div>
-<div class="section" id="id2">
-<h2>2.初期化ファイルのダウンロード<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h2>2.初期化ファイルのダウンロード<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://communities.intel.com/docs/DOC-23242">https://communities.intel.com/docs/DOC-23242</a> より、「　Edison Yocto complete 　」
 をダウンロードしてください。</p>
 <p>ダウンロードしたら、zipファイルなので解答してください。</p>
 <p>解答したら、コマンドプロントで解答したフォルダーまで移動します。</p>
 </div>
-<div class="section" id="id3">
-<h2>3. 初期化の手順<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h2>3. 初期化の手順<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">EdisonをPCに接続します</p>
 </li>
@@ -149,8 +150,8 @@
 </ol>
 <p>これで、どれだけ遊んでも怖くないw</p>
 </div>
-<div class="section" id="id4">
-<h2>参考資料<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>参考資料<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.adafruit.com/datasheets/EdisonUserGuide.pdf">http://www.adafruit.com/datasheets/EdisonUserGuide.pdf</a></p>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -171,13 +172,13 @@
 <div class="line"><br /></div>
 </div>
 </div>
-<div class="section" id="id5">
-<h2>提供<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h2>提供<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>ArtifactNoise.</p>
 <a class="reference external image-reference" href="http://artifactnoise.com"><img alt="ArtifactNoise" src="_images/ANlogoMark02.png" style="width: 157.2px; height: 33.6px;" /></a>
 </div>
-<div class="section" id="id6">
-<h2>管理情報<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h2>管理情報<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -208,7 +209,7 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="python.html" title="EdisonにPython環境を構築する"
+          <a href="index2.html" title="Edison開発方法（最新FWバージョン）"
              >next</a> |</li>
         <li class="right" >
           <a href="python.html" title="EdisonにPython環境を構築する"

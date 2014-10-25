@@ -38,6 +38,7 @@ EdisonにPython環境を構築する
 	- pip install flask
 	- pip install serial
 	- pip install sphinx
+	- pip install virtualenvwrapper
 	
 などなどw
 
@@ -47,11 +48,7 @@ EdisonにPython環境を構築する
 
 		- インストールまでうまく行ったけどコマンドを実行するとエラーが出る。(海外ユーザーでも議論されている
 
-	- pip install virtualenvwrapper
-		
-		- virtualenvは入るのにvirtualenvwrapperはインストールに失敗する罠。何かPython回りで足りないライブラリでもあるのかな。
-
-	随時、ご報告お待ちしております>@nonNoise
+	うまく行かなかった物があれば、随時、ご報告お待ちしております>@nonNoise
 
 |
 

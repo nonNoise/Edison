@@ -22,8 +22,9 @@ nonNoise考案　Edison開発方法
 	:maxdepth: 1
 
 	index
-	python
 	init
+	index2
+	python
 
 |
 
@@ -116,7 +117,7 @@ loginまで無事に到着した方は、これからコマンドで進んでい
 	Edisonのシリアルターミナルでバグが一ヶ所あります。少し時間が立つと、最初の一文字を認識してくれません。
 	ちゃんと文字が打たれているか確認ののち、最初の一文字が入っていない際は削除して再度打ち込んでください。
 	多分、割り込みがうまく行ってないんじゃないかな・・・汗w
-
+	※最新版FWで解決されました。	http://nonnoise.github.io/Edison/index2.html
 
 
 
@@ -126,30 +127,42 @@ loginまで無事に到着した方は、これからコマンドで進んでい
 
 (3) 早速、Edisonの初期設定をしていきます。まずEdisonのWiFiを使ってインターネットにつなげます。
 
+
+.. note::
+	
+お店で買った際に入っていたファームウェアが[edison-weekly_build_56_2014-08-20_15-54-05]でした。
+ cat /etc/version　で確認できます。以下の方法は買った当時の方法です。
+最新版に関しては、http://nonnoise.github.io/Edison/index2.htmlをご確認ください。
+
+
+
 (4) コマンド[ configure_edison ]を入力します。
 
+　
+- Configure Edison: Device Name
+	- デバイスの名前を決めます。僕はedison-01　にしました。
 
+- Configure Edison: Device Password
+	- デバイスのパスワード(root共通)を設定します。ここを設定すると次回のログイン時に必要です。
 
-	- Configure Edison: Device Name
-		- デバイスの名前を決めます。僕はedison-01　にしました。
-
-	- Configure Edison: Device Password
-		- デバイスのパスワード(root共通)を設定します。ここを設定すると次回のログイン時に必要です。
-
-	- Configure Edison: WiFi Connection
-		- WiFiを設定します。数秒後に自動的にスキャンしたリストを見せてくれますが、部屋のWiFiが見当たらない際は０再更新、１手入力を選択してください。
+- Configure Edison: WiFi Connection
+	- WiFiを設定します。数秒後に自動的にスキャンしたリストを見せてくれますが、部屋のWiFiが見当たらない際は０再更新、１手入力を選択してください。
 
 .. note::
 	
 	WiFiの設定で失敗、もしくは時間がかかる際は、Edisonをルーターの近くに持っていったり、金属系から遠ざけるなり行ってください。
 	意外とアンテナ弱いです。もしかするとどこかの設定で強く出来るかも？
 
+.. note::
+	
+	最新のFWでは、[configure_edison --setup]に変わったらしい。最新のFWにするには、http://nonnoise.github.io/Edison/init.htmlで出来ます。
 
 (5) WiFIの設定がうまく行ったかの確認をするために [ifconfig]を入力して、wlan0 にIPアドレスがあれば正解。
 
 .. warning::
 
 	Wifiの設定が、何故か電源を落とした後に初期化されてしまいました。閣下はお怒りですw。対策を探しています。
+	最新のFWで解決されていました。http://nonnoise.github.io/Edison/index2.html
 
 
 5. Edisonを最新にする
@@ -161,36 +174,36 @@ loginまで無事に到着した方は、これからコマンドで進んでい
 (1) opkg　と言うパッケージマネージャのリストを更新します。 以下のコマンドを叩いてください。
 
 
-	- ベースとなるライブラリリストファイル
-		- curl http://nonnoise.github.io/Edison/_sources/Edison/base-feeds.conf -o base-feeds.conf
+- ベースとなるライブラリリストファイル
+	- curl http://nonnoise.github.io/Edison/_sources/Edison/base-feeds.conf -o base-feeds.conf
 
-	- Intelが推奨するIoTライブラリリストファイル
-		- curl http://nonnoise.github.io/Edison/_sources/Edison/intel-iotdk.conf -o intel-iotdk.conf
+- Intelが推奨するIoTライブラリリストファイル
+	- curl http://nonnoise.github.io/Edison/_sources/Edison/intel-iotdk.conf -o intel-iotdk.conf
 
-	- mraaと言うEdisonのIO回りを制御するためのライブラリリストファイル
-		- curl http://nonnoise.github.io/Edison/_sources/Edison/mraa-upm.conf -o mraa-upm.conf
+- mraaと言うEdisonのIO回りを制御するためのライブラリリストファイル
+	- curl http://nonnoise.github.io/Edison/_sources/Edison/mraa-upm.conf -o mraa-upm.conf
 
-※この箇所は我流です。好き勝手に開発するにはこの辺を入れておいた方がおもしろい。
+	※この箇所は我流です。好き勝手に開発するにはこの辺を入れておいた方がおもしろい。
 
 (2) ダウンロードしたコンフィグファイルを移動します。
 
-	- cp base-feeds.conf /etc/opkg/
-	- cp intel-iotdk.conf /etc/opkg/
-	- cp mraa-upm.conf /etc/opkg/
+- cp base-feeds.conf /etc/opkg/
+- cp intel-iotdk.conf /etc/opkg/
+- cp mraa-upm.conf /etc/opkg/
 	
 
 (3) opkgを更新してパッケージを最新のものにします。
 
-	- opkg update
-	- opkg upgrade
+- opkg update
+- opkg upgrade
 
 (4) 試しにgitを入れてみましょう
 
-	- opkg install git
+- opkg install git
 
 これだけ。問題なく行ったら、
 
-	- git
+- git
 
 でgitコマンドが起動したら成功w
 

@@ -103,8 +103,9 @@
 <div class="toctree-wrapper compound">
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="">Edison開発方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="init.html">Edison初期化方法（工場出荷時及び最新版FW）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index2.html">Edison開発方法（最新FWバージョン）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python.html">EdisonにPython環境を構築する</a></li>
-<li class="toctree-l1"><a class="reference internal" href="init.html">Edison初期化方法（工場出荷時）</a></li>
 </ul>
 </div>
 <div class="line-block">
@@ -172,18 +173,23 @@
 <p class="first admonition-title">Warning</p>
 <p class="last">Edisonのシリアルターミナルでバグが一ヶ所あります。少し時間が立つと、最初の一文字を認識してくれません。
 ちゃんと文字が打たれているか確認ののち、最初の一文字が入っていない際は削除して再度打ち込んでください。
-多分、割り込みがうまく行ってないんじゃないかな・・・汗w</p>
+多分、割り込みがうまく行ってないんじゃないかな・・・汗w
+※最新版FWで解決されました。 <a class="reference external" href="http://nonnoise.github.io/Edison/index2.html">http://nonnoise.github.io/Edison/index2.html</a></p>
 </div>
-<ol class="arabic">
-<li><p class="first">login: の箇所に root と打ち込みエンター　（初期状態ではrootのパスワードは無い)</p>
-</li>
-<li><p class="first">login出来ました？試しにlsコマンドでopkg.binが見えればOK　（これが何か不明w）</p>
-</li>
-<li><p class="first">早速、Edisonの初期設定をしていきます。まずEdisonのWiFiを使ってインターネットにつなげます。</p>
-</li>
-<li><p class="first">コマンド[ configure_edison ]を入力します。</p>
-<blockquote>
-<div><ul>
+<ol class="arabic simple">
+<li>login: の箇所に root と打ち込みエンター　（初期状態ではrootのパスワードは無い)</li>
+<li>login出来ました？試しにlsコマンドでopkg.binが見えればOK　（これが何か不明w）</li>
+<li>早速、Edisonの初期設定をしていきます。まずEdisonのWiFiを使ってインターネットにつなげます。</li>
+</ol>
+<dl class="docutils">
+<dt>お店で買った際に入っていたファームウェアが[edison-weekly_build_56_2014-08-20_15-54-05]でした。</dt>
+<dd>cat /etc/version　で確認できます。以下の方法は買った当時の方法です。</dd>
+</dl>
+<p>最新版に関しては、<a class="reference external" href="http://nonnoise.github.io/Edison/index2">http://nonnoise.github.io/Edison/index2</a>.htmlをご確認ください。</p>
+<ol class="arabic simple" start="4">
+<li>コマンド[ configure_edison ]を入力します。</li>
+</ol>
+<ul>
 <li><dl class="first docutils">
 <dt>Configure Edison: Device Name</dt>
 <dd><ul class="first last simple">
@@ -209,29 +215,31 @@
 </dl>
 </li>
 </ul>
-</div></blockquote>
-</li>
-</ol>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">WiFiの設定で失敗、もしくは時間がかかる際は、Edisonをルーターの近くに持っていったり、金属系から遠ざけるなり行ってください。
 意外とアンテナ弱いです。もしかするとどこかの設定で強く出来るかも？</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">最新のFWでは、[configure_edison &#8211;setup]に変わったらしい。最新のFWにするには、<a class="reference external" href="http://nonnoise.github.io/Edison/init">http://nonnoise.github.io/Edison/init</a>.htmlで出来ます。</p>
 </div>
 <ol class="arabic simple" start="5">
 <li>WiFIの設定がうまく行ったかの確認をするために [ifconfig]を入力して、wlan0 にIPアドレスがあれば正解。</li>
 </ol>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">Wifiの設定が、何故か電源を落とした後に初期化されてしまいました。閣下はお怒りですw。対策を探しています。</p>
+<p class="last">Wifiの設定が、何故か電源を落とした後に初期化されてしまいました。閣下はお怒りですw。対策を探しています。
+最新のFWで解決されていました。<a class="reference external" href="http://nonnoise.github.io/Edison/index2.html">http://nonnoise.github.io/Edison/index2.html</a></p>
 </div>
 </div>
 <div class="section" id="id5">
 <h2>5. Edisonを最新にする<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>さて、何とかWiFiに接続できて、これからだってその前に、念のため色々と最新にしたいとおもいます。</p>
-<ol class="arabic">
-<li><p class="first">opkg　と言うパッケージマネージャのリストを更新します。 以下のコマンドを叩いてください。</p>
-<blockquote>
-<div><ul>
+<ol class="arabic simple">
+<li>opkg　と言うパッケージマネージャのリストを更新します。 以下のコマンドを叩いてください。</li>
+</ol>
+<ul>
 <li><dl class="first docutils">
 <dt>ベースとなるライブラリリストファイル</dt>
 <dd><ul class="first last simple">
@@ -250,49 +258,39 @@
 </li>
 <li><dl class="first docutils">
 <dt>mraaと言うEdisonのIO回りを制御するためのライブラリリストファイル</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first simple">
 <li>curl <a class="reference external" href="http://nonnoise.github.io/Edison/_sources/Edison/mraa-upm.conf">http://nonnoise.github.io/Edison/_sources/Edison/mraa-upm.conf</a> -o mraa-upm.conf</li>
 </ul>
+<p class="last">※この箇所は我流です。好き勝手に開発するにはこの辺を入れておいた方がおもしろい。</p>
 </dd>
 </dl>
 </li>
 </ul>
-</div></blockquote>
-</li>
+<ol class="arabic simple" start="2">
+<li>ダウンロードしたコンフィグファイルを移動します。</li>
 </ol>
-<p>※この箇所は我流です。好き勝手に開発するにはこの辺を入れておいた方がおもしろい。</p>
-<ol class="arabic" start="2">
-<li><p class="first">ダウンロードしたコンフィグファイルを移動します。</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li>cp base-feeds.conf /etc/opkg/</li>
 <li>cp intel-iotdk.conf /etc/opkg/</li>
 <li>cp mraa-upm.conf /etc/opkg/</li>
 </ul>
-</div></blockquote>
-</li>
-<li><p class="first">opkgを更新してパッケージを最新のものにします。</p>
-<blockquote>
-<div><ul class="simple">
+<ol class="arabic simple" start="3">
+<li>opkgを更新してパッケージを最新のものにします。</li>
+</ol>
+<ul class="simple">
 <li>opkg update</li>
 <li>opkg upgrade</li>
 </ul>
-</div></blockquote>
-</li>
-<li><p class="first">試しにgitを入れてみましょう</p>
-<blockquote>
-<div><ul class="simple">
+<ol class="arabic simple" start="4">
+<li>試しにgitを入れてみましょう</li>
+</ol>
+<ul class="simple">
 <li>opkg install git</li>
 </ul>
-</div></blockquote>
-</li>
-</ol>
 <p>これだけ。問題なく行ったら、</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li>git</li>
 </ul>
-</div></blockquote>
 <p>でgitコマンドが起動したら成功w</p>
 <div class="line-block">
 <div class="line"><br /></div>
