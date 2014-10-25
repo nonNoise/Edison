@@ -47,9 +47,12 @@ http://akizukidenshi.com/catalog/g/gM-08571/
 開発環境としてはこれだけ。
 
 必要な物
-: Edison Breakout Board : x1 : http://akizukidenshi.com/catalog/g/gM-08571/
-: USB-MicroB : x2 : http://akizukidenshi.com/catalog/g/gC-07607/
-: 保存ケース : x1 : http://akizukidenshi.com/catalog/g/gP-07327/
+
+◇ Edison Breakout Board : x1 : http://akizukidenshi.com/catalog/g/gM-08571/
+
+◇ USB-MicroB : x2 : http://akizukidenshi.com/catalog/g/gC-07607/
+
+◇ 保存ケース : x1 : http://akizukidenshi.com/catalog/g/gP-07327/
 
 だけで一先ず十分です。
 
@@ -76,6 +79,19 @@ http://akizukidenshi.com/catalog/g/gM-08571/
 
 ４、Edisonを触ってみる
 -----------------------------------------
+
+loginまで無事に到着した方は、これからコマンドで進んでいきますので、マウスから両手を離してキーボードに集中してください。
+
+それでは行きますよw
+
+.. warning::
+
+	Edisonのシリアルターミナルでバグが一ヶ所あります。少し時間が立つと、最初の一文字を認識してくれません。
+	ちゃんと文字が打たれているか確認ののち、最初の一文字が入っていない際は削除して再度打ち込んでください。
+	多分、割り込みがうまく行ってないんじゃないかな・・・汗w
+
+
+(1) login: の箇所に root と打ち込みエンター　（初期状態ではrootのパスワードは無い)
 
 
 
