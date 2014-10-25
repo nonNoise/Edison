@@ -47,9 +47,9 @@ http://akizukidenshi.com/catalog/g/gM-08571/
 開発環境としてはこれだけ。
 
 必要な物
-:Edison Breakout Board:x1:http://akizukidenshi.com/catalog/g/gM-08571/
-:USB-MicroB:x2:http://akizukidenshi.com/catalog/g/gC-07607/
-:保存ケース:x1:http://akizukidenshi.com/catalog/g/gP-07327/
+: Edison Breakout Board : x1 : http://akizukidenshi.com/catalog/g/gM-08571/
+: USB-MicroB : x2 : http://akizukidenshi.com/catalog/g/gC-07607/
+: 保存ケース : x1 : http://akizukidenshi.com/catalog/g/gP-07327/
 
 だけで一先ず十分です。
 
