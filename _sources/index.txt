@@ -27,12 +27,12 @@ http://akizukidenshi.com/catalog/g/gM-08571/
 -----------------------------------------
 
 さて、ブレークアウト基板セット
-http://akizukidenshi.com/catalog/g/gM-08571/
+http://akizukidenshi.com/catalog/g/gM-08570/
 を買って、他にも色々必要です。
 
 開発には、USB-MicroBが２本、２本ですよ？　２本必要ですw
 
-１本は電源用、もう一本は通信用です。
+１本は電源用、もう１本は通信用です。
 
 電源用を接続するとPC上ではディスクとして見えます。
 基板にLEDが付いたら電源用のUSBコネクタです。
@@ -48,7 +48,7 @@ http://akizukidenshi.com/catalog/g/gM-08571/
 
 必要な物
 
-◇ Edison Breakout Board : x1 : http://akizukidenshi.com/catalog/g/gM-08571/
+◇ Edison Breakout Board : x1 : http://akizukidenshi.com/catalog/g/gM-08570/
 
 ◇ USB-MicroB : x2 : http://akizukidenshi.com/catalog/g/gC-07607/
 
@@ -130,6 +130,10 @@ loginまで無事に到着した方は、これからコマンドで進んでい
 
 さて、何とかWiFiに接続できて、これからだってその前に、念のため色々と最新にしたいとおもいます。
 
+
+(1) 以下のコマンドを叩いてください。
+
+> wget 
 
 TBD
 
