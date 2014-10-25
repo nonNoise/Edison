@@ -141,7 +141,7 @@ loginまで無事に到着した方は、これからコマンドで進んでい
 		- curl http://nonnoise.github.io/Edison/_sources/Edison/intel-iotdk.conf -o intel-iotdk.conf
 
 	- mraaと言うEdisonのIO回りを制御するためのライブラリリストファイル
-		- curl http://nonnoise.github.io/Edison/_sources/Edison/mraa-upm.conf -o　mraa-upm.conf
+		- curl http://nonnoise.github.io/Edison/_sources/Edison/mraa-upm.conf -o mraa-upm.conf
 
 ※この箇所は我流です。好き勝手に開発するにはこの辺を入れておいた方がおもしろい。
 
