@@ -22,8 +22,8 @@ nonNoise考案　Edison開発方法
 	:maxdepth: 1
 
 	index
-	init
 	python
+	init
 
 |
 
