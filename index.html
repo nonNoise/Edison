@@ -51,6 +51,7 @@
 <li><a class="reference internal" href="#id2">３、Edisonを起動してみる</a></li>
 <li><a class="reference internal" href="#id3">４、Edisonを触ってみる</a></li>
 <li><a class="reference internal" href="#id4">５、Edisonを最新にする</a></li>
+<li><a class="reference internal" href="#edisonpython">５、EdisonにPython環境を構築する</a></li>
 <li><a class="reference internal" href="#id5">提供</a></li>
 <li><a class="reference internal" href="#id6">管理情報</a></li>
 </ul>
@@ -199,10 +200,61 @@
 <div class="section" id="id4">
 <h2>５、Edisonを最新にする<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>さて、何とかWiFiに接続できて、これからだってその前に、念のため色々と最新にしたいとおもいます。</p>
-<ol class="arabic simple">
-<li>以下のコマンドを叩いてください。</li>
+<ol class="arabic">
+<li><p class="first">opkg　と言うパッケージマネージャのリストを更新します。 以下のコマンドを叩いてください。</p>
+<blockquote>
+<div><ul>
+<li><dl class="first docutils">
+<dt>ベースとなるライブラリリストファイル</dt>
+<dd><ul class="first last simple">
+<li>curl <a class="reference external" href="http://nonnoise.github.io/Edison/_sources/Edison/base-feeds.conf">http://nonnoise.github.io/Edison/_sources/Edison/base-feeds.conf</a> -o base-feeds.conf</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Intelが推奨するIoTライブラリリストファイル</dt>
+<dd><ul class="first last simple">
+<li>curl <a class="reference external" href="http://nonnoise.github.io/Edison/_sources/Edison/intel-iotdk.conf">http://nonnoise.github.io/Edison/_sources/Edison/intel-iotdk.conf</a> -o intel-iotdk.conf</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>mraaと言うEdisonのIO回りを制御するためのライブラリリストファイル</dt>
+<dd><ul class="first last simple">
+<li>curl <a class="reference external" href="http://nonnoise.github.io/Edison/_sources/Edison/mraa-upm.conf">http://nonnoise.github.io/Edison/_sources/Edison/mraa-upm.conf</a> -o　mraa-upm.conf</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
 </ol>
-<p>&gt; wget</p>
+<p>※この箇所は我流です。好き勝手に開発するにはこの辺を入れておいた方がおもしろい。</p>
+<p>(2)ダウンロードしたコンフィグファイルを移動します。</p>
+<blockquote>
+<div><ul class="simple">
+<li>cp base-feeds.conf /etc/opkg/</li>
+<li>cp intel-iotdk.conf /etc/opkg/</li>
+<li>cp mraa-upm.conf /etc/opkg/</li>
+</ul>
+</div></blockquote>
+<ol class="arabic" start="3">
+<li><p class="first">opkgを更新してパッケージを最新のものにします。</p>
+<blockquote>
+<div><ul class="simple">
+<li>opkg update</li>
+<li>opkg upgrade</li>
+</ul>
+</div></blockquote>
+</li>
+<li></li>
+</ol>
+</div>
+<div class="section" id="edisonpython">
+<h2>５、EdisonにPython環境を構築する<a class="headerlink" href="#edisonpython" title="Permalink to this headline">¶</a></h2>
 <p>TBD</p>
 <div class="line-block">
 <div class="line"><br /></div>
