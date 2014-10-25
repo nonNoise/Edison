@@ -46,12 +46,12 @@
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">nonNoise流　Edison開発方法</a><ul>
-<li><a class="reference internal" href="#edison">１、まずEdisonを買う。</a></li>
-<li><a class="reference internal" href="#id1">２、開発環境を整える</a></li>
-<li><a class="reference internal" href="#id2">３、Edisonを起動してみる</a></li>
-<li><a class="reference internal" href="#id3">４、Edisonを触ってみる</a></li>
-<li><a class="reference internal" href="#id4">５、Edisonを最新にする</a></li>
-<li><a class="reference internal" href="#edisonpython">５、EdisonにPython環境を構築する</a></li>
+<li><a class="reference internal" href="#edison">1.まずEdisonを買う。</a></li>
+<li><a class="reference internal" href="#id1">2. 開発環境を整える</a></li>
+<li><a class="reference internal" href="#id2">3. Edisonを起動してみる</a></li>
+<li><a class="reference internal" href="#id3">4. Edisonを触ってみる</a></li>
+<li><a class="reference internal" href="#id4">5. Edisonを最新にする</a></li>
+<li><a class="reference internal" href="#edisonpython">6. EdisonにPython環境を構築する</a></li>
 <li><a class="reference internal" href="#id5">提供</a></li>
 <li><a class="reference internal" href="#id6">管理情報</a></li>
 </ul>
@@ -87,7 +87,7 @@
   <div class="section" id="nonnoise-edison">
 <h1>nonNoise流　Edison開発方法<a class="headerlink" href="#nonnoise-edison" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="edison">
-<h2>１、まずEdisonを買う。<a class="headerlink" href="#edison" title="Permalink to this headline">¶</a></h2>
+<h2>1.まずEdisonを買う。<a class="headerlink" href="#edison" title="Permalink to this headline">¶</a></h2>
 <p>Intel社から三種類、Edisonが発売されています。</p>
 <p>一つはモジュール単品
 <a class="reference external" href="http://akizukidenshi.com/catalog/g/gM-08569/">http://akizukidenshi.com/catalog/g/gM-08569/</a></p>
@@ -99,7 +99,7 @@
 <p>他のセットについては、互換があったり無かったり、触れた機会に調査したいと思いますw</p>
 </div>
 <div class="section" id="id1">
-<h2>２、開発環境を整える<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>2. 開発環境を整える<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>さて、ブレークアウト基板セット
 <a class="reference external" href="http://akizukidenshi.com/catalog/g/gM-08570/">http://akizukidenshi.com/catalog/g/gM-08570/</a>
 を買って、他にも色々必要です。</p>
@@ -120,7 +120,7 @@
 <p>だけで一先ず十分です。</p>
 </div>
 <div class="section" id="id2">
-<h2>３、Edisonを起動してみる<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>3. Edisonを起動してみる<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>さて、早速起動してみますか。開封の儀は写真だけなのですっ飛ばします。</p>
 <p>あ、ちなみにコネクタでマウントした後に小さなスペーサーが残るけど、それちゃんと付けておいた方が安心だよ
 結構コネクタ壊れやすいから、ちゃんと付けておいた方が良いw</p>
@@ -137,7 +137,7 @@
 </ol>
 </div>
 <div class="section" id="id3">
-<h2>４、Edisonを触ってみる<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>4. Edisonを触ってみる<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>loginまで無事に到着した方は、これからコマンドで進んでいきますので、マウスから両手を離してキーボードに集中してください。</p>
 <p>それでは行きますよw</p>
 <div class="admonition warning">
@@ -198,7 +198,7 @@
 </div>
 </div>
 <div class="section" id="id4">
-<h2>５、Edisonを最新にする<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<h2>5. Edisonを最新にする<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>さて、何とかWiFiに接続できて、これからだってその前に、念のため色々と最新にしたいとおもいます。</p>
 <ol class="arabic">
 <li><p class="first">opkg　と言うパッケージマネージャのリストを更新します。 以下のコマンドを叩いてください。</p>
@@ -233,7 +233,8 @@
 </li>
 </ol>
 <p>※この箇所は我流です。好き勝手に開発するにはこの辺を入れておいた方がおもしろい。</p>
-<p>(2)ダウンロードしたコンフィグファイルを移動します。</p>
+<ol class="arabic" start="2">
+<li><p class="first">ダウンロードしたコンフィグファイルを移動します。</p>
 <blockquote>
 <div><ul class="simple">
 <li>cp base-feeds.conf /etc/opkg/</li>
@@ -241,7 +242,7 @@
 <li>cp mraa-upm.conf /etc/opkg/</li>
 </ul>
 </div></blockquote>
-<ol class="arabic" start="3">
+</li>
 <li><p class="first">opkgを更新してパッケージを最新のものにします。</p>
 <blockquote>
 <div><ul class="simple">
@@ -250,12 +251,81 @@
 </ul>
 </div></blockquote>
 </li>
-<li></li>
+<li><p class="first">試しにgitを入れてみましょう</p>
+<blockquote>
+<div><ul class="simple">
+<li>opkg install git</li>
+</ul>
+</div></blockquote>
+</li>
 </ol>
+<p>これだけ。問題なく行ったら、</p>
+<blockquote>
+<div><ul class="simple">
+<li>git</li>
+</ul>
+</div></blockquote>
+<p>でgitコマンドが起動したら成功w</p>
 </div>
 <div class="section" id="edisonpython">
-<h2>５、EdisonにPython環境を構築する<a class="headerlink" href="#edisonpython" title="Permalink to this headline">¶</a></h2>
-<p>TBD</p>
+<h2>6. EdisonにPython環境を構築する<a class="headerlink" href="#edisonpython" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Pythonが起動することを確認する</p>
+<blockquote>
+<div><ul class="simple">
+<li>python</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<p>※終了するときは exit() で終われます。</p>
+<ol class="arabic" start="2">
+<li><p class="first">pipをインストールする</p>
+<blockquote>
+<div><ul class="simple">
+<li>curl <a class="reference external" href="https://bootstrap.pypa.io/get-pip.py">https://bootstrap.pypa.io/get-pip.py</a> -o get-pip.py</li>
+<li>python get-pip.py</li>
+<li>pip</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<p>※もしここでエラーが出たらTwitterでご報告ください。&gt;&#64;nonNoise</p>
+<ol class="arabic" start="3">
+<li><p class="first">pipを使って色々入れてみる</p>
+<blockquote>
+<div><ul class="simple">
+<li>pip install flask</li>
+<li>pip install serial</li>
+<li>pip install sphinx</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<p>などなどw</p>
+<ol class="arabic" start="4">
+<li><p class="first">うまく行かないライブラリもありました。</p>
+<blockquote>
+<div><ul>
+<li><p class="first">pip install ipython</p>
+<blockquote>
+<div><ul class="simple">
+<li>インストールまでうまく行ったけどコマンドを実行するとエラーが出る。(海外ユーザーでも議論されている</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">pip install virtualenvwrapper</p>
+<blockquote>
+<div><ul class="simple">
+<li>virtualenvは入るのにvirtualenvwrapperはインストールに失敗する罠。何かPython回りで足りないライブラリでもあるのかな。</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>随時、ご報告お待ちしております&gt;&#64;nonNoise</p>
+</div></blockquote>
+</li>
+</ol>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
