@@ -101,7 +101,7 @@ pygments_style = 'sphinx'
 #html_theme = 'nature'
 html_theme = 'bizstyle'
 
-html_theme_options = {'maincolor' : "#1653cc"}
+html_theme_options = {'maincolor' : "#001e86"}
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the

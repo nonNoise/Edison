@@ -91,18 +91,84 @@ loginまで無事に到着した方は、これからコマンドで進んでい
 	多分、割り込みがうまく行ってないんじゃないかな・・・汗w
 
 
+
+
 (1) login: の箇所に root と打ち込みエンター　（初期状態ではrootのパスワードは無い)
 
+(2) login出来ました？試しにlsコマンドでopkg.binが見えればOK　（これが何か不明w）
+
+(3) 早速、Edisonの初期設定をしていきます。まずEdisonのWiFiを使ってインターネットにつなげます。
+
+(4) コマンド[ configure_edison ]を入力します。
+
+
+
+	- Configure Edison: Device Name
+		- デバイスの名前を決めます。僕はedison-01　にしました。
+
+	- Configure Edison: Device Password
+		- デバイスのパスワード(root共通)を設定します。ここを設定すると次回のログイン時に必要です。
+
+	- Configure Edison: WiFi Connection
+		- WiFiを設定します。数秒後に自動的にスキャンしたリストを見せてくれますが、部屋のWiFiが見当たらない際は０再更新、１手入力を選択してください。
+
+.. note::
+	
+	WiFiの設定で失敗、もしくは時間がかかる際は、Edisonをルーターの近くに持っていったり、金属系から遠ざけるなり行ってください。
+	意外とアンテナ弱いです。もしかするとどこかの設定で強く出来るかも？
+
+
+(5) WiFIの設定がうまく行ったかの確認をするために [ifconfig]を入力して、wlan0 にIPアドレスがあれば正解。
+
+.. warning::
+
+	Wifiの設定が、何故か電源を落とした後に初期化されてしまいました。閣下はお怒りですw。対策を探しています。
+
+
+５、Edisonを最新にする
+-----------------------------------------
+
+さて、何とかWiFiに接続できて、これからだってその前に、念のため色々と最新にしたいとおもいます。
+
+
+TBD
 
 
 
 
 
+|
+
+|
+
+|
+
+|
+
+|
+
+|
 
 
 
 
 
+提供
+--------------------------------
 
+ArtifactNoise.
 
+.. image:: img/ANlogoMark02.png
+	:alt: ArtifactNoise
+	:scale: 40%
+	:target: http://artifactnoise.com
+	
+管理情報
+------------------------------------------------
+
+:初版: 2014/10/25
+
+:作成者: Yuta kitagami
+:連絡先: kitagami@artifactnoise.com
+:twitter: @nonNoise
 
