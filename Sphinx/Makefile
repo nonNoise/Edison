@@ -6,8 +6,8 @@ SPHINXOPTS    =
 #SPHINXBUILD   = sphinx-build-2.7
 SPHINXBUILD   = sphinx-build
 PAPER         =
-BUILDDIR      = _build
-#BUILDDIR     =  /var/www/html/Elpis
+#BUILDDIR      = _build
+BUILDDIR     =  ../
 #BUILDDIR     =  /var/www/html/elpis
 
 

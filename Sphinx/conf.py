@@ -223,3 +223,5 @@ man_pages = [
      [u'Project-Note'], 1)
 ]
 
+
+extensions = ['sphinxtogithub'] 
