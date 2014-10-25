@@ -1,6 +1,16 @@
 ====================================================================
-nonNoise流　Edison開発方法
+nonNoise考案　Edison開発方法
 ====================================================================
+
+.. image:: img/intel.web.480.270.jpg
+	:scale: 40%
+	:target: http://www.intel.com/content/www/us/en/do-it-yourself/maker.html
+
+.. image:: img/edison.png
+	:scale: 40%
+
+.. image:: img/edison02.jpg
+	:scale: 30%
 
 
 1.まずEdisonを買う。
