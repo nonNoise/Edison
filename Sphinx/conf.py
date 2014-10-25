@@ -98,8 +98,10 @@ pygments_style = 'sphinx'
 #html_theme = 'sphinxdoc'
 #html_theme = 'traditional'
 #html_theme = 'scrolls'
-html_theme = 'nature'
-#html_theme = 'bizstyle'
+#html_theme = 'nature'
+html_theme = 'bizstyle'
+
+html_theme_options = {'maincolor' : "#1653cc"}
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -225,3 +227,4 @@ man_pages = [
 
 
 extensions = ['sphinxtogithub'] 
+extensions = ['sphinxjp.themecore']
