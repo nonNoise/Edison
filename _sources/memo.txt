@@ -27,7 +27,7 @@ Edisonには vi しか入っていなかったので、vi弱な自分はnanoが�
 
 が！！　日本語化がされてない・・・　随時、挑戦していきます・・・汗w
 
-
+参考）　https://communities.intel.com/thread/55602
 
 
 |
