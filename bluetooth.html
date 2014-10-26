@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Edisonのチョイテク &mdash; Edison-Note 1.3 documentation</title>
+    <title>EdisonのBluetooth開発 &mdash; Edison-Note 1.3 documentation</title>
     
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,7 +26,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="top" title="Edison-Note 1.3 documentation" href="index.html" />
-    <link rel="prev" title="EdisonのBluetooth開発" href="bluetooth.html" />
+    <link rel="next" title="Edisonのチョイテク" href="memo.html" />
+    <link rel="prev" title="EdisonにPython環境を構築する" href="python.html" />
 
     <meta name="viewport" content="width=device-width; initial-scale=1.0">
     <!--[if lt IE 9]>
@@ -52,7 +53,10 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="bluetooth.html" title="EdisonのBluetooth開発"
+          <a href="memo.html" title="Edisonのチョイテク"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="python.html" title="EdisonにPython環境を構築する"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">Edison-Note 1.3 documentation</a> &raquo;</li> 
       </ul>
@@ -61,20 +65,24 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Edisonのチョイテク</a><ul>
-<li><a class="reference internal" href="#id1">1. Edisonで開発するのに便利なアレ（検証中）</a></li>
-<li><a class="reference internal" href="#id2">提供</a></li>
-<li><a class="reference internal" href="#id3">管理情報</a></li>
+<li><a class="reference internal" href="#">EdisonのBluetooth開発</a><ul>
+<li><a class="reference internal" href="#id1">1. 早速試してみる。</a></li>
+<li><a class="reference internal" href="#id2">参考サイト</a></li>
+<li><a class="reference internal" href="#id3">提供</a></li>
+<li><a class="reference internal" href="#id4">管理情報</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="bluetooth.html"
-                        title="previous chapter">EdisonのBluetooth開発</a></p>
+  <p class="topless"><a href="python.html"
+                        title="previous chapter">EdisonにPython環境を構築する</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="memo.html"
+                        title="next chapter">Edisonのチョイテク</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/memo.txt"
+    <li><a href="_sources/bluetooth.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -98,85 +106,73 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="edison">
-<h1>Edisonのチョイテク<a class="headerlink" href="#edison" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="edisonbluetooth">
+<h1>EdisonのBluetooth開発<a class="headerlink" href="#edisonbluetooth" title="Permalink to this headline">¶</a></h1>
 <a class="reference external image-reference" href="http://www.intel.com/content/www/us/en/do-it-yourself/maker.html"><img alt="_images/intel.web.480.270.jpg" src="_images/intel.web.480.270.jpg" style="width: 192.0px; height: 108.0px;" /></a>
 <a class="reference internal image-reference" href="_images/edison.png"><img alt="_images/edison.png" src="_images/edison.png" style="width: 210.4px; height: 137.2px;" /></a>
 <a class="reference internal image-reference" href="_images/edison02.jpg"><img alt="_images/edison02.jpg" src="_images/edison02.jpg" style="width: 180.0px; height: 135.0px;" /></a>
 <div class="section" id="id1">
-<h2>1. Edisonで開発するのに便利なアレ（検証中）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li>nano エディターを入れる。</li>
-</ol>
-<p>Edisonには vi しか入っていなかったので、vi弱な自分はnanoがどうしても欲しかった。
-調べたら見つけたので残しておきます。</p>
+<h2>1. 早速試してみる。<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>例えハードウェアがちゃんとしていても、LinuxでBluethoothを扱う以上、苦労するんだろうなと思っていたが、まさにそうだ。</p>
+<p>まだEdisonに関して情報が少ないが（Edisonの告知サイトが多すぎて検索避けが出来ない！)、何とか開発出来そうなポイントまで辿り着いたのでメモを残しておきます。</p>
+<p>まず、bluetoothを起動させます。（デフォルトでは起動していない。ひどいw）</p>
 <ul class="simple">
-<li>wget <a class="reference external" href="http://www.nano-editor.org/dist/v2.2/nano-2.2.6.tar.gz">http://www.nano-editor.org/dist/v2.2/nano-2.2.6.tar.gz</a> &amp;&amp; tar xvf nano-2.2.6.tar.gz &amp;&amp; cd nano-2.2.6 &amp;&amp; ./configure &amp;&amp; make &amp;&amp; make install</li>
+<li>rfkill unblock bluetooth</li>
 </ul>
-<p>が！！　日本語化がされてない・・・　随時、挑戦していきます・・・汗w</p>
-<p>参考）　<a class="reference external" href="https://communities.intel.com/thread/55602">https://communities.intel.com/thread/55602</a></p>
-<ol class="arabic simple" start="2">
-<li>Edisonのttyドライバに関して</li>
-</ol>
-<p>とりあえずttyで何が乗ってるか調べてみました。</p>
-<ul>
-<li><dl class="first docutils">
-<dt>ttyGS0</dt>
-<dd><ul class="first last simple">
-<li>Arduino型に変換した際のシリアルポート</li>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>rfkillってReFileKillかと思ったけど、RFKillで無線デバイスを管理するコマンドらしい。</p>
+<p><a class="reference external" href="https://access.redhat.com/documentation/ja-JP/Red_Hat_Enterprise_Linux/6/html/Power_Management_Guide/RFKill.html">https://access.redhat.com/documentation/ja-JP/Red_Hat_Enterprise_Linux/6/html/Power_Management_Guide/RFKill.html</a></p>
+<p class="last">紛らわしいなぁもう。</p>
+</div>
+<ul class="simple">
+<li>bluetoothctl</li>
 </ul>
-</dd>
-</dl>
-</li>
-<li><p class="first">ttyMFD0</p>
-</li>
-<li><p class="first">ttyMFD1</p>
-</li>
-<li><dl class="first docutils">
-<dt>ttyMFD2</dt>
-<dd><ul class="first last simple">
-<li>MFDと言うドライバらしい <a class="reference external" href="http://kernelnewbies.org/Linux_3.15-DriversArch#head-cbc97bbb5edf0993e6b63bccca043fda1b799d6a">http://kernelnewbies.org/Linux_3.15-DriversArch#head-cbc97bbb5edf0993e6b63bccca043fda1b799d6a</a></li>
+<p>このコマンドで、Bluetooth全般の管理が出来ます。便利便利。CUIでは[bluetooth]# と表示されるはずです。
+終了する際は exit で終われます。</p>
+<p>[bluetooth]# の状態から、</p>
+<ul class="simple">
+<li>power on</li>
+<li>power off</li>
+<li>scan on</li>
 </ul>
-</dd>
-</dl>
-</li>
-<li><p class="first">ttyPTI0</p>
-</li>
-<li><dl class="first docutils">
-<dt>ttyPTI1</dt>
-<dd><ul class="first last simple">
-<li>不明。どこかで出てきたら、また調べよう。</li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
+<p>でbluetoothを探しに行ったり出来る見たい。</p>
+<p>後は先人の方の記事を読めば行けそうw</p>
+<p><a class="reference external" href="http://note.kurodigi.com/post-0-12/">http://note.kurodigi.com/post-0-12/</a></p>
+<p>最新のBT4.0がどう動くか分からないけど、先にBT2.0のSPPモードでも動かしてみたいと思います。
+こうご期待。(2014/10/27)</p>
 </div>
 <div class="section" id="id2">
-<h2>提供<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>参考サイト<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://communities.intel.com/thread/56270">https://communities.intel.com/thread/56270</a></p>
+<p><a class="reference external" href="https://access.redhat.com/documentation/ja-JP/Red_Hat_Enterprise_Linux/6/html/Power_Management_Guide/RFKill.html">https://access.redhat.com/documentation/ja-JP/Red_Hat_Enterprise_Linux/6/html/Power_Management_Guide/RFKill.html</a></p>
+<p><a class="reference external" href="http://note.kurodigi.com/post-0-12/">http://note.kurodigi.com/post-0-12/</a></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>提供<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>ArtifactNoise.</p>
 <a class="reference external image-reference" href="http://artifactnoise.com"><img alt="ArtifactNoise" src="_images/ANlogoMark02.png" style="width: 157.2px; height: 33.6px;" /></a>
 </div>
-<div class="section" id="id3">
-<h2>管理情報<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h2>管理情報<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -207,7 +203,10 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="bluetooth.html" title="EdisonのBluetooth開発"
+          <a href="memo.html" title="Edisonのチョイテク"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="python.html" title="EdisonにPython環境を構築する"
              >previous</a> |</li>
         <li><a href="index.html">Edison-Note 1.3 documentation</a> &raquo;</li> 
       </ul>

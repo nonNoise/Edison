@@ -13,7 +13,7 @@ Edisonのチョイテク
 	:scale: 30%
 
 
-1. Edisonで開発するのに便利なアレ
+1. Edisonで開発するのに便利なアレ（検証中）
 ------------------------------------- 
 
 (1) nano エディターを入れる。
@@ -27,6 +27,21 @@ Edisonには vi しか入っていなかったので、vi弱な自分はnanoが�
 が！！　日本語化がされてない・・・　随時、挑戦していきます・・・汗w
 
 参考）　https://communities.intel.com/thread/55602
+
+(2) Edisonのttyドライバに関して
+
+とりあえずttyで何が乗ってるか調べてみました。
+
+- ttyGS0
+	- Arduino型に変換した際のシリアルポート
+- ttyMFD0
+- ttyMFD1
+- ttyMFD2
+	- MFDと言うドライバらしい http://kernelnewbies.org/Linux_3.15-DriversArch#head-cbc97bbb5edf0993e6b63bccca043fda1b799d6a
+- ttyPTI0
+- ttyPTI1
+	- 不明。どこかで出てきたら、また調べよう。
+
 
 
 |
