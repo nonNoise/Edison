@@ -25,6 +25,7 @@ nonNoise考案　Edison開発方法
 	init
 	index2
 	python
+	memo
 
 |
 

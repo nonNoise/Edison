@@ -50,6 +50,19 @@ EdisonにPython環境を構築する
 
 	うまく行かなかった物があれば、随時、ご報告お待ちしております>@nonNoise
 
+
+(5) お馴染み "Hello World!"
+
+	- python
+
+	>> print("Hello World!")
+
+	Hello World!
+
+
+お疲れさまでした。
+後は、お好きなようにPythonで遊べるでしょうw
+
 |
 
 |
