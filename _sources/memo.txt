@@ -21,9 +21,8 @@ Edisonのチョイテク
 Edisonには vi しか入っていなかったので、vi弱な自分はnanoがどうしても欲しかった。
 調べたら見つけたので残しておきます。
 
-コマンドは、
 - wget http://www.nano-editor.org/dist/v2.2/nano-2.2.6.tar.gz && tar xvf nano-2.2.6.tar.gz && cd nano-2.2.6 && ./configure && make && make install
-で一発OK。
+
 
 が！！　日本語化がされてない・・・　随時、挑戦していきます・・・汗w
 
