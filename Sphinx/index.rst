@@ -251,8 +251,9 @@ ArtifactNoise.
 管理情報
 ------------------------------------------------
 
-:初版: 2014/10/25
-
+:初版: 2014/10/25  
+:改版: 2014/10/26  Bluetoothの開発記事を追加。 
+:改版: 2014/10/27  FWの書き込み方法にWindows版を追加。
 :作成者: Yuta kitagami
 :連絡先: kitagami@artifactnoise.com
 :twitter: @nonNoise
