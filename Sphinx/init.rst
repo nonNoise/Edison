@@ -42,25 +42,34 @@ https://communities.intel.com/docs/DOC-23242 より、「　Edison Yocto complet
 
 (1) EdisonをPCに接続します
 
-(2) PC上からを実行
-	
-	-Linuxの場合
-		- ./flashall.sh
-	-Winsowsの場合
-		- ./flashall.bin
+(2-1) Linux上から書き換えを実行
 
-.. warning::
+	.. warning::
 
 	自分のUnintu環境では、dfu-utilが無かった為、 「apt-get install dfu-util」を行った後に実行しました。
 
+	- ./flashall.sh
+
+(2-2) Winsowsの場合（Intel非純正のサピート方法です。）
+
+	以下のリンクより、dfu-util.exeをダウンロード。
+	https://dl.dropboxusercontent.com/u/54378433/dfu-util/dfu-util.exe
+	
+	ダウンロードしたdfu-util.exeを、解答したedison-image-ww36-14ファイルに移動します。
+
+	cdコマンドを使い、edison-image-ww36-14ファイルまでコマンドで移動します。
+	
+	移動先で、
+		- flashall
+	を実行すると、数秒間の待ち状態になります。
+
+	参考資料： https://communities.intel.com/message/256593
 
 (3) Edisonの電源側を抜いて、差し直す。（なるべくFTDI側は残しておいた方がいいです。完了時が分かりますので)
 
 (4) コマンドが流れて行って、１０秒近くたったら、自動的に再起動します。
 
 (5) edison login: が表示されたが完了。
-
-これで、どれだけ遊んでも怖くないw
 
 
 参考資料
