@@ -28,7 +28,7 @@ Edison ハードウェアについて Breakout Board 編
 
 他のArduino互換基板には無い美しさがある。特徴的な縦長なスタイルにケーブルの引き回しに困らないUSBコネクタ等。
 
-自分は、Breakout Boardを秋月電子で売られているＳＫ－２と言うケースに入れて、USB側の横を削って使うのがとても気に入っている。
+自分は、Breakout Boardを秋月電子で売られているＳＫ－２<http://akizukidenshi.com/catalog/g/gP-07327/>と言うケースに入れて、USB側の横を削って使うのがとても気に入っている。
 
 
 さて、そんなBreakout Board　LOVEな話は置いといて、
@@ -38,7 +38,7 @@ Edison ハードウェアについて Breakout Board 編
 
 
 
-http://akizukidenshi.com/catalog/g/gP-07327/
+
 
 
 2. Breakout Boardの表面について
