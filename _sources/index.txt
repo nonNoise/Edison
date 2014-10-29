@@ -28,6 +28,7 @@ nonNoise考案　Edison開発方法
 	index2
 	python
 	bluetooth
+	hardware
 	memo
 
 |

@@ -1,0 +1,269 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Edison ハードウェアについて Breakout Board 編 &mdash; Edison-Note 1.3 documentation</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="top" title="Edison-Note 1.3 documentation" href="index.html" />
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-24204483-2', 'auto');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">Edison-Note 1.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Edison ハードウェアについて Breakout Board 編</a><ul>
+<li><a class="reference internal" href="#id1">1.初めに</a></li>
+<li><a class="reference internal" href="#breakout-board">2. Breakout Boardの表面について</a></li>
+<li><a class="reference internal" href="#id2">3. Breakout Boardの裏面について</a></li>
+<li><a class="reference internal" href="#id3">4. Breakout Boardのピンアサイン</a></li>
+<li><a class="reference internal" href="#edison-i2c">5. Edison の I2C に関して</a></li>
+<li><a class="reference internal" href="#edison-sd-card">6. Edison の SD card に関して</a></li>
+<li><a class="reference internal" href="#edison-uart">7. Edison の UART に関して</a></li>
+<li><a class="reference internal" href="#edison-spi">8. Edison の SPI に関して</a></li>
+<li><a class="reference internal" href="#edison-i2s">9. Edison の I2S に関して</a></li>
+<li><a class="reference internal" href="#edison-pwm">9. Edison の PWM に関して</a></li>
+<li><a class="reference internal" href="#edison-gpio">10. Edison の GPIO に関して</a></li>
+<li><a class="reference internal" href="#id4">提供</a></li>
+<li><a class="reference internal" href="#id5">管理情報</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/HardWare.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="edison-breakout-board">
+<h1>Edison ハードウェアについて Breakout Board 編<a class="headerlink" href="#edison-breakout-board" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="http://www.intel.com/content/www/us/en/do-it-yourself/maker.html"><img alt="_images/intel.web.480.270.jpg" src="_images/intel.web.480.270.jpg" style="width: 192.0px; height: 108.0px;" /></a>
+<a class="reference internal image-reference" href="_images/edison.png"><img alt="_images/edison.png" src="_images/edison.png" style="width: 210.4px; height: 137.2px;" /></a>
+<a class="reference internal image-reference" href="_images/edison02.jpg"><img alt="_images/edison02.jpg" src="_images/edison02.jpg" style="width: 180.0px; height: 135.0px;" /></a>
+<div class="section" id="id1">
+<h2>1.初めに<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>僕は小さい基板がとても好きだ。</p>
+<p>得に、不要な機能が無く、必要な機能だけを凝縮して小さくした基板はとても好きだ。</p>
+<p>ミニマム設計やシンプル設計とも呼ぶが、今回のEdisonのBreakout Board はまさにソレだ。</p>
+<p>他のArduino互換基板には無い美しさがある。特徴的な縦長なスタイルにケーブルの引き回しに困らないUSBコネクタ等。</p>
+<p>自分は、Breakout Boardを秋月電子で売られているＳＫ－２と言うケースに入れて、USB側の横を削って使うのがとても気に入っている。</p>
+<p>さて、そんなBreakout Board　LOVEな話は置いといて、</p>
+<p>今回はBreakout Boardのハードウェア回りに関してまとめたいと思います。</p>
+<p><a class="reference external" href="http://akizukidenshi.com/catalog/g/gP-07327/">http://akizukidenshi.com/catalog/g/gP-07327/</a></p>
+</div>
+<div class="section" id="breakout-board">
+<h2>2. Breakout Boardの表面について<a class="headerlink" href="#breakout-board" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/Edison_top_view.png"><img alt="_images/Edison_top_view.png" src="_images/Edison_top_view.png" style="width: 247.8px; height: 158.1px;" /></a>
+<p>公式にこう言った図が無かったので自分で作ってしまった。</p>
+<p>注目して欲しいのは、本まとめサイトに「FTDI側USBコネクタ」と勝手に言っていた部分に関してだが、
+Edison本体のロゴマークを見て上側が所謂、「FTDI側USBコネクタ」と読んでいます。</p>
+<p>また、「電源用USBコネクタ」というのは、下段のUSBコネクタであり、こちらを挿すと、電源確認用LEDが点灯する形となる。</p>
+<p>あと、今の所、触れる予定はありませんが、どうらやリチウムイオン二次電池(Li-ion)の充電回路があるようで、詳細は不明です。</p>
+<p>ただ、回路図からチップの型番が分かりましたので、もしご興味がある方はご覧いただければと思います。</p>
+<p><a class="reference external" href="http://www.tij.co.jp/jp/lit/ds/symlink/bq24074.pdf">http://www.tij.co.jp/jp/lit/ds/symlink/bq24074.pdf</a></p>
+<p>噂だと、このジャンパを取り除いて始めて充電回路が動き出すとかどうとか・・・汗w</p>
+<p>所で、リチウムイオンとはなんぞ？　どうやら、爆発すると噂のUltraFire等がリチウムイオンらしいです・・・。</p>
+<p>容量や出力電流は高く便利なんですが、ショートや過充電を行うと破裂するという噂も・・・。</p>
+<p>もし充電回路を試すのであれば、十分注意をしてくださいね。僕は当分避けますw</p>
+</div>
+<div class="section" id="id2">
+<h2>3. Breakout Boardの裏面について<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/Edison_bottom_view.png"><img alt="_images/Edison_bottom_view.png" src="_images/Edison_bottom_view.png" style="width: 217.8px; height: 86.4px;" /></a>
+<p>さて、肝心の裏面に関してですが・・・公式に中々わかりやすい図が無かったので作っちゃいましたw</p>
+<p>多分、間違いは無いかと思いますが、全ピン追った訳じゃないので、もしかすると間違えているかもしれません。</p>
+<p>念のため、J20の2pinから出ている3.3Vと、J19の3pinから出ているGNDをテスターで測って3.3Vを確認しましたので、大丈夫かと・・・汗w</p>
+<p>図はちょうど基板をひっくり返した形ですので、ご注意ください。</p>
+</div>
+<div class="section" id="id3">
+<h2>4. Breakout Boardのピンアサイン<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/J17.png"><img alt="_images/J17.png" src="_images/J17.png" style="width: 242.7px; height: 106.8px;" /></a>
+<a class="reference internal image-reference" href="_images/J18.png"><img alt="_images/J18.png" src="_images/J18.png" style="width: 281.4px; height: 106.2px;" /></a>
+<a class="reference internal image-reference" href="_images/J19.png"><img alt="_images/J19.png" src="_images/J19.png" style="width: 240.6px; height: 110.7px;" /></a>
+<a class="reference internal image-reference" href="_images/J20.png"><img alt="_images/J20.png" src="_images/J20.png" style="width: 279.0px; height: 109.5px;" /></a>
+<p>基本的には公式(<a class="reference external" href="https://communities.intel.com/docs/DOC-23252">https://communities.intel.com/docs/DOC-23252</a>)の資料を見ていただいて、もし見づらい形でしたらご利用ください。</p>
+<p>ただねぇ・・・これも手打ちで打ち直したので、ミスが無いとは言いきれない。なのでご利用は慎重に・・・w</p>
+<p>まぁ、自分でもこれから基板作るので、もしミスに気がついたら適時直していく予定です。</p>
+</div>
+<div class="section" id="edison-i2c">
+<h2>5. Edison の I2C に関して<a class="headerlink" href="#edison-i2c" title="Permalink to this headline">¶</a></h2>
+<p>さて、ピンアサインも分かったので、早速、各ブロックの話。</p>
+<p>まずはI2Cに関して。</p>
+<p>(1) EdisonのI2Cには三種類の速度があり、
+-       標準モード(Standard mode) : 100kbps
+-       高速モード(Fast mode) : 400kbps
+-       超高速モード(High-speed mode) : 3.4Mbps</p>
+<p>超高速めっちゃ早い。恐ろしい子。</p>
+<ol class="arabic simple" start="2">
+<li>マスターとスレーブに関して</li>
+</ol>
+<p>Edisonは、マスターのみサポートらしいです。なのでI2CでEdisonを数珠つなぎにするとかは出来ません。（しないかw</p>
+<ol class="arabic simple" start="3">
+<li>I2Cのビット数に関して</li>
+</ol>
+<p>EdisonのI2Cは、7bitのI2Cと、10bitのI2Cに対応していて、6bitI2Cや8bitI2Cは標準もしくは高速モードで対応しているそう。</p>
+<p>ん～よく分からん。標準的なI2Cって8bit+ACK+STARTで10bitになるのかな。とにかく超高速モードを使う際は注意が必要かも。</p>
+</div>
+<div class="section" id="edison-sd-card">
+<h2>6. Edison の SD card に関して<a class="headerlink" href="#edison-sd-card" title="Permalink to this headline">¶</a></h2>
+<p>最初、EdisonのSDカードブロックを見て、「どうせSPIでSDカードを読み込むんでしょ？w」と思っていたが、どうやら、本当の意味でのSDカードのインターフェースらしい。</p>
+<ul class="simple">
+<li>SD 3.0規格インターフェース</li>
+<li>最大クロック 50MHz</li>
+<li>SDメモリーのみサポート</li>
+<li>2.85vをサポートするには外部にレベル変換が必要</li>
+</ul>
+<p>メモリー意外の使い方には向かないなぁ・・・</p>
+</div>
+<div class="section" id="edison-uart">
+<h2>7. Edison の UART に関して<a class="headerlink" href="#edison-uart" title="Permalink to this headline">¶</a></h2>
+<p>まぁUARTに関しては皆さんご存知なので得に説明ありません。</p>
+<ul class="simple">
+<li>64バイトのバッファを持っている</li>
+<li>300bps ~ 3.686Mbpsまで対応</li>
+</ul>
+<p>うん。いつの間にUARTが高速バスになったんだ・・・w</p>
+</div>
+<div class="section" id="edison-spi">
+<h2>8. Edison の SPI に関して<a class="headerlink" href="#edison-spi" title="Permalink to this headline">¶</a></h2>
+<p>後日記載</p>
+</div>
+<div class="section" id="edison-i2s">
+<h2>9. Edison の I2S に関して<a class="headerlink" href="#edison-i2s" title="Permalink to this headline">¶</a></h2>
+<p>後日記載</p>
+<p>で！！！　ここで肝心な公式ミスを見つけました。　めっちゃ大事w</p>
+<p>ピン表のSSPから始まるピンは、実は実は？　I2Sなんです！　やった！www</p>
+<p>Breakout Boardからは、I2Sが二系統使えるようになっているそうです。</p>
+<p>Edison本体のピン表にはちゃんとI2Sと書いてるのに、こっちにはSSPと書いてあるので、注意が必要です。</p>
+<p>ちょっと試したい機能の一つですのでねw　ちゃんと把握しておきたいですw</p>
+</div>
+<div class="section" id="edison-pwm">
+<h2>9. Edison の PWM に関して<a class="headerlink" href="#edison-pwm" title="Permalink to this headline">¶</a></h2>
+<p>後日記載</p>
+</div>
+<div class="section" id="edison-gpio">
+<h2>10. Edison の GPIO に関して<a class="headerlink" href="#edison-gpio" title="Permalink to this headline">¶</a></h2>
+<p>後日記載</p>
+<p>やっと見つけた、EdisonのGPIOは、1.8V 3mA程度とめっちゃ弱いIOなので、直接LED何か繋げたら壊れますよ！</p>
+<p>なので、レベル変換IC　<a class="reference external" href="http://akizukidenshi.com/catalog/g/gM-04522/">http://akizukidenshi.com/catalog/g/gM-04522/</a>　でも通して扱いましょう。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>提供<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>ArtifactNoise.</p>
+<a class="reference external image-reference" href="http://artifactnoise.com"><img alt="ArtifactNoise" src="_images/ANlogoMark02.png" style="width: 157.2px; height: 33.6px;" /></a>
+</div>
+<div class="section" id="id5">
+<h2>管理情報<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">初版:</th><td class="field-body">2014/10/25</td>
+</tr>
+<tr class="field-even field"><th class="field-name">作成者:</th><td class="field-body">Yuta kitagami</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">連絡先:</th><td class="field-body"><a class="reference external" href="mailto:kitagami&#37;&#52;&#48;artifactnoise&#46;com">kitagami<span>&#64;</span>artifactnoise<span>&#46;</span>com</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">twitter:</th><td class="field-body">&#64;nonNoise</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">Edison-Note 1.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, ArtifactNoise..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>
