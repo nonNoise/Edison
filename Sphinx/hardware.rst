@@ -104,7 +104,7 @@ http://www.tij.co.jp/jp/lit/ds/symlink/bq24074.pdf
 
 基本的には公式(https://communities.intel.com/docs/DOC-23252)の資料を見ていただいて、もし見づらい形でしたらご利用ください。
 
-また、印刷に便利な Edison_IO.pdf も用意しました。僕はこれ使いますw
+また、印刷に便利な http://nonnoise.github.io/Edison/_static/Edison_IO.pdf も用意しました。僕はこれ使いますw
 
 ただねぇ・・・これも手打ちで打ち直したので、ミスが無いとは言いきれない。なのでご利用は慎重に・・・w
 
