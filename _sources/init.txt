@@ -9,6 +9,10 @@ Edison初期化方法（工場出荷時及び最新版FW
 .. image:: img/edison.png
 	:scale: 40%
 
+.. image:: img/Edison_top_view.png
+	:scale: 30%
+	:target: http://nonnoise.github.io/Edison/hardware.html
+
 .. image:: img/edison02.jpg
 	:scale: 30%
 
@@ -77,21 +81,11 @@ https://communities.intel.com/docs/DOC-23242 より、「　Edison Yocto complet
 
 http://www.adafruit.com/datasheets/EdisonUserGuide.pdf
 
-
 |
 
 |
 
 |
-
-|
-
-|
-
-|
-
-
-
 
 
 提供

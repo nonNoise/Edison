@@ -9,6 +9,10 @@ Edisonのチョイテク（検証中）
 .. image:: img/edison.png
 	:scale: 40%
 
+.. image:: img/Edison_top_view.png
+	:scale: 30%
+	:target: http://nonnoise.github.io/Edison/hardware.html
+
 .. image:: img/edison02.jpg
 	:scale: 30%
 
@@ -42,14 +46,6 @@ Edisonには vi しか入っていなかったので、vi弱な自分はnanoが�
 - ttyPTI1
 	- 不明。どこかで出てきたら、また調べよう。
 
-
-
-|
-
-|
-
-|
-
 |
 
 |
@@ -73,7 +69,7 @@ ArtifactNoise.
 管理情報
 ------------------------------------------------
 
-:初版: 2014/10/25
+:初版: 2014/10/28
 
 :作成者: Yuta kitagami
 :連絡先: kitagami@artifactnoise.com

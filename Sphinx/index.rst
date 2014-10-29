@@ -11,6 +11,10 @@ Edison開発方法
 .. image:: img/edison.png
 	:scale: 40%
 
+.. image:: img/Edison_top_view.png
+	:scale: 30%
+	:target: http://nonnoise.github.io/Edison/hardware.html
+
 .. image:: img/edison02.jpg
 	:scale: 30%
 
@@ -210,24 +214,10 @@ loginまで無事に到着した方は、これからコマンドで進んでい
 
 - git
 
-でgitコマンドが起動したら成功w
+でgitコマンドが起動したら成功です。
 
 
 
-
-
-
-
-
-
-
-
-
-|
-
-|
-
-|
 
 |
 
@@ -255,6 +245,7 @@ ArtifactNoise.
 :初版: 2014/10/25  
 :改版: 2014/10/26  Bluetoothの開発記事を追加。 
 :改版: 2014/10/27  FWの書き込み方法にWindows版を追加。
+:改版: 2014/10/30  ハードウェアについて Breakout Board 編  を追記
 :作成者: Yuta kitagami
 :連絡先: kitagami@artifactnoise.com
 :twitter: @nonNoise
