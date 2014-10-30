@@ -90,15 +90,15 @@ http://www.tij.co.jp/jp/lit/ds/symlink/bq24074.pdf
 4. Breakout Boardのピンアサイン
 -----------------------------------------
 
+公式のBreakout Boardのピンアサインと、公式のEdisonモジュール本体のピンアサインに差があった為、修正しました。
+
+モジュールのピンアサインを元に作りました。
 
 .. image:: img/J17.png
 	:scale: 30%
 
 .. image:: img/J18.png
 	:scale: 30%
-
-|
-
 
 .. image:: img/J19.png
 	:scale: 30%
@@ -110,9 +110,7 @@ http://www.tij.co.jp/jp/lit/ds/symlink/bq24074.pdf
 
 また、印刷に便利な http://nonnoise.github.io/Edison/_static/Edison_IO.pdf も用意しました。僕はこれ使いますw
 
-ただねぇ・・・これも手打ちで打ち直したので、ミスが無いとは言いきれない。なのでご利用は慎重に・・・w
-
-まぁ、自分でもこれから基板作るので、もしミスに気がついたら適時直していく予定です。
+自分でもこれから基板作るので、もしミスに気がついたら適時直していく予定です。
 
 
 
