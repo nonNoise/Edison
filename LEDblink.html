@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Edisonのチョイテク &mdash; Edison-Note 1.3 documentation</title>
+    <title>Edison Breakout Board でLEDチカチカ &mdash; Edison-Note 1.3 documentation</title>
     
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -27,7 +27,6 @@
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="top" title="Edison-Note 1.3 documentation" href="index.html" />
-    <link rel="prev" title="Edison ハードウェアについて (モジュール本体 編)" href="hardware_module.html" />
 
     <meta name="viewport" content="width=device-width; initial-scale=1.0">
     <!--[if lt IE 9]>
@@ -53,9 +52,6 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="hardware_module.html" title="Edison ハードウェアについて (モジュール本体 編)"
-             accesskey="P">previous</a> |</li>
         <li><a href="index.html">Edison-Note 1.3 documentation</a> &raquo;</li> 
       </ul>
     </div>
@@ -63,21 +59,17 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Edisonのチョイテク</a><ul>
-<li><a class="reference internal" href="#nano">1. nano エディターを入れる。</a></li>
-<li><a class="reference internal" href="#edisontty">2. Edisonのttyドライバに関して</a></li>
-<li><a class="reference internal" href="#id1">提供</a></li>
-<li><a class="reference internal" href="#id2">管理情報</a></li>
+<li><a class="reference internal" href="#">Edison Breakout Board でLEDチカチカ</a><ul>
+<li><a class="reference internal" href="#id1">1.初めに</a></li>
+<li><a class="reference internal" href="#id2">提供</a></li>
+<li><a class="reference internal" href="#id3">管理情報</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="hardware_module.html"
-                        title="previous chapter">Edison ハードウェアについて (モジュール本体 編)</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/memo.txt"
+    <li><a href="_sources/LEDblink.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -101,79 +93,37 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="edison">
-<h1>Edisonのチョイテク<a class="headerlink" href="#edison" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="edison-breakout-board-led">
+<h1>Edison Breakout Board でLEDチカチカ<a class="headerlink" href="#edison-breakout-board-led" title="Permalink to this headline">¶</a></h1>
 <a class="reference external image-reference" href="http://www.intel.com/content/www/us/en/do-it-yourself/maker.html"><img alt="_images/intel.web.480.270.jpg" src="_images/intel.web.480.270.jpg" style="width: 192.0px; height: 108.0px;" /></a>
 <a class="reference internal image-reference" href="_images/edison.png"><img alt="_images/edison.png" src="_images/edison.png" style="width: 210.4px; height: 137.2px;" /></a>
 <a class="reference external image-reference" href="http://nonnoise.github.io/Edison/hardware.html"><img alt="_images/Edison_top_view.png" src="_images/Edison_top_view.png" style="width: 255.6px; height: 158.4px;" /></a>
 <a class="reference internal image-reference" href="_images/edison02.jpg"><img alt="_images/edison02.jpg" src="_images/edison02.jpg" style="width: 180.0px; height: 135.0px;" /></a>
-<div class="section" id="nano">
-<h2>1. nano エディターを入れる。<a class="headerlink" href="#nano" title="Permalink to this headline">¶</a></h2>
-<p>Edisonには vi しか入っていなかったので、vi弱な自分はnanoがどうしても欲しかった。
-調べたら見つけたので残しておきます。</p>
-<ul class="simple">
-<li>wget <a class="reference external" href="http://www.nano-editor.org/dist/v2.2/nano-2.2.6.tar.gz">http://www.nano-editor.org/dist/v2.2/nano-2.2.6.tar.gz</a> &amp;&amp; tar xvf nano-2.2.6.tar.gz &amp;&amp; cd nano-2.2.6 &amp;&amp; ./configure &amp;&amp; make &amp;&amp; make install</li>
-</ul>
-<p>が！！　日本語化がされてない・・・　随時、挑戦していきます・・・汗w</p>
-<p>参考）　<a class="reference external" href="https://communities.intel.com/thread/55602">https://communities.intel.com/thread/55602</a></p>
-</div>
-<div class="section" id="edisontty">
-<h2>2. Edisonのttyドライバに関して<a class="headerlink" href="#edisontty" title="Permalink to this headline">¶</a></h2>
-<p>とりあえずttyで何が乗ってるか調べてみました。</p>
-<ul>
-<li><dl class="first docutils">
-<dt>ttyGS0</dt>
-<dd><ul class="first last simple">
-<li>Arduino型に変換した際のシリアルポート</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p class="first">ttyMFD0</p>
-</li>
-<li><p class="first">ttyMFD1</p>
-</li>
-<li><dl class="first docutils">
-<dt>ttyMFD2</dt>
-<dd><ul class="first last simple">
-<li>MFDと言うドライバらしい <a class="reference external" href="http://kernelnewbies.org/Linux_3.15-DriversArch#head-cbc97bbb5edf0993e6b63bccca043fda1b799d6a">http://kernelnewbies.org/Linux_3.15-DriversArch#head-cbc97bbb5edf0993e6b63bccca043fda1b799d6a</a></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p class="first">ttyPTI0</p>
-</li>
-<li><dl class="first docutils">
-<dt>ttyPTI1</dt>
-<dd><ul class="first last simple">
-<li>不明。どこかで出てきたら、また調べよう。</li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-</div>
 <div class="section" id="id1">
-<h2>提供<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>1.初めに<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>opkg install libmraa0</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>提供<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>ArtifactNoise.</p>
 <a class="reference external image-reference" href="http://artifactnoise.com"><img alt="ArtifactNoise" src="_images/ANlogoMark02.png" style="width: 157.2px; height: 33.6px;" /></a>
 </div>
-<div class="section" id="id2">
-<h2>管理情報<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>管理情報<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">初版:</th><td class="field-body">2014/10/28</td>
+<tr class="field-odd field"><th class="field-name">初版:</th><td class="field-body">2014/10/30</td>
 </tr>
 <tr class="field-even field"><th class="field-name">作成者:</th><td class="field-body">Yuta kitagami</td>
 </tr>
@@ -198,9 +148,6 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="hardware_module.html" title="Edison ハードウェアについて (モジュール本体 編)"
-             >previous</a> |</li>
         <li><a href="index.html">Edison-Note 1.3 documentation</a> &raquo;</li> 
       </ul>
     </div>

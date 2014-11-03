@@ -32,8 +32,10 @@ nonNoise考案　Edison開発方法
 	index2
 	python
 	bluetooth
-	hardware
+	hardware_module
+	hardware_bb
 	memo
+
 
 |
 
@@ -224,8 +226,6 @@ loginまで無事に到着した方は、これからコマンドで進んでい
 |
 
 |
-
-
 
 
 

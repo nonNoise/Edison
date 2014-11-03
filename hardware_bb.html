@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Edison ハードウェアについて Breakout Board 編 &mdash; Edison-Note 1.3 documentation</title>
+    <title>Edison ハードウェアについて (Breakout Board 編) &mdash; Edison-Note 1.3 documentation</title>
     
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -25,7 +25,10 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="top" title="Edison-Note 1.3 documentation" href="index.html" />
+    <link rel="next" title="Edisonのチョイテク" href="memo.html" />
+    <link rel="prev" title="Edison ハードウェアについて (モジュール本体 編)" href="hardware_module.html" />
 
     <meta name="viewport" content="width=device-width; initial-scale=1.0">
     <!--[if lt IE 9]>
@@ -51,6 +54,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="memo.html" title="Edisonのチョイテク"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="hardware_module.html" title="Edison ハードウェアについて (モジュール本体 編)"
+             accesskey="P">previous</a> |</li>
         <li><a href="index.html">Edison-Note 1.3 documentation</a> &raquo;</li> 
       </ul>
     </div>
@@ -58,27 +67,27 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Edison ハードウェアについて Breakout Board 編</a><ul>
+<li><a class="reference internal" href="#">Edison ハードウェアについて (Breakout Board 編)</a><ul>
 <li><a class="reference internal" href="#id1">1.初めに</a></li>
 <li><a class="reference internal" href="#breakout-board">2. Breakout Boardの表面について</a></li>
 <li><a class="reference internal" href="#id2">3. Breakout Boardの裏面について</a></li>
 <li><a class="reference internal" href="#id3">4. Breakout Boardのピンアサイン</a></li>
-<li><a class="reference internal" href="#edison-i2c">5. Edison の I2C に関して</a></li>
-<li><a class="reference internal" href="#edison-sd-card">6. Edison の SD card に関して</a></li>
-<li><a class="reference internal" href="#edison-uart">7. Edison の UART に関して</a></li>
-<li><a class="reference internal" href="#edison-spi">8. Edison の SPI に関して</a></li>
-<li><a class="reference internal" href="#edison-i2s">9. Edison の I2S に関して</a></li>
-<li><a class="reference internal" href="#edison-pwm">9. Edison の PWM に関して</a></li>
-<li><a class="reference internal" href="#edison-gpio">10. Edison の GPIO に関して</a></li>
+<li><a class="reference internal" href="#edison">5. Edisonのピンに関して</a></li>
 <li><a class="reference internal" href="#id4">提供</a></li>
 <li><a class="reference internal" href="#id5">管理情報</a></li>
 </ul>
 </li>
 </ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="hardware_module.html"
+                        title="previous chapter">Edison ハードウェアについて (モジュール本体 編)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="memo.html"
+                        title="next chapter">Edisonのチョイテク</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/HardWare.txt"
+    <li><a href="_sources/hardware_bb.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -103,9 +112,10 @@
           <div class="body">
             
   <div class="section" id="edison-breakout-board">
-<h1>Edison ハードウェアについて Breakout Board 編<a class="headerlink" href="#edison-breakout-board" title="Permalink to this headline">¶</a></h1>
+<h1>Edison ハードウェアについて (Breakout Board 編)<a class="headerlink" href="#edison-breakout-board" title="Permalink to this headline">¶</a></h1>
 <a class="reference external image-reference" href="http://www.intel.com/content/www/us/en/do-it-yourself/maker.html"><img alt="_images/intel.web.480.270.jpg" src="_images/intel.web.480.270.jpg" style="width: 192.0px; height: 108.0px;" /></a>
 <a class="reference internal image-reference" href="_images/edison.png"><img alt="_images/edison.png" src="_images/edison.png" style="width: 210.4px; height: 137.2px;" /></a>
+<a class="reference external image-reference" href="http://nonnoise.github.io/Edison/hardware.html"><img alt="_images/Edison_top_view.png" src="_images/Edison_top_view.png" style="width: 255.6px; height: 158.4px;" /></a>
 <a class="reference internal image-reference" href="_images/edison02.jpg"><img alt="_images/edison02.jpg" src="_images/edison02.jpg" style="width: 180.0px; height: 135.0px;" /></a>
 <div class="section" id="id1">
 <h2>1.初めに<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
@@ -113,14 +123,13 @@
 <p>得に、不要な機能が無く、必要な機能だけを凝縮して小さくした基板はとても好きだ。</p>
 <p>ミニマム設計やシンプル設計とも呼ぶが、今回のEdisonのBreakout Board はまさにソレだ。</p>
 <p>他のArduino互換基板には無い美しさがある。特徴的な縦長なスタイルにケーブルの引き回しに困らないUSBコネクタ等。</p>
-<p>自分は、Breakout Boardを秋月電子で売られているＳＫ－２と言うケースに入れて、USB側の横を削って使うのがとても気に入っている。</p>
+<p>自分は、Breakout Boardを秋月電子で売られているＳＫ－２&lt;<a class="reference external" href="http://akizukidenshi.com/catalog/g/gP-07327/">http://akizukidenshi.com/catalog/g/gP-07327/</a>&gt;と言うケースに入れて、USB側の横を削って使うのがとても気に入っている。</p>
 <p>さて、そんなBreakout Board　LOVEな話は置いといて、</p>
 <p>今回はBreakout Boardのハードウェア回りに関してまとめたいと思います。</p>
-<p><a class="reference external" href="http://akizukidenshi.com/catalog/g/gP-07327/">http://akizukidenshi.com/catalog/g/gP-07327/</a></p>
 </div>
 <div class="section" id="breakout-board">
 <h2>2. Breakout Boardの表面について<a class="headerlink" href="#breakout-board" title="Permalink to this headline">¶</a></h2>
-<a class="reference internal image-reference" href="_images/Edison_top_view.png"><img alt="_images/Edison_top_view.png" src="_images/Edison_top_view.png" style="width: 247.8px; height: 158.1px;" /></a>
+<a class="reference internal image-reference" href="_images/Edison_top_view.png"><img alt="_images/Edison_top_view.png" src="_images/Edison_top_view.png" style="width: 426.0px; height: 264.0px;" /></a>
 <p>公式にこう言った図が無かったので自分で作ってしまった。</p>
 <p>注目して欲しいのは、本まとめサイトに「FTDI側USBコネクタ」と勝手に言っていた部分に関してだが、
 Edison本体のロゴマークを見て上側が所謂、「FTDI側USBコネクタ」と読んでいます。</p>
@@ -135,83 +144,36 @@ Edison本体のロゴマークを見て上側が所謂、「FTDI側USBコネク�
 </div>
 <div class="section" id="id2">
 <h2>3. Breakout Boardの裏面について<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<a class="reference internal image-reference" href="_images/Edison_bottom_view.png"><img alt="_images/Edison_bottom_view.png" src="_images/Edison_bottom_view.png" style="width: 217.8px; height: 86.4px;" /></a>
+<a class="reference internal image-reference" href="_images/Edison_bottom_view.png"><img alt="_images/Edison_bottom_view.png" src="_images/Edison_bottom_view.png" style="width: 363.0px; height: 144.0px;" /></a>
 <p>さて、肝心の裏面に関してですが・・・公式に中々わかりやすい図が無かったので作っちゃいましたw</p>
 <p>多分、間違いは無いかと思いますが、全ピン追った訳じゃないので、もしかすると間違えているかもしれません。</p>
 <p>念のため、J20の2pinから出ている3.3Vと、J19の3pinから出ているGNDをテスターで測って3.3Vを確認しましたので、大丈夫かと・・・汗w</p>
 <p>図はちょうど基板をひっくり返した形ですので、ご注意ください。</p>
+<p>ちなみに、Breakout Boardのネジ穴は3mmでした。しかも神懸りに、3mmのナットを基板の上に載せても部品とぶつからないんですよ！凄くない？w感動しましたw</p>
 </div>
 <div class="section" id="id3">
 <h2>4. Breakout Boardのピンアサイン<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<a class="reference internal image-reference" href="_images/J17.png"><img alt="_images/J17.png" src="_images/J17.png" style="width: 242.7px; height: 106.8px;" /></a>
-<a class="reference internal image-reference" href="_images/J18.png"><img alt="_images/J18.png" src="_images/J18.png" style="width: 281.4px; height: 106.2px;" /></a>
-<a class="reference internal image-reference" href="_images/J19.png"><img alt="_images/J19.png" src="_images/J19.png" style="width: 240.6px; height: 110.7px;" /></a>
-<a class="reference internal image-reference" href="_images/J20.png"><img alt="_images/J20.png" src="_images/J20.png" style="width: 279.0px; height: 109.5px;" /></a>
+<p>公式のBreakout Boardのピンアサインと、公式のEdisonモジュール本体のピンアサインに差があった為、修正しました。</p>
+<p>モジュールのピンアサインを元に作りました。</p>
+<a class="reference internal image-reference" href="_images/J17.png"><img alt="_images/J17.png" src="_images/J17.png" style="width: 278.4px; height: 142.8px;" /></a>
+<a class="reference internal image-reference" href="_images/J18.png"><img alt="_images/J18.png" src="_images/J18.png" style="width: 307.5px; height: 145.5px;" /></a>
+<a class="reference internal image-reference" href="_images/J19.png"><img alt="_images/J19.png" src="_images/J19.png" style="width: 282.6px; height: 123.0px;" /></a>
+<a class="reference internal image-reference" href="_images/J20.png"><img alt="_images/J20.png" src="_images/J20.png" style="width: 309.9px; height: 123.6px;" /></a>
 <p>基本的には公式(<a class="reference external" href="https://communities.intel.com/docs/DOC-23252">https://communities.intel.com/docs/DOC-23252</a>)の資料を見ていただいて、もし見づらい形でしたらご利用ください。</p>
-<p>ただねぇ・・・これも手打ちで打ち直したので、ミスが無いとは言いきれない。なのでご利用は慎重に・・・w</p>
-<p>まぁ、自分でもこれから基板作るので、もしミスに気がついたら適時直していく予定です。</p>
+<p>また、印刷に便利な <a class="reference external" href="http://nonnoise.github.io/Edison/_static/Edison_IO.pdf">http://nonnoise.github.io/Edison/_static/Edison_IO.pdf</a> も用意しました。僕はこれ使いますw</p>
+<p>自分でもこれから基板作るので、もしミスに気がついたら適時直していく予定です。</p>
 </div>
-<div class="section" id="edison-i2c">
-<h2>5. Edison の I2C に関して<a class="headerlink" href="#edison-i2c" title="Permalink to this headline">¶</a></h2>
-<p>さて、ピンアサインも分かったので、早速、各ブロックの話。</p>
-<p>まずはI2Cに関して。</p>
-<p>(1) EdisonのI2Cには三種類の速度があり、
--       標準モード(Standard mode) : 100kbps
--       高速モード(Fast mode) : 400kbps
--       超高速モード(High-speed mode) : 3.4Mbps</p>
-<p>超高速めっちゃ早い。恐ろしい子。</p>
-<ol class="arabic simple" start="2">
-<li>マスターとスレーブに関して</li>
-</ol>
-<p>Edisonは、マスターのみサポートらしいです。なのでI2CでEdisonを数珠つなぎにするとかは出来ません。（しないかw</p>
-<ol class="arabic simple" start="3">
-<li>I2Cのビット数に関して</li>
-</ol>
-<p>EdisonのI2Cは、7bitのI2Cと、10bitのI2Cに対応していて、6bitI2Cや8bitI2Cは標準もしくは高速モードで対応しているそう。</p>
-<p>ん～よく分からん。標準的なI2Cって8bit+ACK+STARTで10bitになるのかな。とにかく超高速モードを使う際は注意が必要かも。</p>
+<div class="section" id="edison">
+<h2>5. Edisonのピンに関して<a class="headerlink" href="#edison" title="Permalink to this headline">¶</a></h2>
+<p>Edisonのモジュール本体についての資料
+<a class="reference external" href="https://communities.intel.com/servlet/JiveServlet/previewBody/23158-102-4-27348/edison-module_HG_331189-002.pdf">https://communities.intel.com/servlet/JiveServlet/previewBody/23158-102-4-27348/edison-module_HG_331189-002.pdf</a></p>
+<p>を読みつつ、</p>
+<blockquote>
+<div>hardware_module</div></blockquote>
+<p>を参考にして頂ければと思います。</p>
+<div class="line-block">
+<div class="line"><br /></div>
 </div>
-<div class="section" id="edison-sd-card">
-<h2>6. Edison の SD card に関して<a class="headerlink" href="#edison-sd-card" title="Permalink to this headline">¶</a></h2>
-<p>最初、EdisonのSDカードブロックを見て、「どうせSPIでSDカードを読み込むんでしょ？w」と思っていたが、どうやら、本当の意味でのSDカードのインターフェースらしい。</p>
-<ul class="simple">
-<li>SD 3.0規格インターフェース</li>
-<li>最大クロック 50MHz</li>
-<li>SDメモリーのみサポート</li>
-<li>2.85vをサポートするには外部にレベル変換が必要</li>
-</ul>
-<p>メモリー意外の使い方には向かないなぁ・・・</p>
-</div>
-<div class="section" id="edison-uart">
-<h2>7. Edison の UART に関して<a class="headerlink" href="#edison-uart" title="Permalink to this headline">¶</a></h2>
-<p>まぁUARTに関しては皆さんご存知なので得に説明ありません。</p>
-<ul class="simple">
-<li>64バイトのバッファを持っている</li>
-<li>300bps ~ 3.686Mbpsまで対応</li>
-</ul>
-<p>うん。いつの間にUARTが高速バスになったんだ・・・w</p>
-</div>
-<div class="section" id="edison-spi">
-<h2>8. Edison の SPI に関して<a class="headerlink" href="#edison-spi" title="Permalink to this headline">¶</a></h2>
-<p>後日記載</p>
-</div>
-<div class="section" id="edison-i2s">
-<h2>9. Edison の I2S に関して<a class="headerlink" href="#edison-i2s" title="Permalink to this headline">¶</a></h2>
-<p>後日記載</p>
-<p>で！！！　ここで肝心な公式ミスを見つけました。　めっちゃ大事w</p>
-<p>ピン表のSSPから始まるピンは、実は実は？　I2Sなんです！　やった！www</p>
-<p>Breakout Boardからは、I2Sが二系統使えるようになっているそうです。</p>
-<p>Edison本体のピン表にはちゃんとI2Sと書いてるのに、こっちにはSSPと書いてあるので、注意が必要です。</p>
-<p>ちょっと試したい機能の一つですのでねw　ちゃんと把握しておきたいですw</p>
-</div>
-<div class="section" id="edison-pwm">
-<h2>9. Edison の PWM に関して<a class="headerlink" href="#edison-pwm" title="Permalink to this headline">¶</a></h2>
-<p>後日記載</p>
-</div>
-<div class="section" id="edison-gpio">
-<h2>10. Edison の GPIO に関して<a class="headerlink" href="#edison-gpio" title="Permalink to this headline">¶</a></h2>
-<p>後日記載</p>
-<p>やっと見つけた、EdisonのGPIOは、1.8V 3mA程度とめっちゃ弱いIOなので、直接LED何か繋げたら壊れますよ！</p>
-<p>なので、レベル変換IC　<a class="reference external" href="http://akizukidenshi.com/catalog/g/gM-04522/">http://akizukidenshi.com/catalog/g/gM-04522/</a>　でも通して扱いましょう。</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -233,7 +195,7 @@ Edison本体のロゴマークを見て上側が所謂、「FTDI側USBコネク�
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">初版:</th><td class="field-body">2014/10/25</td>
+<tr class="field-odd field"><th class="field-name">初版:</th><td class="field-body">2014/10/30</td>
 </tr>
 <tr class="field-even field"><th class="field-name">作成者:</th><td class="field-body">Yuta kitagami</td>
 </tr>
@@ -258,6 +220,12 @@ Edison本体のロゴマークを見て上側が所謂、「FTDI側USBコネク�
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="memo.html" title="Edisonのチョイテク"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="hardware_module.html" title="Edison ハードウェアについて (モジュール本体 編)"
+             >previous</a> |</li>
         <li><a href="index.html">Edison-Note 1.3 documentation</a> &raquo;</li> 
       </ul>
     </div>
