@@ -121,7 +121,7 @@ https://communities.intel.com/servlet/JiveServlet/previewBody/23158-102-4-27348/
 
 を読みつつ、
 
-	hardware_module
+http://nonnoise.github.io/Edison/hardware_module.html
 
 を参考にして頂ければと思います。
 

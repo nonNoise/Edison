@@ -41,6 +41,8 @@ Z34XXは、スマートフォン市場を狙った製品で、最大500MHzで動
 
 さらに詳しく実際が知りたい人は、cpuinfoを抜き出したのでご参考に。w
 
+http://nonnoise.github.io/Edison/_sources/Edison/cpuinfo.txt
+
 3. Edison の WiFi/BTに関して
 -----------------------------------------
 
