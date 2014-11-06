@@ -24,6 +24,9 @@ nonNoise考案　Edison開発方法
 
 最終更新日 |today| 
 
+
+-- **ソフトウェア編** --
+
 .. toctree::
 	:maxdepth: 1
 
@@ -31,11 +34,20 @@ nonNoise考案　Edison開発方法
 	init
 	index2
 	python
+	ntpdate
 	bluetooth
-	hardware_module
-	hardware_bb
 	memo
 
+
+
+
+-- **ハードウェア編** --
+
+.. toctree::
+	:maxdepth: 1
+
+	hardware_module
+	hardware_bb
 
 |
 
