@@ -36,7 +36,7 @@ EdisonにPython環境を構築する
 
 
 	- pip install flask
-	- pip install serial
+	- pip install pyserial
 	- pip install sphinx
 	- pip install virtualenvwrapper
 	
