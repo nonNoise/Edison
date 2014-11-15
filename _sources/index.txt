@@ -33,6 +33,7 @@ nonNoise考案　Edison開発方法
 	index
 	init
 	index2
+	NoSpace
 	python
 	ntpdate
 	bluetooth
