@@ -26,8 +26,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="top" title="Edison-Note 1.3 documentation" href="#" />
-    <link rel="next" title="Edison開発方法" href="" />
+    <link rel="top" title="Edison-Note 1.3 documentation" href="index.html" />
 
     <meta name="viewport" content="width=device-width; initial-scale=1.0">
     <!--[if lt IE 9]>
@@ -53,15 +52,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="#" title="Edison開発方法"
-             accesskey="N">next</a> |</li>
-        <li><a href="#">Edison-Note 1.3 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Edison-Note 1.3 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="#">Table Of Contents</a></h3>
+  <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Edison開発方法</a><ul>
 <li><a class="reference internal" href="#nonnoise-edison">nonNoise考案　Edison開発方法</a><ul>
@@ -71,23 +67,16 @@
 <li><a class="reference internal" href="#id2">2. 開発環境を整える</a></li>
 <li><a class="reference internal" href="#id3">3. Edisonを起動してみる</a></li>
 <li><a class="reference internal" href="#id4">4. Edisonを触ってみる</a></li>
-<li><a class="reference internal" href="#id5">5. Edisonのファームウェアをアップデートする。</a></li>
-<li><a class="reference internal" href="#id6">6.最新のファームウェアファイルのダウンロード</a></li>
-<li><a class="reference internal" href="#id7">7. 初期化の手順</a></li>
-<li><a class="reference internal" href="#id8">8. Edisonを触ってみる</a></li>
-<li><a class="reference internal" href="#id9">9. Edisonを最新にする</a></li>
-<li><a class="reference internal" href="#id10">提供</a></li>
-<li><a class="reference internal" href="#id11">管理情報</a></li>
+<li><a class="reference internal" href="#id5">5. Edisonを最新にする</a></li>
+<li><a class="reference internal" href="#id6">提供</a></li>
+<li><a class="reference internal" href="#id7">管理情報</a></li>
 </ul>
 </li>
 </ul>
 
-  <h4>Next topic</h4>
-  <p class="topless"><a href=""
-                        title="next chapter">Edison開発方法</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/index.txt"
+    <li><a href="_sources/index0.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -122,15 +111,15 @@
 <p>最終更新日 2015/01/03</p>
 <p>&#8211; <strong>ソフトウェア編</strong> &#8211;</p>
 <div class="toctree-wrapper compound">
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">Edison開発方法</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Edison開発方法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="init.html">Edison初期化方法（工場出荷時及び最新版FW)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index2.html">Edison開発方法（最新FWバージョン）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="NoSpace.html">Edisonへ書き込み出来ない [ write error: No space left on device ]</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python.html">EdisonにPython環境を構築する</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ntpdate.html">Edisonの時計合わせ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bluetooth.html">EdisonのBluetooth開発</a></li>
 <li class="toctree-l1"><a class="reference internal" href="memo.html">Edisonのチョイテク</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index2.html">Edison開発方法（最新FWバージョン）</a></li>
 </ul>
 </div>
 <p>&#8211; <strong>ハードウェア編</strong> &#8211;</p>
@@ -206,81 +195,21 @@
 <p class="first admonition-title">Warning</p>
 <p class="last">Edisonのシリアルターミナルでバグが一ヶ所あります。少し時間が立つと、最初の一文字を認識してくれません。
 ちゃんと文字が打たれているか確認ののち、最初の一文字が入っていない際は削除して再度打ち込んでください。
-※最新版FWで解決されました。最新版のFWにする方法は、<a class="reference external" href="http://nonnoise.github.io/Edison/init.html">http://nonnoise.github.io/Edison/init.html</a></p>
+多分、割り込みがうまく行ってないんじゃないかな・・・汗w
+※最新版FWで解決されました。 <a class="reference external" href="http://nonnoise.github.io/Edison/index2.html">http://nonnoise.github.io/Edison/index2.html</a></p>
 </div>
 <ol class="arabic simple">
 <li>login: の箇所に root と打ち込みエンター　（初期状態ではrootのパスワードは無い)</li>
 <li>login出来ました？試しにlsコマンドでopkg.binが見えればOK　（これが何か不明w）</li>
-</ol>
-</div>
-<div class="section" id="id5">
-<h2>5. Edisonのファームウェアをアップデートする。<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
-<p>せっかくEdisonにログイン出来たのに、いきなりファームウェアをアップデートするの？</p>
-<p>そもそも、Edisonでファームウェアとかよく分からないんだけど。</p>
-<p>ってか、Ediosnってバグ多すぎて泣ける。</p>
-<p>そうなんですよ。誰の仕業か知りませんが、Edisonは買ったときのOSにはバグが沢山あり、外部からファームウェアのアップデートを行わなければなりません。</p>
-<p>しかもこれが中々難解。いろんな方法があります。しかもファームウェアを書き換えると保存ファイルも全部書き換えられる。</p>
-<p>なので、買ってすぐ、このタイミングで書き換えることをおすすめします。</p>
-</div>
-<div class="section" id="id6">
-<h2>6.最新のファームウェアファイルのダウンロード<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://communities.intel.com/docs/DOC-23242">https://communities.intel.com/docs/DOC-23242</a> より、「　Edison Yocto complete 　」
-をダウンロードしてください。</p>
-<p>ダウンロードしたら、zipファイルなので解答してください。</p>
-<p>解答したら、コマンドプロントで解答したフォルダーまで移動します。</p>
-</div>
-<div class="section" id="id7">
-<h2>7. 初期化の手順<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic">
-<li><p class="first">EdisonをPCに接続します</p>
-</li>
-<li><p class="first">(Winsowsの場合)Intel非純正のサピート方法です。</p>
-<blockquote>
-<div><p>以下のリンクより、dfu-util.exeをダウンロード。
-<a class="reference external" href="https://dl.dropboxusercontent.com/u/54378433/dfu-util/dfu-util.exe">https://dl.dropboxusercontent.com/u/54378433/dfu-util/dfu-util.exe</a></p>
-<p>ダウンロードしたdfu-util.exeを、解答したedison-image-ww36-14ファイルに移動します。</p>
-<p>cdコマンドを使い、edison-image-ww36-14ファイルまでコマンドで移動します。</p>
-<dl class="docutils">
-<dt>移動先で、</dt>
-<dd><ul class="first last simple">
-<li>flashall</li>
-</ul>
-</dd>
-</dl>
-<p>を実行すると、数秒間の待ち状態になります。</p>
-<p>参考資料： <a class="reference external" href="https://communities.intel.com/message/256593">https://communities.intel.com/message/256593</a></p>
-<p>書き込み待機状態になれば、次に進みます。</p>
-</div></blockquote>
-</li>
-</ol>
-<ol class="arabic" start="2">
-<li><p class="first">(Linuxの場合)Linux上から書き換えを実行</p>
-<blockquote>
-<div><p>自分のUnintu環境では、dfu-utilが無かった為、 「apt-get install dfu-util」を行った後に実行しました。</p>
-<ul class="simple">
-<li>./flashall.sh</li>
-</ul>
-<p>書き込み待機状態になれば、次に進みます。</p>
-</div></blockquote>
-</li>
-<li><p class="first">Edisonの電源側を抜いて、差し直す。（なるべくFTDI側は残しておいた方がいいです。完了時が分かりますので)</p>
-</li>
-<li><p class="first">コマンドが流れて行って、数分近くたったら、自動的に再起動します。</p>
-</li>
-<li><p class="first">edison login: が表示されたが完了。</p>
-</li>
-</ol>
-<p>最新版のFWにする方法は、<a class="reference external" href="http://nonnoise.github.io/Edison/init.html">http://nonnoise.github.io/Edison/init.html</a>　でも説明しています。</p>
-</div>
-<div class="section" id="id8">
-<h2>8. Edisonを触ってみる<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
-<p>loginまで無事に到着した方は、これからコマンドで進んでいきますので、マウスから両手を離してキーボードに集中してください。</p>
-<p>それでは行きますよw</p>
-<ol class="arabic simple">
-<li>login: の箇所に root と打ち込みエンター　（初期状態ではrootのパスワードは無い)</li>
-<li>login出来ました？試しにifconfigで何かが見えればOK</li>
 <li>早速、Edisonの初期設定をしていきます。まずEdisonのWiFiを使ってインターネットにつなげます。</li>
-<li>コマンド[configure_edison &#8211;setup]を入力します。</li>
+</ol>
+<dl class="docutils">
+<dt>お店で買った際に入っていたファームウェアが[edison-weekly_build_56_2014-08-20_15-54-05]でした。</dt>
+<dd>cat /etc/version　で確認できます。以下の方法は買った当時の方法です。</dd>
+</dl>
+<p>最新版に関しては、<a class="reference external" href="http://nonnoise.github.io/Edison/index2">http://nonnoise.github.io/Edison/index2</a>.htmlをご確認ください。</p>
+<ol class="arabic simple" start="4">
+<li>コマンド[ configure_edison ]を入力します。</li>
 </ol>
 <ul>
 <li><dl class="first docutils">
@@ -294,7 +223,7 @@
 <li><dl class="first docutils">
 <dt>Configure Edison: Device Password</dt>
 <dd><ul class="first last simple">
-<li>デバイスのパスワード(root共通)を設定します。ここを設定すると次回のログイン時に必要です。8～64文字で設定する必要があります。</li>
+<li>デバイスのパスワード(root共通)を設定します。ここを設定すると次回のログイン時に必要です。</li>
 </ul>
 </dd>
 </dl>
@@ -313,12 +242,21 @@
 <p class="last">WiFiの設定で失敗、もしくは時間がかかる際は、Edisonをルーターの近くに持っていったり、金属系から遠ざけるなり行ってください。
 意外とアンテナ弱いです。もしかするとどこかの設定で強く出来るかも？</p>
 </div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">最新のFWでは、[configure_edison &#8211;setup]に変わったらしい。最新のFWにするには、<a class="reference external" href="http://nonnoise.github.io/Edison/init">http://nonnoise.github.io/Edison/init</a>.htmlで出来ます。</p>
+</div>
 <ol class="arabic simple" start="5">
 <li>WiFIの設定がうまく行ったかの確認をするために [ifconfig]を入力して、wlan0 にIPアドレスがあれば正解。</li>
 </ol>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Wifiの設定が、何故か電源を落とした後に初期化されてしまいました。閣下はお怒りですw。対策を探しています。
+最新のFWで解決されていました。<a class="reference external" href="http://nonnoise.github.io/Edison/index2.html">http://nonnoise.github.io/Edison/index2.html</a></p>
 </div>
-<div class="section" id="id9">
-<h2>9. Edisonを最新にする<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id5">
+<h2>5. Edisonを最新にする<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>さて、何とかWiFiに接続できて、これからだってその前に、念のため色々と最新にしたいとおもいます。</p>
 <ol class="arabic simple">
 <li>opkg　と言うパッケージマネージャのリストを更新します。 以下のコマンドを叩いてください。</li>
@@ -375,15 +313,24 @@
 <ul class="simple">
 <li>git</li>
 </ul>
-<p>でgitコマンドが起動したら成功w</p>
+<p>でgitコマンドが起動したら成功です。</p>
+<div class="line-block">
+<div class="line"><br /></div>
 </div>
-<div class="section" id="id10">
-<h2>提供<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>提供<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <p>ArtifactNoise.</p>
 <a class="reference external image-reference" href="http://artifactnoise.com"><img alt="ArtifactNoise" src="_images/ANlogoMark02.png" style="width: 157.2px; height: 33.6px;" /></a>
 </div>
-<div class="section" id="id11">
-<h2>管理情報<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h2>管理情報<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -396,13 +343,11 @@
 </tr>
 <tr class="field-even field"><th class="field-name">改版:</th><td class="field-body">2014/10/30  ハードウェアについて Breakout Board 編  を追記</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">改版:</th><td class="field-body">2015/01/03  Edisonのセットアップ方法を新旧合体しました。</td>
+<tr class="field-odd field"><th class="field-name">作成者:</th><td class="field-body">Yuta kitagami</td>
 </tr>
-<tr class="field-even field"><th class="field-name">作成者:</th><td class="field-body">Yuta kitagami</td>
+<tr class="field-even field"><th class="field-name">連絡先:</th><td class="field-body"><a class="reference external" href="mailto:kitagami&#37;&#52;&#48;artifactnoise&#46;com">kitagami<span>&#64;</span>artifactnoise<span>&#46;</span>com</a></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">連絡先:</th><td class="field-body"><a class="reference external" href="mailto:kitagami&#37;&#52;&#48;artifactnoise&#46;com">kitagami<span>&#64;</span>artifactnoise<span>&#46;</span>com</a></td>
-</tr>
-<tr class="field-even field"><th class="field-name">twitter:</th><td class="field-body">&#64;nonNoise</td>
+<tr class="field-odd field"><th class="field-name">twitter:</th><td class="field-body">&#64;nonNoise</td>
 </tr>
 </tbody>
 </table>
@@ -421,10 +366,7 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="#" title="Edison開発方法"
-             >next</a> |</li>
-        <li><a href="#">Edison-Note 1.3 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Edison-Note 1.3 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

@@ -65,6 +65,8 @@ https://communities.intel.com/thread/55388?tstart=0
 
 - rm  -r  /var/log/journal/*
 
+このコマンドで、journalに保存されているlogを全部消します。
+
 ただ、これだと再度、再起動をした際にはまたlogが作られてしまいます。
 
 これを毎回繰り返すのもアレなので、次の暫定対策をおすすめします。
