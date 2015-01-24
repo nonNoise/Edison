@@ -29,15 +29,12 @@ nonNoise考案　Edison開発方法
 
 .. toctree::
 	:maxdepth: 1
-
+	:glob: 	
+	
 	index
 	init
 	NoSpace
 	python
-	ntpdate
-	bluetooth
-	memo
-	index2
 
 
 
@@ -45,10 +42,21 @@ nonNoise考案　Edison開発方法
 
 .. toctree::
 	:maxdepth: 1
+	:glob: 	
 
 	hardware_module
 	hardware_bb
+	hardware_Arduino
+	LEDblink
 	hardware_i2c
+
+
+-- **応用・ネタ編** --
+
+	ntpdate
+	bluetooth
+	memo
+
 
 |
 
@@ -311,6 +319,8 @@ ArtifactNoise.
 :改版: 2014/10/27  FWの書き込み方法にWindows版を追加。
 :改版: 2014/10/30  ハードウェアについて Breakout Board 編  を追記
 :改版: 2015/01/03  Edisonのセットアップ方法を新旧合体しました。
+:改版: 2015/01/25  EdisonArduino版をまとめました。
+:改版: 2015/01/25  mraaライブラリのまとめと、Lチカのまとめを少々。
 
 :作成者: Yuta kitagami
 :連絡先: kitagami@artifactnoise.com

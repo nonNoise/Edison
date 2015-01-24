@@ -29,15 +29,12 @@ nonNoise考案　Edison開発方法
 
 .. toctree::
 	:maxdepth: 1
-
+	:glob: 	
+	
 	index
 	init
 	NoSpace
 	python
-	ntpdate
-	bluetooth
-	memo
-	index2
 
 
 
@@ -45,10 +42,21 @@ nonNoise考案　Edison開発方法
 
 .. toctree::
 	:maxdepth: 1
+	:glob: 	
 
 	hardware_module
 	hardware_bb
+	hardware_Arduino
+	LEDblink
 	hardware_i2c
+
+
+-- **応用・ネタ編** --
+
+	ntpdate
+	bluetooth
+	memo
+
 
 |
 
