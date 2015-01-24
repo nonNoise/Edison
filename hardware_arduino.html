@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Edison でLEDチカチカ &mdash; Edison-Note 1.3 documentation</title>
+    <title>Edison ハードウェアについて (Arduino 編) &mdash; Edison-Note 1.3 documentation</title>
     
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -28,8 +28,8 @@
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="top" title="Edison-Note 1.3 documentation" href="index.html" />
-    <link rel="next" title="Edison のI2Cを試してみる" href="hardware_i2c.html" />
-    <link rel="prev" title="Edison ハードウェアについて (Breakout Board 編)" href="hardware_bb.html" />
+    <link rel="next" title="Edison ハードウェアについて (Breakout Board 編)" href="hardware_bb.html" />
+    <link rel="prev" title="Edison ハードウェアについて (モジュール本体 編)" href="hardware_module.html" />
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
@@ -56,10 +56,10 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="hardware_i2c.html" title="Edison のI2Cを試してみる"
+          <a href="hardware_bb.html" title="Edison ハードウェアについて (Breakout Board 編)"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="hardware_bb.html" title="Edison ハードウェアについて (Breakout Board 編)"
+          <a href="hardware_module.html" title="Edison ハードウェアについて (モジュール本体 編)"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">Edison-Note 1.3 documentation</a> &raquo;</li> 
       </ul>
@@ -68,26 +68,26 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Edison でLEDチカチカ</a><ul>
+<li><a class="reference internal" href="#">Edison ハードウェアについて (Arduino 編)</a><ul>
 <li><a class="reference internal" href="#id1">1.初めに</a></li>
-<li><a class="reference internal" href="#edisonled">2. Edison本体でLEDチカチカ</a></li>
-<li><a class="reference internal" href="#edison-breakout-board-led">3. Edison Breakout Board でLEDチカチカ</a></li>
-<li><a class="reference internal" href="#edison-arduino-led">4. Edison Arduino でLEDチカチカ</a></li>
-<li><a class="reference internal" href="#id2">提供</a></li>
-<li><a class="reference internal" href="#id3">管理情報</a></li>
+<li><a class="reference internal" href="#arduino">2. Arduino基板の表面について</a></li>
+<li><a class="reference internal" href="#arduinoedison">3. Arduino版Edisonの開発方法</a></li>
+<li><a class="reference internal" href="#id2">3. Arduino版Edisonのピンに関して</a></li>
+<li><a class="reference internal" href="#id3">提供</a></li>
+<li><a class="reference internal" href="#id4">管理情報</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="hardware_bb.html"
-                        title="previous chapter">Edison ハードウェアについて (Breakout Board 編)</a></p>
+  <p class="topless"><a href="hardware_module.html"
+                        title="previous chapter">Edison ハードウェアについて (モジュール本体 編)</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="hardware_i2c.html"
-                        title="next chapter">Edison のI2Cを試してみる</a></p>
+  <p class="topless"><a href="hardware_bb.html"
+                        title="next chapter">Edison ハードウェアについて (Breakout Board 編)</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/LEDblink.txt"
+    <li><a href="_sources/hardware_arduino.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -111,29 +111,41 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="edison-led">
-<h1>Edison でLEDチカチカ<a class="headerlink" href="#edison-led" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="edison-arduino">
+<h1>Edison ハードウェアについて (Arduino 編)<a class="headerlink" href="#edison-arduino" title="Permalink to this headline">¶</a></h1>
 <a class="reference external image-reference" href="http://www.intel.com/content/www/us/en/do-it-yourself/maker.html"><img alt="_images/intel.web.480.270.jpg" src="_images/intel.web.480.270.jpg" style="width: 192.0px; height: 108.0px;" /></a>
 <a class="reference internal image-reference" href="_images/edison.png"><img alt="_images/edison.png" src="_images/edison.png" style="width: 210.4px; height: 137.2px;" /></a>
 <a class="reference external image-reference" href="http://nonnoise.github.io/Edison/hardware.html"><img alt="_images/Edison_top_view.png" src="_images/Edison_top_view.png" style="width: 255.6px; height: 158.4px;" /></a>
 <a class="reference internal image-reference" href="_images/edison02.jpg"><img alt="_images/edison02.jpg" src="_images/edison02.jpg" style="width: 180.0px; height: 135.0px;" /></a>
 <div class="section" id="id1">
 <h2>1.初めに<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Edisonの場合、単純なLEDにも、資料が必要なくらい、まとめ記事が少なく罠が多い。</p>
-<p>全く困ったやつだなぁ〜w　でも、慣れてくるとすごく世界が広がる、まさに新時代を象徴する素晴らしいデバイスだと思う。</p>
-<p>ってことで、電子回路の登竜門であるLEDチカチカの方法をまとめたいと思う。</p>
+<p>僕個人的には、BreackBordの方が好きですが、やっぱりArduino版Edisonの開発で困っている方もいらっしゃるので、まとめてみたいと思う。</p>
+<p>なお、ここではEdison版ArduinoIDEの説明を省略します。（そのうち書くかも）
+というのも、Edisonの開発はなるべくLinux上で行うことで、Edisonの可能性を最大限感じつ頃ができるという気持ちなので、ご了承ください。</p>
 </div>
-<div class="section" id="edisonled">
-<h2>2. Edison本体でLEDチカチカ<a class="headerlink" href="#edisonled" title="Permalink to this headline">¶</a></h2>
-<p>（準備中）</p>
+<div class="section" id="arduino">
+<h2>2. Arduino基板の表面について<a class="headerlink" href="#arduino" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/EdisonArduino.png"><img alt="_images/EdisonArduino.png" src="_images/EdisonArduino.png" style="width: 742.5px; height: 525.0px;" /></a>
+<p>基本的には、図のマイクロUSBの箇所に２本接続して開発します。</p>
+<p>どうしてもUSBを使いたくない際は、電源をDCジャックから供給しても行けます。</p>
+<p>マイクロUSBとDCジャックの電源を両方つける必要はないです。結局どちらも５Vにされます。</p>
 </div>
-<div class="section" id="edison-breakout-board-led">
-<h2>3. Edison Breakout Board でLEDチカチカ<a class="headerlink" href="#edison-breakout-board-led" title="Permalink to this headline">¶</a></h2>
-<p>（準備中）</p>
+<div class="section" id="arduinoedison">
+<h2>3. Arduino版Edisonの開発方法<a class="headerlink" href="#arduinoedison" title="Permalink to this headline">¶</a></h2>
+<p>さて、早速Arduino版Edisonの開発方法をまとめます。</p>
+<ol class="arabic simple">
+<li>まず初めに、マイクロUSBケーブルを２本用意します。Arduino版EdisonにはDCジャックが付いておりますが、使わなくても開発できます。DCジャックについては後述します。</li>
+<li>２本のUSBをパソコンに接続します。基板にLEDがつけばOK</li>
+<li>WindowsであればTera Termを開き、COMポートを選択し、通信速度を115200bpsに設定します。</li>
+<li>MacやLinuxであればscreen /dev/tty.usb〜　から始まるターミナルに115200で開きます。</li>
+<li>ターミナルが無事に開いたら、スタートラインに到着です。</li>
+<li>最新のFWに設定するために <a class="reference external" href="http://nonnoise.github.io/Edison/init.html">http://nonnoise.github.io/Edison/init.html</a> を行います。</li>
+<li>そのあとは、コマンドで色々開発します。</li>
+</ol>
 </div>
-<div class="section" id="edison-arduino-led">
-<h2>4. Edison Arduino でLEDチカチカ<a class="headerlink" href="#edison-arduino-led" title="Permalink to this headline">¶</a></h2>
-<p>Pythonでライブラリ mraa を使います。</p>
+<div class="section" id="id2">
+<h2>3. Arduino版Edisonのピンに関して<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>この間ハッカソンでEdisonの開発を手伝いましたが、Arduino版Edisonは少し癖がありそうでしたのでまとめました。</p>
 <p>ライブラリ mraa を使う際に、IOの選択は全てArduinoのIOの番号で接続できます。</p>
 <p>例えば、Arduino端子の13ピンをON/OFFするPythonソースは、</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">mraa</span>
@@ -148,24 +160,22 @@
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Arduinoの13pinに接続したLEDがチカチカします。もしくは、ボードに乗ったLEDがチカチカします。</p>
+<p>といった形になります。</p>
+<p>なので、たとえばArduonoの2pinにアクセスする際は、</p>
+<blockquote>
+<div><strong>x = mraa.Gpio(2)</strong></div></blockquote>
+<p>といった形になります。</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<div class="line-block">
-<div class="line"><br /></div>
 </div>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-</div>
-<div class="section" id="id2">
-<h2>提供<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>提供<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>ArtifactNoise.</p>
 <a class="reference external image-reference" href="http://artifactnoise.com"><img alt="ArtifactNoise" src="_images/ANlogoMark02.png" style="width: 157.2px; height: 33.6px;" /></a>
 </div>
-<div class="section" id="id3">
-<h2>管理情報<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h2>管理情報<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -196,10 +206,10 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="hardware_i2c.html" title="Edison のI2Cを試してみる"
+          <a href="hardware_bb.html" title="Edison ハードウェアについて (Breakout Board 編)"
              >next</a> |</li>
         <li class="right" >
-          <a href="hardware_bb.html" title="Edison ハードウェアについて (Breakout Board 編)"
+          <a href="hardware_module.html" title="Edison ハードウェアについて (モジュール本体 編)"
              >previous</a> |</li>
         <li><a href="index.html">Edison-Note 1.3 documentation</a> &raquo;</li> 
       </ul>

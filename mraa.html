@@ -1,5 +1,6 @@
 
 
+
 <!doctype html>
 
 
@@ -14,7 +15,7 @@
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
+        URL_ROOT:    '',
         VERSION:     '1.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -28,7 +29,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="top" title="Edison-Note 1.3 documentation" href="index.html" />
 
-    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
     <![endif]-->
@@ -61,13 +62,15 @@
   <ul>
 <li><a class="reference internal" href="#">Edison　で　mraaライブラリを使ってみる</a><ul>
 <li><a class="reference internal" href="#id1">1.初めに</a></li>
-<li><a class="reference internal" href="#mraa">2. mraaに関して</a></li>
-<li><a class="reference internal" href="#id2">3. mraaライブラリのインストール</a></li>
-<li><a class="reference internal" href="#mraac">4. mraaをC言語で扱う</a></li>
-<li><a class="reference internal" href="#mraapython">5. mraaライブラリをPythonで扱う</a></li>
-<li><a class="reference internal" href="#id3">6. mraaライブラリの説明</a></li>
-<li><a class="reference internal" href="#id8">提供</a></li>
-<li><a class="reference internal" href="#id9">管理情報</a></li>
+<li><a class="reference internal" href="#pythonmraa">2. Pythonのmraaに関して</a></li>
+<li><a class="reference internal" href="#gpio">3. GPIO</a></li>
+<li><a class="reference internal" href="#pwm">4. PWM</a></li>
+<li><a class="reference internal" href="#i2c">5. I2C</a></li>
+<li><a class="reference internal" href="#spi">6. SPI</a></li>
+<li><a class="reference internal" href="#uart">7. UART</a></li>
+<li><a class="reference internal" href="#id6">8.サンプル</a></li>
+<li><a class="reference internal" href="#id7">提供</a></li>
+<li><a class="reference internal" href="#id8">管理情報</a></li>
 </ul>
 </li>
 </ul>
@@ -106,26 +109,25 @@
 <a class="reference internal image-reference" href="_images/edison02.jpg"><img alt="_images/edison02.jpg" src="_images/edison02.jpg" style="width: 180.0px; height: 135.0px;" /></a>
 <div class="section" id="id1">
 <h2>1.初めに<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>公式のmraa <a class="reference external" href="http://iotdk.intel.com/docs/master/mraa/python/">http://iotdk.intel.com/docs/master/mraa/python/</a> のライブラリ説明がショッパすぎて、結局自分でまとめなおす形になりました。</p>
+<p>自分の忘れた時用にまとめていると思ってください。</p>
+<p>困っている人の何かヒントになればと思います。</p>
 </div>
-<div class="section" id="mraa">
-<h2>2. mraaに関して<a class="headerlink" href="#mraa" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pythonmraa">
+<h2>2. Pythonのmraaに関して<a class="headerlink" href="#pythonmraa" title="Permalink to this headline">¶</a></h2>
+<p>mraaはEdisonでGPIOを使う際にC++で書かれたライブラリです。C言語用もありますが、基本的にはC++版をPython用にラッパーしています。</p>
+<p>Pythonのmraaは、どうもC++の改良がされて、忘れた頃にバージョンアップされるので、正直、真面目にサポートしているか不安になりますが、
+それでもC++のソースを追いながらPythonでの使い方がつかめたのでまとめます。</p>
+<p>そだ、Pythonでmraaを使うと、１行１行の間隔で遅延が発生します。これはスクリプトで記述しているので仕方がありません。</p>
+<p>もし、Edisonの最高速でソースを記述したいさいは、直にC++かC言語で記述して、それをラッパーしてPythonに渡すライブラリとか作ると良いかもです。</p>
 </div>
-<div class="section" id="id2">
-<h2>3. mraaライブラリのインストール<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="mraac">
-<h2>4. mraaをC言語で扱う<a class="headerlink" href="#mraac" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="mraapython">
-<h2>5. mraaライブラリをPythonで扱う<a class="headerlink" href="#mraapython" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="id3">
-<h2>6. mraaライブラリの説明<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="gpio">
+<h2>3. GPIO<a class="headerlink" href="#gpio" title="Permalink to this headline">¶</a></h2>
 <p><strong>mraa_gpio_context mraa_gpio_init (int pin)</strong></p>
 <p>GPIOで使用するピンをmraaのピン番号で設定する。</p>
-<p><a href="#id4"><span class="problematic" id="id5">**</span></a>mraa_gpio_context     mraa_gpio_init_raw (int gpiopin) **</p>
+<p><a href="#id2"><span class="problematic" id="id3">**</span></a>mraa_gpio_context     mraa_gpio_init_raw (int gpiopin) **</p>
 <p>GPIOで使用するピンを設定する。</p>
-<p><a href="#id6"><span class="problematic" id="id7">**</span></a>mraa_result_t         mraa_gpio_edge_mode (mraa_gpio_context dev, gpio_edge_t mode) **</p>
+<p><a href="#id4"><span class="problematic" id="id5">**</span></a>mraa_result_t         mraa_gpio_edge_mode (mraa_gpio_context dev, gpio_edge_t mode) **</p>
 <p>入力ピンで割り込みを行う際の状態変化検出を行う際の方法を設定</p>
 <p>** mraa_result_t        mraa_gpio_isr (mraa_gpio_context dev, gpio_edge_t edge, void(<em>fptr)(void *), void *args) *</em></p>
 <p>割り込みが発生した際に実効する関数を設定</p>
@@ -146,13 +148,33 @@
 <p>** mraa_result_t        mraa_gpio_use_mmaped (mraa_gpio_context dev, mraa_boolean_t mmap) **</p>
 <p>GPIOのMAP関数（ちょい不明、CPUのレジスタにアクセス出来るかも？）</p>
 </div>
-<div class="section" id="id8">
-<h2>提供<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pwm">
+<h2>4. PWM<a class="headerlink" href="#pwm" title="Permalink to this headline">¶</a></h2>
+<p>（準備中）</p>
+</div>
+<div class="section" id="i2c">
+<h2>5. I2C<a class="headerlink" href="#i2c" title="Permalink to this headline">¶</a></h2>
+<p>（準備中）</p>
+</div>
+<div class="section" id="spi">
+<h2>6. SPI<a class="headerlink" href="#spi" title="Permalink to this headline">¶</a></h2>
+<p>（準備中）</p>
+</div>
+<div class="section" id="uart">
+<h2>7. UART<a class="headerlink" href="#uart" title="Permalink to this headline">¶</a></h2>
+<p>（準備中）</p>
+</div>
+<div class="section" id="id6">
+<h2>8.サンプル<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>（準備中）</p>
+</div>
+<div class="section" id="id7">
+<h2>提供<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <p>ArtifactNoise.</p>
 <a class="reference external image-reference" href="http://artifactnoise.com"><img alt="ArtifactNoise" src="_images/ANlogoMark02.png" style="width: 157.2px; height: 33.6px;" /></a>
 </div>
-<div class="section" id="id9">
-<h2>管理情報<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h2>管理情報<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -187,7 +209,7 @@
     </div>
     <div class="footer">
         &copy; Copyright 2014, ArtifactNoise..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
     </div>
   </body>
 </html>
