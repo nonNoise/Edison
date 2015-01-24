@@ -311,6 +311,8 @@ ArtifactNoise.
 :改版: 2014/10/27  FWの書き込み方法にWindows版を追加。
 :改版: 2014/10/30  ハードウェアについて Breakout Board 編  を追記
 :改版: 2015/01/03  Edisonのセットアップ方法を新旧合体しました。
+:改版: 2015/01/25  EdisonArduino版をまとめました。
+:改版: 2015/01/25  mraaライブラリのまとめと、Lチカのまとめを少々。
 
 :作成者: Yuta kitagami
 :連絡先: kitagami@artifactnoise.com
