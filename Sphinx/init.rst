@@ -52,7 +52,7 @@ https://communities.intel.com/docs/DOC-23242 より、「　Edison Yocto complet
 
 	自分のUnintu環境では、dfu-utilが無かった為、 「apt-get install dfu-util」を行った後に実行しました。
 
-	- sudo ./flashall.sh
+	- ./flashall.sh
 
 (2-2) Winsowsの場合（Intel非純正のサピート方法です。）
 
