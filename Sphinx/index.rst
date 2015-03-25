@@ -19,7 +19,7 @@ Edison開発方法
 	:scale: 30%
 
 	
-nonNoise考案　Edison開発方法
+nonNoise式 Edison開発方法
 --------------------------------------
 
 最終更新日 |today| 
@@ -56,6 +56,7 @@ nonNoise考案　Edison開発方法
 	:maxdepth: 1
 	:glob: 	
 	
+	hikaku
 	ntpdate
 	bluetooth
 	memo

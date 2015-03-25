@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>EdisonのBluetooth開発 &mdash; Edison-Note 1.3 documentation</title>
+    <title>Edison 比較用資料 &mdash; Edison-Note 1.3 documentation</title>
     
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -27,8 +27,8 @@
     <script type="text/javascript" src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="top" title="Edison-Note 1.3 documentation" href="index.html" />
-    <link rel="next" title="Edisonのチョイテク" href="memo.html" />
-    <link rel="prev" title="Edisonの時計合わせ" href="ntpdate.html" />
+    <link rel="next" title="Edisonの時計合わせ" href="ntpdate.html" />
+    <link rel="prev" title="Edison のI2Cを試してみる" href="hardware_i2c.html" />
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
@@ -55,10 +55,10 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="memo.html" title="Edisonのチョイテク"
+          <a href="ntpdate.html" title="Edisonの時計合わせ"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="ntpdate.html" title="Edisonの時計合わせ"
+          <a href="hardware_i2c.html" title="Edison のI2Cを試してみる"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">Edison-Note 1.3 documentation</a> &raquo;</li> 
       </ul>
@@ -67,9 +67,9 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">EdisonのBluetooth開発</a><ul>
-<li><a class="reference internal" href="#id1">1. 早速試してみる。</a></li>
-<li><a class="reference internal" href="#id2">参考サイト</a></li>
+<li><a class="reference internal" href="#">Edison 比較用資料</a><ul>
+<li><a class="reference internal" href="#id1">1.初めに</a></li>
+<li><a class="reference internal" href="#id2">2.まとめ</a></li>
 <li><a class="reference internal" href="#id3">提供</a></li>
 <li><a class="reference internal" href="#id4">管理情報</a></li>
 </ul>
@@ -77,14 +77,14 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="ntpdate.html"
-                        title="previous chapter">Edisonの時計合わせ</a></p>
+  <p class="topless"><a href="hardware_i2c.html"
+                        title="previous chapter">Edison のI2Cを試してみる</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="memo.html"
-                        title="next chapter">Edisonのチョイテク</a></p>
+  <p class="topless"><a href="ntpdate.html"
+                        title="next chapter">Edisonの時計合わせ</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/bluetooth.txt"
+    <li><a href="_sources/hikaku.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -108,57 +108,41 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="edisonbluetooth">
-<h1>EdisonのBluetooth開発<a class="headerlink" href="#edisonbluetooth" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="edison">
+<h1>Edison 比較用資料<a class="headerlink" href="#edison" title="Permalink to this headline">¶</a></h1>
 <a class="reference external image-reference" href="http://www.intel.com/content/www/us/en/do-it-yourself/maker.html"><img alt="_images/intel.web.480.270.jpg" src="_images/intel.web.480.270.jpg" style="width: 192.0px; height: 108.0px;" /></a>
 <a class="reference internal image-reference" href="_images/edison.png"><img alt="_images/edison.png" src="_images/edison.png" style="width: 210.4px; height: 137.2px;" /></a>
 <a class="reference external image-reference" href="http://nonnoise.github.io/Edison/hardware.html"><img alt="_images/Edison_top_view.png" src="_images/Edison_top_view.png" style="width: 255.6px; height: 158.4px;" /></a>
 <a class="reference internal image-reference" href="_images/edison02.jpg"><img alt="_images/edison02.jpg" src="_images/edison02.jpg" style="width: 180.0px; height: 135.0px;" /></a>
 <div class="section" id="id1">
-<h2>1. 早速試してみる。<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>例えハードウェアがちゃんとしていても、LinuxでBluethoothを扱う以上、苦労するんだろうなと思っていたが、まさにそうだ。</p>
-<p>まだEdisonに関して情報が少ないが（Edisonの告知サイトが多すぎて検索避けが出来ない！)、何とか開発出来そうなポイントまで辿り着いたのでメモを残しておきます。</p>
-<p>まず、bluetoothを起動させます。（デフォルトでは起動していない。ひどいw）</p>
-<ul class="simple">
-<li>rfkill unblock bluetooth</li>
-</ul>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>rfkillってReFileKillかと思ったけど、RFKillで無線デバイスを管理するコマンドらしい。</p>
-<p><a class="reference external" href="https://access.redhat.com/documentation/ja-JP/Red_Hat_Enterprise_Linux/6/html/Power_Management_Guide/RFKill.html">https://access.redhat.com/documentation/ja-JP/Red_Hat_Enterprise_Linux/6/html/Power_Management_Guide/RFKill.html</a></p>
-<p class="last">紛らわしいなぁもう。</p>
+<h2>1.初めに<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Edisonが一体どれくらいのスペックと市場優位性があるのかを調べる為に、
+この手の市場をかき乱す存在であるRaspberryPiとのスペック差をまとめました。</p>
+<p>免責事項としましては、まとめた情報はあくまで参考であり絶対ではありません。
+また、メーカーが提供しているデータを必ずしも元にしておりません。
+噂や憶測も多いデータであり、間違いも多くあるでしょう。
+寛大な気持ちで眺める程度に・・・
+（本資料のデータを用いて発生した如何なる問題や損害に関して当方では一切責任を負いませんのでご注意ください。）</p>
+<div class="line-block">
+<div class="line"><br /></div>
 </div>
-<ul class="simple">
-<li>bluetoothctl</li>
-</ul>
-<p>このコマンドで、Bluetooth全般の管理が出来ます。便利便利。CUIでは[bluetooth]# と表示されるはずです。
-終了する際は exit で終われます。</p>
-<p>[bluetooth]# の状態から、</p>
-<ul class="simple">
-<li>power on</li>
-<li>power off</li>
-<li>scan on</li>
-</ul>
-<p>でbluetoothを探しに行ったり出来る見たい。</p>
-<p>後は先人の方の記事を読めば行けそうw</p>
-<p><a class="reference external" href="http://note.kurodigi.com/post-0-12/">http://note.kurodigi.com/post-0-12/</a></p>
-<p>最新のBT4.0がどう動くか分からないけど、先にBT2.0のSPPモードでも動かしてみたいと思います。
-こうご期待。(2014/10/27)</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </div>
 <div class="section" id="id2">
-<h2>参考サイト<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://communities.intel.com/thread/56270">https://communities.intel.com/thread/56270</a></p>
-<p><a class="reference external" href="https://access.redhat.com/documentation/ja-JP/Red_Hat_Enterprise_Linux/6/html/Power_Management_Guide/RFKill.html">https://access.redhat.com/documentation/ja-JP/Red_Hat_Enterprise_Linux/6/html/Power_Management_Guide/RFKill.html</a></p>
-<p><a class="reference external" href="http://note.kurodigi.com/post-0-12/">http://note.kurodigi.com/post-0-12/</a></p>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
+<h2>2.まとめ<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>スペックシート</li>
+</ul>
+<a class="reference internal image-reference" href="_images/hikaku01.png"><img alt="_images/hikaku01.png" src="_images/hikaku01.png" style="width: 501.6px; height: 489.0px;" /></a>
+<ul class="simple">
+<li>サイズシート</li>
+</ul>
+<a class="reference internal image-reference" href="_images/size01.png"><img alt="_images/size01.png" src="_images/size01.png" style="width: 335.4px; height: 256.2px;" /></a>
 </div>
 <div class="section" id="id3">
 <h2>提供<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
@@ -171,7 +155,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">初版:</th><td class="field-body">2014/10/28</td>
+<tr class="field-odd field"><th class="field-name">初版:</th><td class="field-body">2015/03/26</td>
 </tr>
 <tr class="field-even field"><th class="field-name">作成者:</th><td class="field-body">Yuta kitagami</td>
 </tr>
@@ -197,10 +181,10 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="memo.html" title="Edisonのチョイテク"
+          <a href="ntpdate.html" title="Edisonの時計合わせ"
              >next</a> |</li>
         <li class="right" >
-          <a href="ntpdate.html" title="Edisonの時計合わせ"
+          <a href="hardware_i2c.html" title="Edison のI2Cを試してみる"
              >previous</a> |</li>
         <li><a href="index.html">Edison-Note 1.3 documentation</a> &raquo;</li> 
       </ul>
