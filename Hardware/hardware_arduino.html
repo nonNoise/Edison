@@ -1,0 +1,222 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Edison ハードウェアについて (Arduino 編) &mdash; Edison-Note 2.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="top" title="Edison-Note 2.0 documentation" href="../index.html" />
+    <link rel="next" title="Edison のI2Cを試してみる" href="hardware_i2c.html" />
+    <link rel="prev" title="Edison ハードウェアについて (Breakout Board 編)" href="hardware_bb.html" />
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-24204483-2', 'auto');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="hardware_i2c.html" title="Edison のI2Cを試してみる"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="hardware_bb.html" title="Edison ハードウェアについて (Breakout Board 編)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Edison-Note 2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Edison ハードウェアについて (Arduino 編)</a><ul>
+<li><a class="reference internal" href="#id1">1.初めに</a></li>
+<li><a class="reference internal" href="#arduino">2. Arduino基板の表面について</a></li>
+<li><a class="reference internal" href="#arduinoedison">3. Arduino版Edisonの開発方法</a></li>
+<li><a class="reference internal" href="#id2">3. Arduino版Edisonのピンに関して</a></li>
+<li><a class="reference internal" href="#id3">提供</a></li>
+<li><a class="reference internal" href="#id4">管理情報</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="hardware_bb.html"
+                        title="previous chapter">Edison ハードウェアについて (Breakout Board 編)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="hardware_i2c.html"
+                        title="next chapter">Edison のI2Cを試してみる</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/Hardware/hardware_arduino.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="edison-arduino">
+<h1>Edison ハードウェアについて (Arduino 編)<a class="headerlink" href="#edison-arduino" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="http://www.intel.com/content/www/us/en/do-it-yourself/maker.html"><img alt="../_images/intel.web.480.2701.jpg" src="../_images/intel.web.480.2701.jpg" style="width: 192.0px; height: 108.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/Edison112.JPG"><img alt="../_images/Edison112.JPG" src="../_images/Edison112.JPG" style="width: 351.0px; height: 140.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/EA052.JPG"><img alt="../_images/EA052.JPG" src="../_images/EA052.JPG" style="width: 270.0px; height: 179.7px;" /></a>
+<a class="reference internal image-reference" href="../_images/Edison_top_view1.png"><img alt="../_images/Edison_top_view1.png" src="../_images/Edison_top_view1.png" style="width: 255.6px; height: 158.4px;" /></a>
+<div class="section" id="id1">
+<h2>1.初めに<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>僕個人的には、BreackBordの方が好きですが、やっぱりArduino版Edisonの開発で困っている方もいらっしゃるので、まとめてみたいと思う。</p>
+<p>なお、ここではEdison版ArduinoIDEの説明を省略します。（そのうち書くかも）
+というのも、Edisonの開発はなるべくLinux上で行うことで、Edisonの可能性を最大限感じつ頃ができるという気持ちなので、ご了承ください。</p>
+</div>
+<div class="section" id="arduino">
+<h2>2. Arduino基板の表面について<a class="headerlink" href="#arduino" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="Hardware/img/EdisonArduino.png"><img alt="Hardware/img/EdisonArduino.png" src="Hardware/img/EdisonArduino.png" /></a>
+<p>基本的には、図のマイクロUSBの箇所に２本接続して開発します。</p>
+<p>どうしてもUSBを使いたくない際は、電源をDCジャックから供給しても行けます。</p>
+<p>マイクロUSBとDCジャックの電源を両方つける必要はないです。結局どちらも５Vにされます。</p>
+</div>
+<div class="section" id="arduinoedison">
+<h2>3. Arduino版Edisonの開発方法<a class="headerlink" href="#arduinoedison" title="Permalink to this headline">¶</a></h2>
+<p>さて、早速Arduino版Edisonの開発方法をまとめます。</p>
+<ol class="arabic simple">
+<li>まず初めに、マイクロUSBケーブルを２本用意します。Arduino版EdisonにはDCジャックが付いておりますが、使わなくても開発できます。DCジャックについては後述します。</li>
+<li>２本のUSBをパソコンに接続します。基板にLEDがつけばOK</li>
+<li>WindowsであればTera Termを開き、COMポートを選択し、通信速度を115200bpsに設定します。</li>
+<li>MacやLinuxであればscreen /dev/tty.usb〜　から始まるターミナルに115200で開きます。</li>
+<li>ターミナルが無事に開いたら、スタートラインに到着です。</li>
+<li>最新のFWに設定するために <a class="reference external" href="http://nonnoise.github.io/Edison/init.html">http://nonnoise.github.io/Edison/init.html</a> を行います。</li>
+<li>そのあとは、コマンドで色々開発します。</li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h2>3. Arduino版Edisonのピンに関して<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>この間ハッカソンでEdisonの開発を手伝いましたが、Arduino版Edisonは少し癖がありそうでしたのでまとめました。</p>
+<p>ライブラリ mraa を使う際に、IOの選択は全てArduinoのIOの番号で接続できます。</p>
+<p>例えば、Arduino端子の13ピンをON/OFFするPythonソースは、</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">mraa</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="hll"><span class="k">print</span> <span class="p">(</span><span class="n">mraa</span><span class="o">.</span><span class="n">getVersion</span><span class="p">())</span>
+</span><span class="n">x</span> <span class="o">=</span> <span class="n">mraa</span><span class="o">.</span><span class="n">Gpio</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>               <span class="c"># Arduino 13pin</span>
+<span class="hll"><span class="n">x</span><span class="o">.</span><span class="n">dir</span><span class="p">(</span><span class="n">mraa</span><span class="o">.</span><span class="n">DIR_OUT</span><span class="p">)</span>
+</span><span class="k">while</span> <span class="mi">1</span> <span class="p">:</span>
+        <span class="n">x</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>              <span class="c">#ON</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">x</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>              <span class="c">#OFF</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>といった形になります。</p>
+<p>なので、たとえばArduonoの2pinにアクセスする際は、</p>
+<blockquote>
+<div><strong>x = mraa.Gpio(2)</strong></div></blockquote>
+<p>といった形になります。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>提供<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>ArtifactNoise.</p>
+<a class="reference external image-reference" href="http://artifactnoise.com"><img alt="ArtifactNoise" src="../_images/ANlogoMark021.png" style="width: 157.2px; height: 33.6px;" /></a>
+</div>
+<div class="section" id="id4">
+<h2>管理情報<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">初版:</th><td class="field-body">2014/10/30</td>
+</tr>
+<tr class="field-even field"><th class="field-name">作成者:</th><td class="field-body">Yuta kitagami</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">連絡先:</th><td class="field-body"><a class="reference external" href="mailto:kitagami&#37;&#52;&#48;artifactnoise&#46;com">kitagami<span>&#64;</span>artifactnoise<span>&#46;</span>com</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">twitter:</th><td class="field-body">&#64;nonNoise</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="hardware_i2c.html" title="Edison のI2Cを試してみる"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="hardware_bb.html" title="Edison ハードウェアについて (Breakout Board 編)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Edison-Note 2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, ArtifactNoise..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

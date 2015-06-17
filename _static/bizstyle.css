@@ -4,8 +4,8 @@
  *
  * Sphinx stylesheet -- business style theme.
  *
- * :copyright: Copyright 2011 by Sphinx-users.jp, see AUTHORS.
- * :license: MIT, see LICENSE for details.
+ * :copyright: Copyright 2011-2014 by Sphinx team, see AUTHORS.
+ * :license: BSD, see LICENSE for details.
  *
  */
 
@@ -24,8 +24,8 @@ body {
     background-image: url(background_b01.png);
     color: black;
     padding: 0;
-    border-right: 1px solid #001e86;
-    border-left: 1px solid #001e86;
+    border-right: 1px solid #00004C;
+    border-left: 1px solid #00004C;
 
     margin: 0px 40px 0px 40px;
 }
@@ -57,8 +57,9 @@ div.related {
 }
 
 div.related ul {
-    background-color: #001e86;
-    height: 2em;
+    background-color: #00004C;
+    height: 100%;
+    overflow: hidden;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
 }
@@ -105,8 +106,8 @@ div.sphinxsidebar h3, div.sphinxsidebar h4 {
     font-size: 1em;
     padding: 0.1em 0 0.1em 0.5em;
     color: white;
-    border: 1px solid #001e86;
-    background-color: #001e86;
+    border: 1px solid #00004C;
+    background-color: #00004C;
 }
 
 div.sphinxsidebar h3 a {
@@ -125,24 +126,24 @@ div.sphinxsidebar ul ul {
 }
 
 div.sphinxsidebar input {
-    border: 1px solid #001e86;
+    border: 1px solid #00004C;
 }
 
 div.footer {
     background-color: white;
-    color: #001e86;
+    color: #00004C;
     padding: 3px 8px 3px 0;
     clear: both;
     font-size: 0.8em;
     text-align: right;
-    border-bottom: 1px solid #001e86;
+    border-bottom: 1px solid #00004C;
 
     -moz-box-shadow: 2px 2px 5px #000;
     -webkit-box-shadow: 2px 2px 5px #000;
 }
 
 div.footer a {
-    color: #001e86;
+    color: #00004C;
     text-decoration: underline;
 }
 
@@ -153,12 +154,12 @@ p {
 }
 
 a {
-    color: #001e86;
+    color: #00004C;
     text-decoration: none;
 }
 
 a:hover {
-    color: #001e86;
+    color: #00004C;
     text-decoration: underline;
 }
 
@@ -167,7 +168,7 @@ div.body a {
 }
 
 h1, h2, h3 {
-    color: #001e86;
+    color: #00004C;
 }
 
 h1 {
@@ -180,7 +181,7 @@ h2 {
     margin: 1.3em 0 0.2em 0;
     font-size: 1.35em;
     padding-bottom: .5em;
-    border-bottom: 1px solid #001e86;
+    border-bottom: 1px solid #00004C;
 }
 
 h3 {
@@ -234,13 +235,13 @@ cite, code, tt {
     letter-spacing: 0.01em;
 }
 
-tt {
+code {
     background-color: #F2F2F2;
     border-bottom: 1px solid #ddd;
     color: #333;
 }
 
-tt.descname, tt.descclassname, tt.xref {
+code.descname, code.descclassname, code.xref {
     border: 0;
 }
 
@@ -249,16 +250,17 @@ hr {
     margin: 2em;
 }
 
-a tt {
+a code {
     border: 0;
     color: #CA7900;
 }
 
-a tt:hover {
+a code:hover {
     color: #2491CF;
 }
 
 pre {
+    background-color: transparent !important;
     font-family: 'Consolas', 'Deja Vu Sans Mono',
                  'Bitstream Vera Sans Mono', monospace;
     font-size: 0.95em;
@@ -317,7 +319,11 @@ div.admonition li p {
 }
 
 div.admonition pre, div.warning pre {
-    margin: 0.4em 1em 0.4em 1em;
+    margin: 0;
+}
+
+div.highlight {
+    margin: 0.4em 1em;
 }
 
 div.admonition p.admonition-title {
@@ -430,6 +436,13 @@ th {
     text-align: left;
     padding-right: 5px;
     background-color: #82A0BE;
+}
+
+div.literal-block-wrapper div.code-block-caption {
+    background-color: #EEE;
+    border-style: solid;
+    border-color: #CCC;
+    border-width: 1px 5px;
 }
 
 /* WIDE DESKTOP STYLE */

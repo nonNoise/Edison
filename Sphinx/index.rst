@@ -1,308 +1,70 @@
+ ====================================================================
+Edison開発方法 Ver2.0　　(Rev2対応版)
 ====================================================================
-Edison開発方法 
-====================================================================
-
-
 
 .. image:: img/intel.web.480.270.jpg
 	:scale: 40%
 	:target: http://www.intel.com/content/www/us/en/do-it-yourself/maker.html
 
-.. image:: img/edison.png
-	:scale: 40%
+.. image:: img/Edison11.JPG
+	:scale: 50%
+
+.. image:: img/EA05.JPG
+	:scale: 30%
 
 .. image:: img/Edison_top_view.png
 	:scale: 30%
-	:target: http://nonnoise.github.io/Edison/hardware.html
 
-.. image:: img/edison02.jpg
-	:scale: 30%
 
-	
-nonNoise式 Edison開発方法
+nonNoise博士のEdison-ノート
 --------------------------------------
 
-最終更新日 |today| 
+最終更新日 |today|
+
+★Rev2　対応に向けて随時更新中！
+
+
+-- **Edisonセットアップ編** --
+
+.. toctree::
+    :maxdepth: 1
+
+    Setup/01
+    Setup/02
+    Setup/03
+
 
 
 -- **ソフトウェア編** --
 
 .. toctree::
-	:maxdepth: 1
-	:glob: 	
-	
-	index
-	init
-	NoSpace
-	python
+    :maxdepth: 1
 
+    Software/python
+    Software/ntpdate
 
 
 -- **ハードウェア編** --
 
 .. toctree::
-	:maxdepth: 1
-	:glob: 	
+    :maxdepth: 1
 
-	hardware_module
-	hardware_bb
-	hardware_arduino
-	hardware_i2c
+    Hardware/hardware_module
+    Hardware/hardware_bb
+    Hardware/hardware_arduino
+    Hardware/hardware_i2c
 
 
 -- **応用・ネタ編** --
 
 .. toctree::
-	:maxdepth: 1
-	:glob: 	
-	
-	hikaku
-	ntpdate
-	bluetooth
-	memo
-
-
-|
-
-|
-
-
-1.まずEdisonを買う。
----------------------------
-
-Intel社から三種類、Edisonが発売されています。
-
-一つはモジュール単品
-http://akizukidenshi.com/catalog/g/gM-08569/
-
-そしてブレークアウト基板付きセット
-http://akizukidenshi.com/catalog/g/gM-08570/
-
-最後に、Arduino変換基板付きセット
-http://akizukidenshi.com/catalog/g/gM-08571/
-
-
-値段的、サイズ的に扱いやすいブレークアウト基板付きセットを本サイトで紹介します。
-
-他のセットについては、互換があったり無かったり、触れた機会に調査したいと思いますw
-
-
-2. 開発環境を整える
------------------------------------------
-
-さて、ブレークアウト基板セット
-http://akizukidenshi.com/catalog/g/gM-08570/
-を買って、他にも色々必要です。
-
-開発には、USB-MicroBが２本、２本ですよ？　２本必要ですw
-
-１本は電源用、もう１本は通信用です。
-
-電源用を接続するとPC上ではディスクとして見えます。
-基板にLEDが付いたら電源用のUSBコネクタです。
-
-通信用に接続すると、PC上ではFTDIのドライバのインストールが
-開始されます。基板上のLEDは点灯しません。
-
-どうやら、Edisonの電源ラインと通信用ラインは完全に独立していて、
-先に通信側を接続して、COMポートを開くとEdisonの起動時の処理が見えたりします。
-これ結構、便利でうれしい。さすがだねw
-
-開発環境としてはこれだけ。
-
-必要な物
-
-◇ Edison Breakout Board : x1 : http://akizukidenshi.com/catalog/g/gM-08570/
-
-◇ USB-MicroB : x2 : http://akizukidenshi.com/catalog/g/gC-07607/
-
-◇ 保存ケース : x1 : http://akizukidenshi.com/catalog/g/gP-07327/
-
-だけで一先ず十分です。
-
-
-3. Edisonを起動してみる
------------------------------------------
-
-さて、早速起動してみますか。開封の儀は写真だけなのですっ飛ばします。
-
-あ、ちなみにコネクタでマウントした後に小さなスペーサーが残るけど、それちゃんと付けておいた方が安心だよ
-結構コネクタ壊れやすいから、ちゃんと付けておいた方が良いw
-
-さて、もうYou!USBさしちゃうなYo!　ってことで、何も考えずにUSBポートに接続してください。
-
-得に順番は関係ありませんが、僕は先にFTDIのチップが乗っている方を接続します。
-
-(1) FTDIチップが乗っている方を先に接続
-(2) COMポートが決まったらTeraTarm(Win)やscreen(Mac,Linux)でシリアル通信を行う準備をする。
-(3) シリアル通信の速度は115200bpsです。それだけ設定してください。その他はデフォルトでOK
-(4) シリアル通信の準備が出来たら、電源側のUSBを接続し、基板にLEDが灯ることを確認してください。
-(5) 数秒後、Boot画面がずらずら出てくるはずなので、何も押さずに少し待つ。
-(6) 電源さしてLEDも付いたのに文字が出ない際は、USBがちゃんと刺さっているか確認して(3)の速度を見直してください。
-(7) login: と言う表記になれば起動成功！　おめでとうございます！　そしてようこそEdisonの世界へw
-
-4. Edisonを触ってみる
------------------------------------------
-
-loginまで無事に到着した方は、これからコマンドで進んでいきますので、マウスから両手を離してキーボードに集中してください。
-
-それでは行きますよw
-
-.. warning::
-
-	Edisonのシリアルターミナルでバグが一ヶ所あります。少し時間が立つと、最初の一文字を認識してくれません。
-	ちゃんと文字が打たれているか確認ののち、最初の一文字が入っていない際は削除して再度打ち込んでください。
-	※最新版FWで解決されました。最新版のFWにする方法は、http://nonnoise.github.io/Edison/init.html
-
-
-
-(1) login: の箇所に root と打ち込みエンター　（初期状態ではrootのパスワードは無い)
-
-(2) login出来ました？試しにlsコマンドでopkg.binが見えればOK　（これが何か不明w）
-
-
-5. Edisonのファームウェアをアップデートする。
------------------------------------------
-
-せっかくEdisonにログイン出来たのに、いきなりファームウェアをアップデートするの？
-
-そもそも、Edisonでファームウェアとかよく分からないんだけど。
-
-ってか、Ediosnってバグ多すぎて泣ける。
-
-
-そうなんですよ。誰の仕業か知りませんが、Edisonは買ったときのOSにはバグが沢山あり、外部からファームウェアのアップデートを行わなければなりません。
-
-しかもこれが中々難解。いろんな方法があります。しかもファームウェアを書き換えると保存ファイルも全部書き換えられる。
-
-なので、買ってすぐ、このタイミングで書き換えることをおすすめします。
-
-6.最新のファームウェアファイルのダウンロード
---------------------------------------------
-
-https://communities.intel.com/docs/DOC-23242 より、「　Edison Yocto complete 　」
-をダウンロードしてください。
-
-ダウンロードしたら、zipファイルなので解答してください。
-
-解答したら、コマンドプロントで解答したフォルダーまで移動します。
-
-7. 初期化の手順
---------------------------------------------
-
-(1) EdisonをPCに接続します
-
-(2) (Winsowsの場合)Intel非純正のサピート方法です。
-
-	以下のリンクより、dfu-util.exeをダウンロード。
-	https://dl.dropboxusercontent.com/u/54378433/dfu-util/dfu-util.exe
-	
-	ダウンロードしたdfu-util.exeを、解答したedison-image-ww36-14ファイルに移動します。
-
-	cdコマンドを使い、edison-image-ww36-14ファイルまでコマンドで移動します。
-	
-	移動先で、
-		- flashall
-	を実行すると、数秒間の待ち状態になります。
-
-	参考資料： https://communities.intel.com/message/256593
-
-	書き込み待機状態になれば、次に進みます。
-
-(2) (Linuxの場合)Linux上から書き換えを実行
-
-	.. warning::
-
-	自分のUnintu環境では、dfu-utilが無かった為、 「apt-get install dfu-util」を行った後に実行しました。
-
-	- sudo ./flashall.sh
-
-	書き込み待機状態になれば、次に進みます。
-
-(3) Edisonの電源側を抜いて、差し直す。（なるべくFTDI側は残しておいた方がいいです。完了時が分かりますので)
-
-(4) コマンドが流れて行って、数分近くたったら、自動的に再起動します。
-
-(5) edison login: が表示されたが完了。
-
-最新版のFWにする方法は、http://nonnoise.github.io/Edison/init.html　でも説明しています。
-
-
-8. Edisonを触ってみる
------------------------------------------
-
-loginまで無事に到着した方は、これからコマンドで進んでいきますので、マウスから両手を離してキーボードに集中してください。
-
-それでは行きますよw
-
-(1) login: の箇所に root と打ち込みエンター　（初期状態ではrootのパスワードは無い)
-
-(2) login出来ました？試しにifconfigで何かが見えればOK
-
-(3) 早速、Edisonの初期設定をしていきます。まずEdisonのWiFiを使ってインターネットにつなげます。
-
-(4) コマンド[configure_edison --setup]を入力します。
-
-- Configure Edison: Device Name
-	- デバイスの名前を決めます。僕はedison-01　にしました。
-
-- Configure Edison: Device Password
-	- デバイスのパスワード(root共通)を設定します。ここを設定すると次回のログイン時に必要です。8～64文字で設定する必要があります。
-
-- Configure Edison: WiFi Connection
-	- WiFiを設定します。数秒後に自動的にスキャンしたリストを見せてくれますが、部屋のWiFiが見当たらない際は０再更新、１手入力を選択してください。
-
-.. note::
-	
-	WiFiの設定で失敗、もしくは時間がかかる際は、Edisonをルーターの近くに持っていったり、金属系から遠ざけるなり行ってください。
-	意外とアンテナ弱いです。もしかするとどこかの設定で強く出来るかも？
-
-
-(5) WiFIの設定がうまく行ったかの確認をするために [ifconfig]を入力して、wlan0 にIPアドレスがあれば正解。
-
-
-9. Edisonを最新にする
------------------------------------------
-
-さて、何とかWiFiに接続できて、これからだってその前に、念のため色々と最新にしたいとおもいます。
-
-
-(1) opkg　と言うパッケージマネージャのリストを更新します。 以下のコマンドを叩いてください。
-
-
-- ベースとなるライブラリリストファイル
-	- curl http://nonnoise.github.io/Edison/_sources/Edison/base-feeds.conf -o base-feeds.conf
-
-- Intelが推奨するIoTライブラリリストファイル
-	- curl http://nonnoise.github.io/Edison/_sources/Edison/intel-iotdk.conf -o intel-iotdk.conf
-
-- mraaと言うEdisonのIO回りを制御するためのライブラリリストファイル
-	- curl http://nonnoise.github.io/Edison/_sources/Edison/mraa-upm.conf -o mraa-upm.conf
-
-	※この箇所は我流です。好き勝手に開発するにはこの辺を入れておいた方がおもしろい。
-
-(2) ダウンロードしたコンフィグファイルを移動します。
-
-- cp base-feeds.conf /etc/opkg/
-- cp intel-iotdk.conf /etc/opkg/
-- cp mraa-upm.conf /etc/opkg/
-	
-
-(3) opkgを更新してパッケージを最新のものにします。
-
-- opkg update
-- opkg upgrade
-
-(4) 試しにgitを入れてみましょう
-
-- opkg install git
-
-これだけ。問題なく行ったら、
-
-- git
-
-でgitコマンドが起動したら成功w
-
+    :maxdepth: 1
+
+    Setup/init
+    Setup/NoSpace
+    memo/hikaku
+    Software/bluetooth
+    memo/memo
 
 
 提供
@@ -314,20 +76,20 @@ ArtifactNoise.
 	:alt: ArtifactNoise
 	:scale: 40%
 	:target: http://artifactnoise.com
-	
+
+書籍化に向けて勉強中。
+
 管理情報
 ------------------------------------------------
 
-:初版: 2014/10/25  
-:改版: 2014/10/26  Bluetoothの開発記事を追加。 
-:改版: 2014/10/27  FWの書き込み方法にWindows版を追加。
-:改版: 2014/10/30  ハードウェアについて Breakout Board 編  を追記
-:改版: 2015/01/03  Edisonのセットアップ方法を新旧合体しました。
+:改版: 2015/06/18  Edison Rev2に合わせて大幅に改版
 :改版: 2015/01/25  EdisonArduino版をまとめました。
-:改版: 2015/01/25  mraaライブラリのまとめと、Lチカのまとめを少々。
+:改版: 2015/01/03  Edisonのセットアップ方法を新旧合体しました。
+:改版: 2014/10/30  ハードウェアについて Breakout Board 編  を追記
+:改版: 2014/10/27  FWの書き込み方法にWindows版を追加。
+:改版: 2014/10/26  Bluetoothの開発記事を追加。
+:初版: 2014/10/25
 
 :作成者: Yuta kitagami
 :連絡先: kitagami@artifactnoise.com
 :twitter: @nonNoise
-
-
