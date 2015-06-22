@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="top" title="Edison-Note 2.0 documentation" href="../index.html" />
     <link rel="next" title="EdisonにPython環境を構築する" href="../Software/python.html" />
-    <link rel="prev" title="Intel Edisonのセットアップ" href="02.html" />
+    <link rel="prev" title="Edisonの起動と設定" href="" />
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
@@ -57,7 +57,7 @@
           <a href="../Software/python.html" title="EdisonにPython環境を構築する"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="02.html" title="Intel Edisonのセットアップ"
+          <a href="#" title="Edisonの起動と設定"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Edison-Note 2.0 documentation</a> &raquo;</li> 
       </ul>
@@ -77,8 +77,8 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="02.html"
-                        title="previous chapter">Intel Edisonのセットアップ</a></p>
+  <p class="topless"><a href=""
+                        title="previous chapter">Edisonの起動と設定</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="../Software/python.html"
                         title="next chapter">EdisonにPython環境を構築する</a></p>
@@ -182,14 +182,33 @@
 <li>opkg　と言うパッケージマネージャのリストを更新します。 以下のコマンドを叩いてください。</li>
 </ol>
 <ul>
+<li><p class="first">ベースとなるライブラリリストファイル</p>
+<blockquote>
+<div><ul>
 <li><dl class="first docutils">
-<dt>ベースとなるライブラリリストファイル</dt>
-<dd><ul class="first simple">
+<dt>コマンド</dt>
+<dd><ul class="first last simple">
 <li>curl <a class="reference external" href="http://nonnoise.github.io/Edison/_sources/Edison/base-feeds.conf">http://nonnoise.github.io/Edison/_sources/Edison/base-feeds.conf</a> -o base-feeds.conf</li>
 </ul>
-<p class="last">※この箇所は我流です。好き勝手に開発するにはこの辺を入れておいた方がおもしろい。</p>
 </dd>
 </dl>
+</li>
+<li><dl class="first docutils">
+<dt>中身</dt>
+<dd><ul class="first last simple">
+<li>src/gz core2-32 <a class="reference external" href="http://repo.opkg.net/edison/repo/core2-32">http://repo.opkg.net/edison/repo/core2-32</a></li>
+<li>src all     <a class="reference external" href="http://iotdk.intel.com/repos/1.1/iotdk/all">http://iotdk.intel.com/repos/1.1/iotdk/all</a></li>
+<li>src quark   <a class="reference external" href="http://iotdk.intel.com/repos/1.1/iotdk/quark">http://iotdk.intel.com/repos/1.1/iotdk/quark</a></li>
+<li>src i586    <a class="reference external" href="http://iotdk.intel.com/repos/1.1/iotdk/i586">http://iotdk.intel.com/repos/1.1/iotdk/i586</a></li>
+<li>src x86     <a class="reference external" href="http://iotdk.intel.com/repos/1.1/iotdk/x86">http://iotdk.intel.com/repos/1.1/iotdk/x86</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>※FW2.1になった際にcore2-32 以外のリストをupdateしてしまうとupgrate時に固まる現象を回避しています。
+※この箇所は我流です。好き勝手に開発するにはこの辺を入れておいた方がおもしろい。</p>
+</div></blockquote>
 </li>
 </ul>
 <ol class="arabic simple" start="2">
@@ -197,8 +216,6 @@
 </ol>
 <ul class="simple">
 <li>cp base-feeds.conf /etc/opkg/</li>
-<li>cp intel-iotdk.conf /etc/opkg/</li>
-<li>cp mraa-upm.conf /etc/opkg/</li>
 </ul>
 <ol class="arabic simple" start="3">
 <li>opkgを更新してパッケージを最新のものにします。</li>
@@ -269,7 +286,7 @@
           <a href="../Software/python.html" title="EdisonにPython環境を構築する"
              >next</a> |</li>
         <li class="right" >
-          <a href="02.html" title="Intel Edisonのセットアップ"
+          <a href="#" title="Edisonの起動と設定"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Edison-Note 2.0 documentation</a> &raquo;</li> 
       </ul>
