@@ -1,5 +1,5 @@
  ====================================================================
-Edison開発方法 Ver2.0　　(FW 2.1対応版)
+Edison開発方法 Ver2.0　　(最新ファームウェア FW 2.1対応版)
 ====================================================================
 
 .. image:: img/intel.web.480.270.jpg
@@ -12,8 +12,8 @@ Edison開発方法 Ver2.0　　(FW 2.1対応版)
 .. image:: img/EA05.JPG
 	:scale: 30%
 
-.. image:: img/Edison_top_view.png
 	:scale: 30%
+.. image:: img/Edison_top_view.png
 
 
 nonNoise博士のEdison-ノート

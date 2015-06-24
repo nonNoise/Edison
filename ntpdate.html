@@ -1,0 +1,346 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Edisonの時計合わせ &mdash; Edison-Note 2.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="top" title="Edison-Note 2.0 documentation" href="index.html" />
+    <link rel="next" title="EdisonのBluetooth開発" href="bluetooth.html" />
+    <link rel="prev" title="Edison 比較用資料" href="hikaku.html" />
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-24204483-2', 'auto');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="bluetooth.html" title="EdisonのBluetooth開発"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="hikaku.html" title="Edison 比較用資料"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Edison-Note 2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Edisonの時計合わせ</a><ul>
+<li><a class="reference internal" href="#id1">1. 初めに</a></li>
+<li><a class="reference internal" href="#id2">2. コマンドで今の時間を見てみる</a></li>
+<li><a class="reference internal" href="#ntpdate">3. ntpdateをインストールする</a></li>
+<li><a class="reference internal" href="#id3">4. ntpdateを使って時計を合わせる</a></li>
+<li><a class="reference internal" href="#id4">5. ntpdateで遊んでみる</a></li>
+<li><a class="reference internal" href="#id5">参考資料</a></li>
+<li><a class="reference internal" href="#id6">提供</a></li>
+<li><a class="reference internal" href="#id7">管理情報</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="hikaku.html"
+                        title="previous chapter">Edison 比較用資料</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bluetooth.html"
+                        title="next chapter">EdisonのBluetooth開発</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ntpdate.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="edison">
+<h1>Edisonの時計合わせ<a class="headerlink" href="#edison" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="http://www.intel.com/content/www/us/en/do-it-yourself/maker.html"><img alt="_images/intel.web.480.270.jpg" src="_images/intel.web.480.270.jpg" style="width: 192.0px; height: 108.0px;" /></a>
+<a class="reference internal image-reference" href="_images/edison.png"><img alt="_images/edison.png" src="_images/edison.png" style="width: 210.4px; height: 137.2px;" /></a>
+<a class="reference external image-reference" href="http://nonnoise.github.io/Edison/hardware.html"><img alt="_images/Edison_top_view.png" src="_images/Edison_top_view.png" style="width: 255.6px; height: 158.4px;" /></a>
+<a class="reference internal image-reference" href="_images/edison02.jpg"><img alt="_images/edison02.jpg" src="_images/edison02.jpg" style="width: 180.0px; height: 135.0px;" /></a>
+<div class="section" id="id1">
+<h2>1. 初めに<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Edusinでの時計合わせの方法についてまとめます。</p>
+<p>Edisonにはモジュールの内部にリアルタイムクロック(RTC)があったりするので、その機能を使ってみます。</p>
+<p>また、Linuxではファイルの更新日を比較したりする仕組みも多いので、できるだけ早い段階で時間合わせをしておいた方が良い。</p>
+<p>一度、時間合わせを行えば、電源さえ入っていれば時間は記憶されます。
+が、一度電源を抜いてしまいますと、誤差が大きくなってしまう。
+なので、Edisonにはバックアップ電池をつけるための端子があるようだ。（未検証）</p>
+<p>今回は、手動で時計合わせをせず、せっかく無線LANに繋がるデバイスなので、NTPサーバーへアクセスしたいとおもいます。</p>
+</div>
+<div class="section" id="id2">
+<h2>2. コマンドで今の時間を見てみる<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Linuxには二種類のクロックがあり、</p>
+<ul>
+<li><dl class="first docutils">
+<dt>システムクロック</dt>
+<dd><ul class="first last simple">
+<li>Linuxのシステム上で動く時計であり、Linux上の時計は殆どシステムクロックを使う。定期的にハードウェアクロックから時間を読み出す。</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>ハードウェアクロック</dt>
+<dd><ul class="first last simple">
+<li>RTCなどを使い、ハードウェアレベルで時間を刻む。Linux上ではあまり使われないが、電源を切った後にもカウントするので、次回起動時に時計合わせが必要ない。</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>となっています。</p>
+<p>ためしに、今のそれぞれの時間を確認しましょう。</p>
+<ul>
+<li><dl class="first docutils">
+<dt>システムクロック</dt>
+<dd><ul class="first last simple">
+<li>date</li>
+<li>&gt; 時間が表示される</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>ハードウェアクロック</dt>
+<dd><ul class="first last simple">
+<li>hwclock</li>
+<li>&gt; 時間が表示される</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>初期の状態だと、dateには何か時間が表示されるかもしれません。が、hwclockの方は0:0:0:0のままだったような気がします。（記事を執筆中に更新してしまったので元に戻せないw）</p>
+<p>一先ず、今の状況が分かれば、続いてNTPサーバーより時間合わせに移りたいと思います。</p>
+</div>
+<div class="section" id="ntpdate">
+<h2>3. ntpdateをインストールする<a class="headerlink" href="#ntpdate" title="Permalink to this headline">¶</a></h2>
+<p>Linuxではよく、ntpdateが入っている事が殆どですが、Edisonにはまだntpdateが標準では入っていません。また、opkgにも無かったので、手動で入れていきます。</p>
+<p>まずは、ntpdateのソースをダウンロードします。</p>
+<ul class="simple">
+<li>curl <a class="reference external" href="http://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.6p5.tar.gz">http://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.6p5.tar.gz</a> -o ntpdate.tar.gz</li>
+<li>tar zxvf ntpdate.tar.gz</li>
+<li>cd ntp-4.2.6p5/</li>
+</ul>
+<p>続いて、コンフィグの設定を行います。</p>
+<ul class="simple">
+<li>./configure &#8211;prefix=/usr &#8211;sysconfdir=/etc &#8211;enable-linuxcaps &#8211;with-binsubdir=sbin &#8211;with-lineeditlibs=readline</li>
+</ul>
+<p>最後に、makeして、インストールします。</p>
+<ul class="simple">
+<li>make</li>
+<li>make install</li>
+</ul>
+<p>無事にntpdateがインストールされたか確認してみます。</p>
+<ul class="simple">
+<li>ntpdate -v ntp.nict.jp</li>
+</ul>
+<p>何か時間らしき物が見えれば成功です。</p>
+</div>
+<div class="section" id="id3">
+<h2>4. ntpdateを使って時計を合わせる<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>さて、早速時計合わせをしていきます。</p>
+<p>まず、今のEdisonの時計と、ネット側にあるNTPの時刻との差を見にいきます。</p>
+<ul class="simple">
+<li>ntpdate -q ntp.nict.jp</li>
+</ul>
+<p>最後の行の「adjust time server 133.243.238.164 offset 0.026365 sec」が重要な箇所で、さらに最後の offset 0.026365 sec　が、設定時間の差です。</p>
+<p>続いて、NTPの時刻に合わせてみましょう。</p>
+<ul class="simple">
+<li>ntpdate -bv ntp.nict.jp</li>
+</ul>
+<p>このコマンドにより、Edison内のシステムクロックがNTPにより、世界標準時間(UTC)に合わさります。</p>
+<p>続いて、世界標準時間では日本時間と差があるので、日本時間に設定します。所謂タイムゾーンを変えると言うことです。</p>
+<ul class="simple">
+<li>export TZ=JST-9</li>
+</ul>
+<p>以上で、時間合わせの設定が終わりです。</p>
+<p>試しに、</p>
+<ul class="simple">
+<li>date</li>
+</ul>
+<p>で、今の正しい日本時間が表示されていれば正解です。</p>
+</div>
+<div class="section" id="id4">
+<h2>5. ntpdateで遊んでみる<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>さて、せっかくntpdateを入れたのですから、そのコマンドを使って遊んでみましょう。</p>
+<p>ますは、結局システムクロックとハードウェアクロックがあったけど、今どうなってるの？から。</p>
+<ul>
+<li><dl class="first docutils">
+<dt>date</dt>
+<dd><ul class="first last simple">
+<li>&gt; 日本時間で表示</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>hwclock</dt>
+<dd><ul class="first last simple">
+<li>&gt; 世界時間で表示</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>と、こういった形で時間が保存されます。　通常はこのままで問題ありません。無理やり合わせることも出来ますが、世界時間はたまに必要となるので、このままでいいでしょう。</p>
+<p>次に、今のNTPサーバーとの時間差を知りたい時ですが、</p>
+<ul>
+<li><dl class="first docutils">
+<dt>ntpdate -q ntp.nict.jp</dt>
+<dd><ul class="first last simple">
+<li>&gt; server 133.243.238.164, stratum 1, offset 0.043990, delay 0.05780</li>
+<li>&gt; server 133.243.238.243, stratum 1, offset 0.044843, delay 0.05847</li>
+<li>&gt; server 133.243.238.244, stratum 1, offset 0.044612, delay 0.05783</li>
+<li>&gt; server 133.243.238.163, stratum 1, offset 0.043710, delay 0.05836</li>
+<li>&gt;  7 Nov 01:11:08 ntpdate[11329]: adjust time server 133.243.238.164 offset 0.043990 sec</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>って感じになり、最後の[offset 0.043990 sec]が、時間差になります。</p>
+<p>では、実験を一つしてみましょう。NTPで設定したEdisonを一旦シャットダウンし、電源を抜いた状態で数秒放置します。</p>
+<ul class="simple">
+<li>halt</li>
+</ul>
+<p>シャットダウンコマンドです。文字の流れが止まり、[  OK  ] Reached target Shutdown.  となれば、電源側のUSBケーブルを抜いてください。</p>
+<p>んで、カップラーメンを食べるか、そのまま電源を抜いた状態で３分程度待ちましょう。</p>
+<p>数分後、再び電源を入れ、Edisonへloginしてください。</p>
+<p>そして、再び</p>
+<ul class="simple">
+<li>ntpdate -q ntp.nict.jp</li>
+</ul>
+<p>どうでしょう。offsetの箇所の時間がものすごく増えた気がしません？w</p>
+<p>そう、EdisonにはRTC用バックアップ電池が無いので、電源を抜くと電源を抜く前の時間で止まってしまいます。
+なので、解決策としては、</p>
+<ul class="simple">
+<li>起動時に毎回NTPサーバーへアクセスする</li>
+<li>RTC用のバックアップ電池を付ける</li>
+<li>リチウムポリマー電池等を付けて、Linuxを止めない仕組みを作る</li>
+<li>USBに接続しっ放しで、抜けたらNTPへ接続コマンドを手動で入れる</li>
+</ul>
+<p>って所でしょうかね。一番簡単な方法はバックアップ電池を付けることなんですが、何を付ければいいのか資料が無いので、なるべくUSB抜かない方向でいきたいと思います。</p>
+<p>後日バックアップ電池に関して追記予定</p>
+</div>
+<div class="section" id="id5">
+<h2>参考資料<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.linuxfromscratch.org/blfs/view/svn/basicnet/ntp.html">http://www.linuxfromscratch.org/blfs/view/svn/basicnet/ntp.html</a></p>
+<p><a class="reference external" href="http://webkaru.net/linux/ntpdate-command/">http://webkaru.net/linux/ntpdate-command/</a></p>
+<p><a class="reference external" href="http://futuremix.org/2004/01/localtime">http://futuremix.org/2004/01/localtime</a></p>
+<p><a class="reference external" href="http://www.atmarkit.co.jp/ait/articles/0812/26/news120.html">http://www.atmarkit.co.jp/ait/articles/0812/26/news120.html</a></p>
+</div>
+<div class="section" id="id6">
+<h2>提供<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>ArtifactNoise.</p>
+<a class="reference external image-reference" href="http://artifactnoise.com"><img alt="ArtifactNoise" src="_images/ANlogoMark02.png" style="width: 157.2px; height: 33.6px;" /></a>
+</div>
+<div class="section" id="id7">
+<h2>管理情報<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">初版:</th><td class="field-body">2014/11/07</td>
+</tr>
+<tr class="field-even field"><th class="field-name">作成者:</th><td class="field-body">Yuta kitagami</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">連絡先:</th><td class="field-body"><a class="reference external" href="mailto:kitagami&#37;&#52;&#48;artifactnoise&#46;com">kitagami<span>&#64;</span>artifactnoise<span>&#46;</span>com</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">twitter:</th><td class="field-body">&#64;nonNoise</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="bluetooth.html" title="EdisonのBluetooth開発"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="hikaku.html" title="Edison 比較用資料"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Edison-Note 2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, ArtifactNoise..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>
