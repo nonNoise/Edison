@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Edisonの起動と設定 &mdash; Edison-Note 2.0 documentation</title>
+    <title>▲Edisonと通信するためには &mdash; Edison-Note 2.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="top" title="Edison-Note 2.0 documentation" href="../index.html" />
     <link rel="next" title="EdisonにPython環境を構築する" href="../Software/python.html" />
-    <link rel="prev" title="Edisonの起動と設定" href="" />
+    <link rel="prev" title="▲Edisonと通信するためには" href="" />
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
@@ -57,7 +57,7 @@
           <a href="../Software/python.html" title="EdisonにPython環境を構築する"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="#" title="Edisonの起動と設定"
+          <a href="#" title="▲Edisonと通信するためには"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Edison-Note 2.0 documentation</a> &raquo;</li> 
       </ul>
@@ -66,8 +66,9 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Edisonの起動と設定</a><ul>
-<li><a class="reference internal" href="#id1">1. Edisonを起動してみる</a></li>
+<li><a class="reference internal" href="#">▲Edisonと通信するためには</a><ul>
+<li><a class="reference internal" href="#id1">1. Edisonに接続するための方法</a></li>
+<li><a class="reference internal" href="#edisonusb-windows">2. EdisonとUSBで接続する[ Windowsの場合]</a></li>
 <li><a class="reference internal" href="#id2">2. Edisonを触ってみる</a></li>
 <li><a class="reference internal" href="#id3">5. Edisonを最新にする</a></li>
 <li><a class="reference internal" href="#id4">提供</a></li>
@@ -78,7 +79,7 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href=""
-                        title="previous chapter">Edisonの起動と設定</a></p>
+                        title="previous chapter">▲Edisonと通信するためには</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="../Software/python.html"
                         title="next chapter">EdisonにPython環境を構築する</a></p>
@@ -111,23 +112,79 @@
           <div class="body" role="main">
             
   <div class="section" id="edison">
-<h1>Edisonの起動と設定<a class="headerlink" href="#edison" title="Permalink to this headline">¶</a></h1>
+<h1>▲Edisonと通信するためには<a class="headerlink" href="#edison" title="Permalink to this headline">¶</a></h1>
 <a class="reference external image-reference" href="http://www.intel.com/content/www/us/en/do-it-yourself/maker.html"><img alt="../_images/intel.web.480.270.jpg" src="../_images/intel.web.480.270.jpg" style="width: 192.0px; height: 108.0px;" /></a>
 <a class="reference internal image-reference" href="../_images/Edison111.JPG"><img alt="../_images/Edison111.JPG" src="../_images/Edison111.JPG" style="width: 351.0px; height: 140.0px;" /></a>
 <a class="reference internal image-reference" href="../_images/EA051.JPG"><img alt="../_images/EA051.JPG" src="../_images/EA051.JPG" style="width: 270.0px; height: 179.7px;" /></a>
 <a class="reference internal image-reference" href="../_images/Edison_top_view.png"><img alt="../_images/Edison_top_view.png" src="../_images/Edison_top_view.png" style="width: 255.6px; height: 158.4px;" /></a>
 <div class="section" id="id1">
-<h2>1. Edisonを起動してみる<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>さて、もうYou!USBさしちゃうなYo!　ってことで、何も考えずにUSBポートに接続してください。</p>
-<p>得に順番は関係ありませんが、僕は先にFTDIのチップが乗っている方を接続します。</p>
+<h2>1. Edisonに接続するための方法<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>早速Edisonと通信してみましょう。</p>
+<p>Edisonとの通信には２つの方法があります。</p>
 <ol class="arabic simple">
-<li>FTDIチップが乗っている方を先に接続</li>
-<li>COMポートが決まったらTeraTarm(Win)やscreen(Mac,Linux)でシリアル通信を行う準備をする。</li>
-<li>シリアル通信の速度は115200bpsです。それだけ設定してください。その他はデフォルトでOK</li>
-<li>シリアル通信の準備が出来たら、電源側のUSBを接続し、基板にLEDが灯ることを確認してください。</li>
-<li>数秒後、Boot画面がずらずら出てくるはずなので、何も押さずに少し待つ。</li>
-<li>電源さしてLEDも付いたのに文字が出ない際は、USBがちゃんと刺さっているか確認して(3)の速度を見直してください。</li>
-<li>login: と言う表記になれば起動成功！　おめでとうございます！　そしてようこそEdisonの世界へw</li>
+<li>USBを使ったシリアルコンソール経由でのアクセス</li>
+<li>無線LANを使ったSSHによるアクセス</li>
+</ol>
+<p>慣れてくれば、線を使わない無線LAN経由が便利かもしれませんが、
+最初の無線LANのセットアップ等は有線で行います。</p>
+<p>それでは、EdisonにUSBを使って接続する方法をまとめます。</p>
+<ol class="arabic">
+<li><p class="first">まずEdisonには２箇所のUSB-MicroBコネクタがあり、それぞれUSBケーブルを接続してください。</p>
+<blockquote>
+<div><img alt="../_images/Edison-USBSetup01.JPG" src="../_images/Edison-USBSetup01.JPG" />
+<img alt="../_images/Edison-USBSetup02.JPG" src="../_images/Edison-USBSetup02.JPG" />
+</div></blockquote>
+</li>
+</ol>
+<p>それぞれのUSBコネクタには機能が違いますのでご紹介します。</p>
+<p>①のUSBコネクタはEdisonにアクセスするためのコンソール専用USBコネクタになります。</p>
+<p>②のUSBコネクタは、Edison本体が持つUSB機能に接続するためのコネクタになります。</p>
+<p>この、Edison本体が持つUSB機能ですが、EdisonにはUSBスレーブ（例えばPCが親でEdisonが子)と、
+USBホスト（Edisonが親でUSBメモリが子）の両方の機能をもっております。</p>
+<p>Edisonのブレークアウトボードでは、①のUSB端子でUSBスレーブ機能とUSBホスト機能両方を実現しています。
+また、Arduinoベースボードでは、番号が振っていないもうひとつのUSBーAのコネクタでUSBホストの機能を利用できます。</p>
+<p>ただし、EdisonはUSBホストとUSBスレーブを同時に使用することが出来ない為、
+通常時はUSBスレーブと動き、スイッチを切り替えたりケーブルを変えたりするとUSBホストになります。
+USBホストとして使う方法は後述でまとめますので、もう少々お待ちください。</p>
+</div>
+<div class="section" id="edisonusb-windows">
+<h2>2. EdisonとUSBで接続する[ Windowsの場合]<a class="headerlink" href="#edisonusb-windows" title="Permalink to this headline">¶</a></h2>
+<p>ここではTeraTarmでの使用方法をご紹介します。</p>
+<ol class="arabic">
+<li><p class="first">デバイスドライバーを表示してCOMポート番号を調べます。</p>
+<blockquote>
+<div><p>何か適当なフォルダーを開きます。 アドレスバーに devmgmt.msc と入力して、エンターを押します。</p>
+<img alt="../_images/Edison-USBSetup03.JPG" src="../_images/Edison-USBSetup03.JPG" />
+<p>すると、デバイスドライバーの画面が表示されます。</p>
+<img alt="../_images/Edison-USBSetup04.JPG" src="../_images/Edison-USBSetup04.JPG" />
+<p>デバイスドライバーの項目の中から「ポート(COMとLPT)」をクリックする</p>
+<p>写真の用に、USB Serial Portが表示されていれば、その先の(COM)の数字を確認します。</p>
+<img alt="../_images/Edison-USBSetup05.JPG" src="../_images/Edison-USBSetup05.JPG" />
+<p>なお、複数のUBS Serial Portがある際は、一旦EdisonのUSBを取り外し、
+表示から消えた番号でEdisonのCOMポートを確認します。</p>
+</div></blockquote>
+</li>
+<li><p class="first">TeraTarmを起動します</p>
+<blockquote>
+<div><p>TeraTarmというフリーソフトのインストールを行います。</p>
+<p><a class="reference external" href="http://osdn.jp/projects/ttssh2/releases/">http://osdn.jp/projects/ttssh2/releases/</a></p>
+<p>最新版のexeをダウンロードし、インストールを行います。
+基本機能で問題ないのでインストールは気にせず行ってください。</p>
+<p>TeraTarmを起動すると、以下の画面になりますので、シリアル側を選択します。
+ポート番号は先ほど確認したCOM番号を選択してOKを押します。</p>
+<img alt="../_images/tera02.png" src="../_images/tera02.png" />
+<p>続いて、通信速度の設定を行います。上側にあるメニューの設定をクリックし、その中のシリアルポートを選択します。</p>
+<img alt="../_images/tera03.png" src="../_images/tera03.png" />
+<p>シリアルポートの設定では、他のところを触らずポートレートの箇所だけを変更します。115200にを選択してください。</p>
+<img alt="../_images/tera04.png" src="../_images/tera04.png" />
+<p>シリアルポートの設定が図の様になればOK</p>
+<img alt="../_images/tera05.png" src="../_images/tera05.png" />
+<p>コンソールの設定が終われば、試しにエンターを押すと、
+edison login:という文字が表示されれば、Edisonとの通信は完了です。</p>
+<img alt="../_images/tera07.png" src="../_images/tera07.png" />
+<p>おめでとう。やっとEdisonと会話することが出来る。</p>
+</div></blockquote>
+</li>
 </ol>
 </div>
 <div class="section" id="id2">
@@ -286,7 +343,7 @@
           <a href="../Software/python.html" title="EdisonにPython環境を構築する"
              >next</a> |</li>
         <li class="right" >
-          <a href="#" title="Edisonの起動と設定"
+          <a href="#" title="▲Edisonと通信するためには"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Edison-Note 2.0 documentation</a> &raquo;</li> 
       </ul>
