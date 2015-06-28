@@ -60,6 +60,9 @@
   <ul>
 <li><a class="reference internal" href="#">Edison Breakout Board でLEDチカチカ</a><ul>
 <li><a class="reference internal" href="#id1">1.初めに</a></li>
+<li><a class="reference internal" href="#edison-arduino">1.Edison-Arduinoベースボードの場合</a></li>
+<li><a class="reference internal" href="#edison-breakoutboard">1.Edison-BreakoutBoardの場合</a></li>
+<li><a class="reference internal" href="#edison">1.Edison-秋月変換基板ボードの場合</a></li>
 <li><a class="reference internal" href="#id2">提供</a></li>
 <li><a class="reference internal" href="#id3">管理情報</a></li>
 </ul>
@@ -103,6 +106,53 @@
 <div class="section" id="id1">
 <h2>1.初めに<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>opkg install libmraa0</p>
+</div>
+<div class="section" id="edison-arduino">
+<h2>1.Edison-Arduinoベースボードの場合<a class="headerlink" href="#edison-arduino" title="Permalink to this headline">¶</a></h2>
+<p>Arduinoベースボードを使用する場合は、ベースボードにレベル変換ICが入っておりますので非常に簡単です。</p>
+<ol class="arabic simple">
+<li>Edison-Arduinoベースボードを用意する。</li>
+<li>ブレットボードを用意する。</li>
+<li>LEDと抵抗、ジャンパーケーブルを用意する。</li>
+<li>LEDと抵抗を以下の様に配線する。</li>
+<li>ジャンパーワイヤーでEdison-Arduinoと接続する。</li>
+<li>プログラムを作成する。</li>
+<li>実行する。</li>
+<li>LEDがチカチカすれば出来上がり。</li>
+<li>LEDが点灯しない場合</li>
+</ol>
+</div>
+<div class="section" id="edison-breakoutboard">
+<h2>1.Edison-BreakoutBoardの場合<a class="headerlink" href="#edison-breakoutboard" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Edison-BreakoutBoardを用意する。</li>
+<li>コネクタを半田付けする。</li>
+<li>ブレットボードを用意する。</li>
+<li>LEDと抵抗、ジャンパーケーブルを用意する。</li>
+<li>LEDと抵抗を以下の様に配線する。</li>
+<li>ジャンパーワイヤーでEdison-Arduinoと接続する。</li>
+<li>プログラムを作成する。</li>
+<li>実行する。</li>
+<li>LEDがチカチカすれば出来上がり。</li>
+<li>LEDが点灯しない場合</li>
+</ol>
+</div>
+<div class="section" id="edison">
+<h2>1.Edison-秋月変換基板ボードの場合<a class="headerlink" href="#edison" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>秋月変換基板Edison-base64を用意する。</li>
+<li>コネクタを半田付けする。</li>
+<li>ブレットボードを用意する。</li>
+<li>電源回路を組み立てる。</li>
+<li>シリアル通信回路を組み立てる。</li>
+<li>電源投入と当時にシリアル通信にてコンソール表示の確認を行う。</li>
+<li>LEDと抵抗を以下の様に配線する。</li>
+<li>ジャンパーワイヤーでEdison-Arduinoと接続する。</li>
+<li>プログラムを作成する。</li>
+<li>実行する。</li>
+<li>LEDがチカチカすれば出来上がり。</li>
+<li>LEDが点灯しない場合</li>
+</ol>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>

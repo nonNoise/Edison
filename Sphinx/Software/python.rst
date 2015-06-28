@@ -1,5 +1,5 @@
 ====================================================================
-EdisonにPython環境を構築する
+★EdisonにPython環境を構築する
 ====================================================================
 
 .. image:: ../img/intel.web.480.270.jpg
@@ -16,7 +16,7 @@ EdisonにPython環境を構築する
 	:scale: 30%
 
 
-1. EdisonにPython環境を構築する
+ EdisonにPython環境を構築する
 --------------------------------------------------------------------------
 
 
@@ -33,13 +33,14 @@ Edisonでは、すでにPythonが標準に入っておりますが、通常のPC
 2) pipをインストールする
 
 	pipはPythonのライブラリをインストールするためのコマンドです。
+
 	Edisonのopkgにはpipが無いため、Pythonソースを使ってインストールを行います。
 
 	インストール用のソースをダウンロードします。
 
 	- curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 
-	Pythonで実行します。
+	ダウンロードしたソースをPythonで実行します。
 
 	- python get-pip.py
 
@@ -59,15 +60,15 @@ Edisonでは、すでにPythonが標準に入っておりますが、通常のPC
 	★ ドキュメント作成支援ライブラリ Sphinx
 
 	- pip install sphinx
-	
+
 	★ 画像処理用イメージライブラリー Pilliow (PIL)
 
 	- pip install pillow
-	
-	★ デーモン管理用ライブラリ supervisor 
+
+	★ デーモン管理用ライブラリ supervisor
 
 	- pip install supervisor
-	
+
 	★ シリアル制御用ライブラリ PySerial
 
 	- pip install pyserial
