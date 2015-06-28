@@ -17,54 +17,83 @@ EdisonにPython環境を構築する
 
 
 1. EdisonにPython環境を構築する
--------------------------------------
-(1) Pythonが起動することを確認する
+--------------------------------------------------------------------------
+
+
+Edisonでは、すでにPythonが標準に入っておりますが、通常のPCと同じように非常にパワフルに動作しますので、Python関連のライブラリを強化します。
+
+
+1) Pythonが起動することを確認する
 
 	- python
 
-※終了するときは exit() で終われます。
+	※終了するときは exit() を入力して 終了します。
 
-(2) pipをインストールする
+
+2) pipをインストールする
+
+	pipはPythonのライブラリをインストールするためのコマンドです。
+	Edisonのopkgにはpipが無いため、Pythonソースを使ってインストールを行います。
+
+	インストール用のソースをダウンロードします。
 
 	- curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 
+	Pythonで実行します。
+
 	- python get-pip.py
+
+	インストール完了です。試しにpipとコマンドを入力してみてください。
 
 	- pip
 
-※もしここでエラーが出たらTwitterでご報告ください。>@nonNoise
+	※もしここでエラーが出たらTwitterでご報告ください。>@nonNoise
 
 
-(3) pipを使って色々入れてみる
+3) pipを使ってPythonを強化してみる
 
+	★ Webサーバー用マイクロフレームワーク Flask
 
 	- pip install flask
-	- pip install pyserial
+
+	★ ドキュメント作成支援ライブラリ Sphinx
+
 	- pip install sphinx
-	- pip install virtualenvwrapper
+	
+	★ 画像処理用イメージライブラリー Pilliow (PIL)
 
-などなどw
+	- pip install pillow
+	
+	★ デーモン管理用ライブラリ supervisor 
 
-(4) うまく行かないライブラリもありました。
+	- pip install supervisor
+	
+	★ シリアル制御用ライブラリ PySerial
 
-	- pip install ipython
-
-		- インストールまでうまく行ったけどコマンドを実行するとエラーが出る。(海外ユーザーでも議論されている
-
-	うまく行かなかった物があれば、随時、ご報告お待ちしております>@nonNoise
+	- pip install pyserial
 
 
-(5) お馴染み "Hello World!"
+	などなどw
+
+
+5) せっかくなので、お馴染み "Hello World!"
+
+	コマンドでpythonを入力し、エンター
 
 	- python
 
-	>> print("Hello World!")
+	>>の先に以下のソースを入力してエンター
+
+	- >> print("Hello World!")
 
 	Hello World!
 
+	Pythonはスクリプト言語なので開発が非常にシンプルで賢いのでおすすめです。
+
 
 お疲れさまでした。
-後は、お好きなようにPythonで遊べるでしょうw
+
+後は、お好きなようにPythonで遊んでみてください。
 
 |
 
