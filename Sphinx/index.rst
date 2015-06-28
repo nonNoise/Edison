@@ -12,9 +12,9 @@ Edison開発方法 Ver2.0　　(最新 FW 2.1対応版)
 .. image:: img/EA05.JPG
 	:scale: 30%
 
-	:scale: 30%
-.. image:: img/Edison_top_view.png
 
+.. image:: img/Edison_top_view.png
+	:scale: 30%
 
 nonNoise博士のEdison-ノート
 --------------------------------------

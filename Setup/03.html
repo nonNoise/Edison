@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>▲Edisonにアクセスする方法 &mdash; Edison-Note 2.0 documentation</title>
+    <title>★Edisonにアクセスする方法 &mdash; Edison-Note 2.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="top" title="Edison-Note 2.0 documentation" href="../index.html" />
     <link rel="next" title="EdisonにPython環境を構築する" href="../Software/python.html" />
-    <link rel="prev" title="▲Edisonにアクセスする方法" href="" />
+    <link rel="prev" title="Edisonの時計合わせ" href="../Software/ntpdate.html" />
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
@@ -57,7 +57,7 @@
           <a href="../Software/python.html" title="EdisonにPython環境を構築する"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="#" title="▲Edisonにアクセスする方法"
+          <a href="../Software/ntpdate.html" title="Edisonの時計合わせ"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Edison-Note 2.0 documentation</a> &raquo;</li> 
       </ul>
@@ -66,10 +66,10 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">▲Edisonにアクセスする方法</a><ul>
+<li><a class="reference internal" href="#">★Edisonにアクセスする方法</a><ul>
 <li><a class="reference internal" href="#id1">1. Edisonに接続する</a></li>
 <li><a class="reference internal" href="#edisonusb-windows">2. EdisonとUSBで接続する[ Windowsの場合]</a></li>
-<li><a class="reference internal" href="#id2">2. Edisonを触ってみる</a></li>
+<li><a class="reference internal" href="#id2">2. Edisonに触ってみる</a></li>
 <li><a class="reference internal" href="#id3">5. Edisonを最新にする</a></li>
 <li><a class="reference internal" href="#id4">提供</a></li>
 <li><a class="reference internal" href="#id5">管理情報</a></li>
@@ -78,8 +78,8 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href=""
-                        title="previous chapter">▲Edisonにアクセスする方法</a></p>
+  <p class="topless"><a href="../Software/ntpdate.html"
+                        title="previous chapter">Edisonの時計合わせ</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="../Software/python.html"
                         title="next chapter">EdisonにPython環境を構築する</a></p>
@@ -112,7 +112,7 @@
           <div class="body" role="main">
             
   <div class="section" id="edison">
-<h1>▲Edisonにアクセスする方法<a class="headerlink" href="#edison" title="Permalink to this headline">¶</a></h1>
+<h1>★Edisonにアクセスする方法<a class="headerlink" href="#edison" title="Permalink to this headline">¶</a></h1>
 <a class="reference external image-reference" href="http://www.intel.com/content/www/us/en/do-it-yourself/maker.html"><img alt="../_images/intel.web.480.270.jpg" src="../_images/intel.web.480.270.jpg" style="width: 192.0px; height: 108.0px;" /></a>
 <a class="reference internal image-reference" href="../_images/Edison111.JPG"><img alt="../_images/Edison111.JPG" src="../_images/Edison111.JPG" style="width: 351.0px; height: 140.0px;" /></a>
 <a class="reference internal image-reference" href="../_images/EA051.JPG"><img alt="../_images/EA051.JPG" src="../_images/EA051.JPG" style="width: 270.0px; height: 179.7px;" /></a>
@@ -188,37 +188,71 @@ edison login:という文字が表示されれば、Edisonとの通信は完了�
 </ol>
 </div>
 <div class="section" id="id2">
-<h2>2. Edisonを触ってみる<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>loginまで無事に到着した方は、これからコマンドで進んでいきますので、マウスから両手を離してキーボードに集中してください。</p>
-<p>それでは行きます.</p>
-<ol class="arabic simple">
-<li>login: の箇所に root と打ち込みエンター　（初期状態ではrootのパスワードは無い)</li>
-<li>login出来ました？試しにifconfigで何かが見えればOK</li>
-<li>早速、Edisonの初期設定をしていきます。まずEdisonのWiFiを使ってインターネットにつなげます。</li>
-<li>コマンド[configure_edison &#8211;setup]を入力します。</li>
+<h2>2. Edisonに触ってみる<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>login表示まで無事に到着した方は、これからコマンドで進んでいきます。</p>
+<p>それでは行きます。</p>
+<ol class="arabic">
+<li><p class="first">edison login: の箇所に root と打ち込みエンター　（初期状態ではrootのパスワードはありません)</p>
+<blockquote>
+<div><img alt="../_images/tera08.png" src="../_images/tera08.png" />
+</div></blockquote>
+</li>
+<li><p class="first">写真の様になればログイン完了です。 早速、Edisonの初期設定をしていきます。</p>
+<blockquote>
+<div><img alt="../_images/tera09.png" src="../_images/tera09.png" />
+</div></blockquote>
+</li>
+<li><p class="first">コマンド[configure_edison &#8211;setup]を入力します。</p>
+<blockquote>
+<div><img alt="../_images/tera10.png" src="../_images/tera10.png" />
+</div></blockquote>
+</li>
 </ol>
 <ul>
 <li><dl class="first docutils">
-<dt>Configure Edison: Device Name</dt>
-<dd><ul class="first last simple">
-<li>デバイスの名前を決めます。僕はedison-01　にしました。</li>
+<dt>Configure Edison: Device Password</dt>
+<dd><ul class="first">
+<li><dl class="first docutils">
+<dt>デバイスのパスワード(root共通)を設定します。</dt>
+<dd><p class="first last">ここを設定すると次回のログイン時に必要です。
+8～64文字で設定する必要があります。</p>
+</dd>
+</dl>
+</li>
 </ul>
+<img alt="../_images/tera11.png" class="last" src="../_images/tera11.png" />
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Configure Edison: Device Password</dt>
-<dd><ul class="first last simple">
-<li>デバイスのパスワード(root共通)を設定します。ここを設定すると次回のログイン時に必要です。8～64文字で設定する必要があります。</li>
+<dt>Configure Edison: Device Name</dt>
+<dd><ul class="first">
+<li><dl class="first docutils">
+<dt>デバイスの名前を決めます。SSIDやｍDNSを使用時に使われます。</dt>
+<dd><p class="first last">特に使用しなければスキップも出来ます。</p>
+</dd>
+</dl>
+</li>
 </ul>
+<img alt="../_images/tera12.png" src="../_images/tera12.png" />
+<img alt="../_images/tera13.png" class="last" src="../_images/tera13.png" />
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Configure Edison: WiFi Connection</dt>
-<dd><ul class="first last simple">
-<li>WiFiを設定します。数秒後に自動的にスキャンしたリストを見せてくれますが、部屋のWiFiが見当たらない際は０再更新、１手入力を選択してください。</li>
+<dd><ul class="first">
+<li><dl class="first docutils">
+<dt>WiFiを設定します。</dt>
+<dd><p class="first last">数秒後に自動的にスキャンしたリストを見せてくれますが、
+部屋のWiFiが見当たらない際は０再更新、もしくは１手入力を選択してください。</p>
+</dd>
+</dl>
+</li>
 </ul>
+<img alt="../_images/tera14.png" src="../_images/tera14.png" />
+<img alt="../_images/tera15.png" src="../_images/tera15.png" />
+<img alt="../_images/tera18.png" class="last" src="../_images/tera18.png" />
 </dd>
 </dl>
 </li>
@@ -228,70 +262,106 @@ edison login:という文字が表示されれば、Edisonとの通信は完了�
 <p class="last">WiFiの設定で失敗、もしくは時間がかかる際は、Edisonをルーターの近くに持っていったり、金属系から遠ざけるなり行ってください。
 意外とアンテナ弱いです。もしかするとどこかの設定で強く出来るかも？</p>
 </div>
-<ol class="arabic simple" start="5">
-<li>WiFIの設定がうまく行ったかの確認をするために [ifconfig]を入力して、wlan0 にIPアドレスがあれば正解。</li>
+<ol class="arabic" start="4">
+<li><dl class="first docutils">
+<dt>WiFIの設定がうまく行ったかの確認をするために コマンド[ifconfig]を入力して、</dt>
+<dd><p class="first">wlan0 にIPアドレスがあればWiFiでネットへ繋がったことになります。</p>
+<img alt="../_images/tera19.png" class="last" src="../_images/tera19.png" />
+</dd>
+</dl>
+</li>
 </ol>
 </div>
 <div class="section" id="id3">
 <h2>5. Edisonを最新にする<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>さて、何とかWiFiに接続できて、これからだってその前に、念のため色々と最新にしたいとおもいます。</p>
-<ol class="arabic simple">
-<li>opkg　と言うパッケージマネージャのリストを更新します。 以下のコマンドを叩いてください。</li>
-</ol>
-<ul>
-<li><p class="first">ベースとなるライブラリリストファイル</p>
-<blockquote>
-<div><ul>
+<ol class="arabic">
 <li><dl class="first docutils">
-<dt>コマンド</dt>
-<dd><ul class="first last simple">
-<li>curl <a class="reference external" href="http://nonnoise.github.io/Edison/_sources/Edison/base-feeds.conf">http://nonnoise.github.io/Edison/_sources/Edison/base-feeds.conf</a> -o base-feeds.conf</li>
-</ul>
+<dt>opkg　と言うパッケージマネージャのリストを更新します。</dt>
+<dd><p class="first last">以下のコマンドを叩いてください。</p>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>中身</dt>
-<dd><ul class="first last simple">
+</ol>
+<ul>
+<li><p class="first">curl <a class="reference external" href="http://nonnoise.github.io/Edison/_sources/Edison/base-feeds.conf">http://nonnoise.github.io/Edison/_sources/Edison/base-feeds.conf</a> -o mylist.conf</p>
+<blockquote>
+<div><img alt="../_images/tera20.png" src="../_images/tera20.png" />
+</div></blockquote>
+</li>
+</ul>
+<blockquote>
+<div><dl class="docutils">
+<dt>中身は以下のURLになります。</dt>
+<dd><blockquote class="first">
+<div><ul class="simple">
 <li>src/gz core2-32 <a class="reference external" href="http://repo.opkg.net/edison/repo/core2-32">http://repo.opkg.net/edison/repo/core2-32</a></li>
 <li>src all     <a class="reference external" href="http://iotdk.intel.com/repos/1.1/iotdk/all">http://iotdk.intel.com/repos/1.1/iotdk/all</a></li>
 <li>src quark   <a class="reference external" href="http://iotdk.intel.com/repos/1.1/iotdk/quark">http://iotdk.intel.com/repos/1.1/iotdk/quark</a></li>
 <li>src i586    <a class="reference external" href="http://iotdk.intel.com/repos/1.1/iotdk/i586">http://iotdk.intel.com/repos/1.1/iotdk/i586</a></li>
 <li>src x86     <a class="reference external" href="http://iotdk.intel.com/repos/1.1/iotdk/x86">http://iotdk.intel.com/repos/1.1/iotdk/x86</a></li>
 </ul>
+</div></blockquote>
+<p class="last">※FW2.1になった際にcore2-32 以外のリストをupdateしてしまうとupgrate時に固まる現象を回避しています。
+※公式の方法や正しい方法は現時点では無い為、この箇所は著者が厳選した結果のリストです。</p>
 </dd>
 </dl>
-</li>
-</ul>
-<p>※FW2.1になった際にcore2-32 以外のリストをupdateしてしまうとupgrate時に固まる現象を回避しています。
-※この箇所は我流です。好き勝手に開発するにはこの辺を入れておいた方がおもしろい。</p>
 </div></blockquote>
-</li>
-</ul>
 <ol class="arabic simple" start="2">
 <li>ダウンロードしたコンフィグファイルを移動します。</li>
 </ol>
-<ul class="simple">
-<li>cp base-feeds.conf /etc/opkg/</li>
+<ul>
+<li><p class="first">cp mylist.conf /etc/opkg/</p>
+<blockquote>
+<div><img alt="../_images/tera21.png" src="../_images/tera21.png" />
+</div></blockquote>
+</li>
 </ul>
 <ol class="arabic simple" start="3">
 <li>opkgを更新してパッケージを最新のものにします。</li>
 </ol>
-<ul class="simple">
-<li>opkg update</li>
-<li>opkg upgrade</li>
+<ul>
+<li><p class="first">opkg update</p>
+<blockquote>
+<div><img alt="../_images/tera22.png" src="../_images/tera22.png" />
+</div></blockquote>
+</li>
+<li><p class="first">opkg upgrade</p>
+<blockquote>
+<div><img alt="../_images/tera23.png" src="../_images/tera23.png" />
+</div></blockquote>
+</li>
 </ul>
-<ol class="arabic simple" start="4">
-<li>試しにgitを入れてみましょう</li>
+<ol class="arabic" start="4">
+<li><p class="first">数分後〜数十分後に完了します。無事に行けば写真の様になります。</p>
+<blockquote>
+<div><img alt="../_images/tera24.png" src="../_images/tera24.png" />
+</div></blockquote>
+</li>
 </ol>
-<ul class="simple">
-<li>opkg install git</li>
+<p>もし何かerrorのような文字があれば、もう一回opkg updateから初めて見てください。</p>
+<ol class="arabic simple" start="5">
+<li>最後に、試しにgitを入れてみましょう</li>
+</ol>
+<ul>
+<li><p class="first">opkg install git</p>
+<blockquote>
+<div><img alt="../_images/tera25.png" src="../_images/tera25.png" />
+</div></blockquote>
+</li>
 </ul>
-<p>これだけ。問題なく行ったら、</p>
-<ul class="simple">
-<li>git</li>
-</ul>
-<p>でgitコマンドが起動したら成功w</p>
+<p>gitとは、変更履歴を蓄えて共有する仕組みであり、近年流行りのgithubやbitbuket等で使うプログラムです。</p>
+<p>多くはGithubに登録されているプログラムの最新版をダウンロードする際にgitコマンドを使ったりします。</p>
+<blockquote>
+<div><img alt="../_images/tera26.png" src="../_images/tera26.png" />
+</div></blockquote>
+<p>こんな感じになれば、インストール完了です。</p>
+<p>試しに git と打ち込んでみましょう。</p>
+<blockquote>
+<div><img alt="../_images/tera27.png" src="../_images/tera27.png" />
+</div></blockquote>
+<p>こんな感じで、ダラダラとコマンドの使い方が表示されればインストール完了です。</p>
+<p>お疲れ様でした。Edisonのセットアップはすべて完了しました。</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -300,6 +370,13 @@ edison login:という文字が表示されれば、Edisonとの通信は完了�
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
+</div>
+<p>★　次のセッションへ</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Software/python.html">EdisonにPython環境を構築する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Software/ntpdate.html">Edisonの時計合わせ</a></li>
+</ul>
 </div>
 </div>
 <div class="section" id="id4">
@@ -316,11 +393,13 @@ edison login:という文字が表示されれば、Edisonとの通信は完了�
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">初版:</th><td class="field-body">2015/06/18 Rev2用に執筆</td>
 </tr>
-<tr class="field-even field"><th class="field-name">作成者:</th><td class="field-body">Yuta kitagami</td>
+<tr class="field-even field"><th class="field-name">改版:</th><td class="field-body">2015/06/28 書籍に向けて執筆</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">連絡先:</th><td class="field-body"><a class="reference external" href="mailto:kitagami&#37;&#52;&#48;artifactnoise&#46;com">kitagami<span>&#64;</span>artifactnoise<span>&#46;</span>com</a></td>
+<tr class="field-odd field"><th class="field-name">作成者:</th><td class="field-body">Yuta kitagami</td>
 </tr>
-<tr class="field-even field"><th class="field-name">twitter:</th><td class="field-body">&#64;nonNoise</td>
+<tr class="field-even field"><th class="field-name">連絡先:</th><td class="field-body"><a class="reference external" href="mailto:kitagami&#37;&#52;&#48;artifactnoise&#46;com">kitagami<span>&#64;</span>artifactnoise<span>&#46;</span>com</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">twitter:</th><td class="field-body">&#64;nonNoise</td>
 </tr>
 </tbody>
 </table>
@@ -343,7 +422,7 @@ edison login:という文字が表示されれば、Edisonとの通信は完了�
           <a href="../Software/python.html" title="EdisonにPython環境を構築する"
              >next</a> |</li>
         <li class="right" >
-          <a href="#" title="▲Edisonにアクセスする方法"
+          <a href="../Software/ntpdate.html" title="Edisonの時計合わせ"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Edison-Note 2.0 documentation</a> &raquo;</li> 
       </ul>

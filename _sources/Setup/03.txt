@@ -1,6 +1,6 @@
 
 ===========================================================
-▲Edisonにアクセスする方法
+★Edisonにアクセスする方法
 ===========================================================
 
 .. image:: ../img/intel.web.480.270.jpg
@@ -114,29 +114,48 @@ Edisonとの通信には２つの方法があります。
 
 
 
-2. Edisonを触ってみる
+2. Edisonに触ってみる
 -----------------------------------------
 
-loginまで無事に到着した方は、これからコマンドで進んでいきますので、マウスから両手を離してキーボードに集中してください。
+login表示まで無事に到着した方は、これからコマンドで進んでいきます。
 
-それでは行きます.
+それでは行きます。
 
-(1) login: の箇所に root と打ち込みエンター　（初期状態ではrootのパスワードは無い)
+1) edison login: の箇所に root と打ち込みエンター　（初期状態ではrootのパスワードはありません)
 
-(2) login出来ました？試しにifconfigで何かが見えればOK
+	.. image:: screen/tera08.png
 
-(3) 早速、Edisonの初期設定をしていきます。まずEdisonのWiFiを使ってインターネットにつなげます。
+2) 写真の様になればログイン完了です。 早速、Edisonの初期設定をしていきます。
 
-(4) コマンド[configure_edison --setup]を入力します。
+	.. image:: screen/tera09.png
 
-- Configure Edison: Device Name
-	- デバイスの名前を決めます。僕はedison-01　にしました。
+3) コマンド[configure_edison --setup]を入力します。
+
+	.. image:: screen/tera10.png
 
 - Configure Edison: Device Password
-	- デバイスのパスワード(root共通)を設定します。ここを設定すると次回のログイン時に必要です。8～64文字で設定する必要があります。
+	- デバイスのパスワード(root共通)を設定します。
+		ここを設定すると次回のログイン時に必要です。
+		8～64文字で設定する必要があります。
+
+	.. image:: screen/tera11.png
+
+- Configure Edison: Device Name
+	- デバイスの名前を決めます。SSIDやｍDNSを使用時に使われます。
+		特に使用しなければスキップも出来ます。
+
+	.. image:: screen/tera12.png
+	.. image:: screen/tera13.png
 
 - Configure Edison: WiFi Connection
-	- WiFiを設定します。数秒後に自動的にスキャンしたリストを見せてくれますが、部屋のWiFiが見当たらない際は０再更新、１手入力を選択してください。
+	- WiFiを設定します。
+		数秒後に自動的にスキャンしたリストを見せてくれますが、
+		部屋のWiFiが見当たらない際は０再更新、もしくは１手入力を選択してください。
+
+	.. image:: screen/tera14.png
+	.. image:: screen/tera15.png
+	.. image:: screen/tera18.png
+
 
 .. note::
 
@@ -144,7 +163,10 @@ loginまで無事に到着した方は、これからコマンドで進んでい
 	意外とアンテナ弱いです。もしかするとどこかの設定で強く出来るかも？
 
 
-(5) WiFIの設定がうまく行ったかの確認をするために [ifconfig]を入力して、wlan0 にIPアドレスがあれば正解。
+4) WiFIの設定がうまく行ったかの確認をするために コマンド[ifconfig]を入力して、
+	wlan0 にIPアドレスがあればWiFiでネットへ繋がったことになります。
+
+	.. image:: screen/tera19.png
 
 
 5. Edisonを最新にする
@@ -153,14 +175,14 @@ loginまで無事に到着した方は、これからコマンドで進んでい
 さて、何とかWiFiに接続できて、これからだってその前に、念のため色々と最新にしたいとおもいます。
 
 
-(1) opkg　と言うパッケージマネージャのリストを更新します。 以下のコマンドを叩いてください。
+(1) opkg　と言うパッケージマネージャのリストを更新します。
+ 	以下のコマンドを叩いてください。
 
+- curl http://nonnoise.github.io/Edison/_sources/Edison/base-feeds.conf -o mylist.conf
 
-- ベースとなるライブラリリストファイル
+	.. image:: screen/tera20.png
 
-	- コマンド
-		- curl http://nonnoise.github.io/Edison/_sources/Edison/base-feeds.conf -o base-feeds.conf
-	- 中身
+ 中身は以下のURLになります。
 		- src/gz core2-32 http://repo.opkg.net/edison/repo/core2-32
 		- src all     http://iotdk.intel.com/repos/1.1/iotdk/all
 		- src quark   http://iotdk.intel.com/repos/1.1/iotdk/quark
@@ -169,26 +191,53 @@ loginまで無事に到着した方は、これからコマンドで進んでい
 
 
 	※FW2.1になった際にcore2-32 以外のリストをupdateしてしまうとupgrate時に固まる現象を回避しています。
-	※この箇所は我流です。好き勝手に開発するにはこの辺を入れておいた方がおもしろい。
+	※公式の方法や正しい方法は現時点では無い為、この箇所は著者が厳選した結果のリストです。
 
 (2) ダウンロードしたコンフィグファイルを移動します。
 
-- cp base-feeds.conf /etc/opkg/
+- cp mylist.conf /etc/opkg/
+
+	.. image:: screen/tera21.png
 
 (3) opkgを更新してパッケージを最新のものにします。
 
 - opkg update
+
+	.. image:: screen/tera22.png
+
 - opkg upgrade
 
-(4) 試しにgitを入れてみましょう
+	.. image:: screen/tera23.png
+
+(4) 数分後〜数十分後に完了します。無事に行けば写真の様になります。
+
+	.. image:: screen/tera24.png
+
+もし何かerrorのような文字があれば、もう一回opkg updateから初めて見てください。
+
+
+5) 最後に、試しにgitを入れてみましょう
 
 - opkg install git
 
-これだけ。問題なく行ったら、
+	.. image:: screen/tera25.png
 
-- git
+gitとは、変更履歴を蓄えて共有する仕組みであり、近年流行りのgithubやbitbuket等で使うプログラムです。
 
-でgitコマンドが起動したら成功w
+多くはGithubに登録されているプログラムの最新版をダウンロードする際にgitコマンドを使ったりします。
+
+	.. image:: screen/tera26.png
+
+こんな感じになれば、インストール完了です。
+
+試しに git と打ち込んでみましょう。
+
+	.. image:: screen/tera27.png
+
+こんな感じで、ダラダラとコマンドの使い方が表示されればインストール完了です。
+
+
+お疲れ様でした。Edisonのセットアップはすべて完了しました。
 
 
 |
@@ -197,8 +246,13 @@ loginまで無事に到着した方は、これからコマンドで進んでい
 
 |
 
+★　次のセッションへ
 
+.. toctree::
+	:maxdepth: 1
 
+	../Software/python
+	../Software/ntpdate
 
 
 提供
@@ -218,6 +272,7 @@ ArtifactNoise.
 ------------------------------------------------
 
 :初版: 2015/06/18 Rev2用に執筆
+:改版: 2015/06/28 書籍に向けて執筆
 
 :作成者: Yuta kitagami
 :連絡先: kitagami@artifactnoise.com
