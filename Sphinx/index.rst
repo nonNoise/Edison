@@ -27,7 +27,7 @@ nonNoise博士のEdison-ノート
 -- **Edisonセットアップ編** --
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
 
     Setup/01
     Setup/02

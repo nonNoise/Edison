@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>★Edisonのセットアップ &mdash; Edison-Note 2.0 documentation</title>
+    <title>Edisonのセットアップ &mdash; Edison-Note 2.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -26,7 +26,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="top" title="Edison-Note 2.0 documentation" href="../index.html" />
-    <link rel="next" title="★Edisonにアクセスする方法" href="03.html" />
+    <link rel="next" title="Edisonにアクセスする方法" href="03.html" />
     <link rel="prev" title="Edisonの時計合わせ" href="../Software/ntpdate.html" />
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -54,7 +54,7 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="03.html" title="★Edisonにアクセスする方法"
+          <a href="03.html" title="Edisonにアクセスする方法"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="../Software/ntpdate.html" title="Edisonの時計合わせ"
@@ -66,9 +66,14 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">★Edisonのセットアップ</a><ul>
-<li><a class="reference internal" href="#id1">提供</a></li>
-<li><a class="reference internal" href="#id2">管理情報</a></li>
+<li><a class="reference internal" href="#">Edisonのセットアップ</a><ul>
+<li><a class="reference internal" href="#id1">1.必要なもの</a></li>
+<li><a class="reference internal" href="#id2">2. ベースボード組み立て</a></li>
+<li><a class="reference internal" href="#usb">3.USBの接続</a></li>
+<li><a class="reference internal" href="#id3">4. 起動の確認</a></li>
+<li><a class="reference internal" href="#id4">5. ドライバーや開発環境、ファームウェアのアップデート等のインストール</a></li>
+<li><a class="reference internal" href="#id5">提供</a></li>
+<li><a class="reference internal" href="#id6">管理情報</a></li>
 </ul>
 </li>
 </ul>
@@ -78,7 +83,7 @@
                         title="previous chapter">Edisonの時計合わせ</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="03.html"
-                        title="next chapter">★Edisonにアクセスする方法</a></p>
+                        title="next chapter">Edisonにアクセスする方法</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -108,7 +113,7 @@
           <div class="body" role="main">
             
   <div class="section" id="edison">
-<h1>★Edisonのセットアップ<a class="headerlink" href="#edison" title="Permalink to this headline">¶</a></h1>
+<h1>Edisonのセットアップ<a class="headerlink" href="#edison" title="Permalink to this headline">¶</a></h1>
 <a class="reference external image-reference" href="http://www.intel.com/content/www/us/en/do-it-yourself/maker.html"><img alt="../_images/intel.web.480.270.jpg" src="../_images/intel.web.480.270.jpg" style="width: 192.0px; height: 108.0px;" /></a>
 <a class="reference internal image-reference" href="../_images/Edison111.JPG"><img alt="../_images/Edison111.JPG" src="../_images/Edison111.JPG" style="width: 351.0px; height: 140.0px;" /></a>
 <a class="reference internal image-reference" href="../_images/EA051.JPG"><img alt="../_images/EA051.JPG" src="../_images/EA051.JPG" style="width: 270.0px; height: 179.7px;" /></a>
@@ -122,10 +127,8 @@
 </ul>
 <p>また、MacやLinuxでのセットアップをご希望の際は、以下のリンクで別に記載しております。</p>
 <p>（現在、準備中です。もう少々お待ちください。）</p>
-<hr class="docutils" />
-<ol class="arabic simple">
-<li>必要なもの</li>
-</ol>
+<div class="section" id="id1">
+<h2>1.必要なもの<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p class="first">Edison本体 + BreakoutBoardで始める際</p>
 <blockquote>
@@ -176,18 +179,12 @@
 </div></blockquote>
 </li>
 </ul>
+</div>
 <hr class="docutils" />
-<ol class="arabic simple" start="2">
-<li>箱からEdisonを取り出し、開封します</li>
-</ol>
-<hr class="docutils" />
-<ol class="arabic" start="3">
-<li><p class="first">ベースボード組み立て</p>
+<div class="section" id="id2">
+<h2>2. ベースボード組み立て<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><p>ベースボードとEdison本体をネジで固定します。ネジを無くさないように注意してください。</p>
-</div></blockquote>
-</li>
-</ol>
+<div>ベースボードとEdison本体をネジで固定します。ネジを無くさないように注意してください。</div></blockquote>
 <ul>
 <li><p class="first">Edison本体 + BreakoutBoardの場合</p>
 <blockquote>
@@ -208,9 +205,9 @@
 </div></blockquote>
 </li>
 </ul>
-<hr class="docutils" />
-<ol class="arabic" start="4">
-<li><p class="first">USBの接続</p>
+</div>
+<div class="section" id="usb">
+<h2>3.USBの接続<a class="headerlink" href="#usb" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><img alt="../_images/EB06.JPG" src="../_images/EB06.JPG" />
 <img alt="../_images/EA07.JPG" src="../_images/EA07.JPG" />
@@ -218,25 +215,19 @@
 <p>片方はLinuxのコンソールとして働き、もう片方は電源とUSBメモリとして働きます。</p>
 <p>Arduinoベースボードは、USB側にSWがあり、マイクロB側にSWを移動してください。</p>
 </div></blockquote>
-</li>
-</ol>
-<hr class="docutils" />
-<ol class="arabic" start="4">
-<li><p class="first">起動の確認</p>
+</div>
+<div class="section" id="id3">
+<h2>4. 起動の確認<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>ベースボードに付いているLEDが点灯すればOK。</p>
 <p>PC側では少し時間が経つとEdisonというUSBメモリが認識されます。</p>
 </div></blockquote>
-</li>
-</ol>
-<hr class="docutils" />
-<ol class="arabic" start="5">
-<li><p class="first">ドライバーや開発環境、ファームウェアのアップデート等のインストール</p>
+</div>
+<div class="section" id="id4">
+<h2>5. ドライバーや開発環境、ファームウェアのアップデート等のインストール<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><a class="reference external image-reference" href="https://software.intel.com/en-us/iot/hardware/edison/downloads"><img alt="../_images/03.png" src="../_images/03.png" /></a>
 </div></blockquote>
-</li>
-</ol>
 <ul>
 <li><p class="first"><a class="reference external" href="https://software.intel.com/en-us/iot/hardware/edison/downloads">https://software.intel.com/en-us/iot/hardware/edison/downloads</a></p>
 </li>
@@ -315,7 +306,7 @@
 <p>★　次のセットアップへ</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="03.html">★Edisonにアクセスする方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03.html">Edisonにアクセスする方法</a></li>
 </ul>
 </div>
 <div class="line-block">
@@ -324,14 +315,15 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<div class="section" id="id1">
-<h2>提供<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id5">
+<h2>提供<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>ArtifactNoise.</p>
 <a class="reference external image-reference" href="http://artifactnoise.com"><img alt="ArtifactNoise" src="../_images/ANlogoMark022.png" style="width: 157.2px; height: 33.6px;" /></a>
 <p>書籍化に向けて頑張り中・・・！</p>
 </div>
-<div class="section" id="id2">
-<h2>管理情報<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h2>管理情報<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -362,7 +354,7 @@
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="03.html" title="★Edisonにアクセスする方法"
+          <a href="03.html" title="Edisonにアクセスする方法"
              >next</a> |</li>
         <li class="right" >
           <a href="../Software/ntpdate.html" title="Edisonの時計合わせ"
