@@ -1,0 +1,225 @@
+=======================================================
+Edisonのセットアップ
+=======================================================
+
+.. image:: ../img/intel.web.480.270.jpg
+	:scale: 40%
+	:target: http://www.intel.com/content/www/us/en/do-it-yourself/maker.html
+
+.. image:: ../img/Edison11.JPG
+	:scale: 50%
+
+.. image:: ../img/EA05.JPG
+	:scale: 30%
+
+.. image:: ../img/Edison_top_view.png
+	:scale: 30%
+
+
+
+早速、Edisonのセットアップを始めていきます。
+以下の組み合わせの場合を想定して説明を行っていきます。
+
+- Edison本体 + BreakoutBoard
+
+- Edison本体 + Arduinoベースボード
+
+- Edison本体 + (株)秋月電子通商 Edison用変換基板
+
+また、MacやLinuxでのセットアップをご希望の際は、以下のリンクで別に記載しております。
+
+（現在、準備中です。もう少々お待ちください。）
+
+1.必要なもの
+-----------------------------------------------------------------------------------------------------
+
+- Edison本体 + BreakoutBoardで始める際
+
+    .. image:: img/Edison11.JPG
+        :width: 710px
+
+    - Edison+BreakoutBoard: １台
+        - 購入サイト: http://akizukidenshi.com/catalog/g/gM-08570/
+        - 購入サイト: https://www.switch-science.com/catalog/1957/
+
+    - USB-MicroB: ２本
+        - 購入サイト: http://akizukidenshi.com/catalog/g/gC-07607/
+
+- Edison本体 + Arduinoベースボードで始める際
+
+    .. image:: img/Edison10.JPG
+        :width: 710px
+
+    - Edison+ArduinoBoard: １台
+        - 購入サイト: http://akizukidenshi.com/catalog/g/gM-08571/
+        - 購入サイト: https://www.switch-science.com/catalog/1958/
+
+    - USB-MicroB: ２本
+        - 購入サイト: http://akizukidenshi.com/catalog/g/gC-07607/
+
+-----------------------------------------------------------------------------------------------------
+
+2. ベースボード組み立て
+-----------------------------------------------------------------------------------------------------
+
+    ベースボードとEdison本体をネジで固定します。ネジを無くさないように注意してください。
+
+- Edison本体 + BreakoutBoardの場合
+
+    .. image:: img/EB01.JPG
+        :width: 480px
+
+    .. image:: img/EB02.JPG
+        :width: 480px
+
+    .. image:: img/EB03.JPG
+        :width: 480px
+
+    .. image:: img/EB04.JPG
+        :width: 480px
+
+    .. image:: img/EB05.JPG
+        :width: 480px
+
+
+- Edison本体 +  Arduinoベースボードの場合
+
+    .. image:: img/EA01.JPG
+        :width: 480px
+
+    .. image:: img/EA02.JPG
+        :width: 480px
+
+    .. image:: img/EA03.JPG
+        :width: 480px
+
+    .. image:: img/EA04.JPG
+        :width: 480px
+
+    .. image:: img/EA05.JPG
+        :width: 480px
+
+
+3.USBの接続
+-----------------------------------------------------------------------------------------------------
+
+
+    .. image:: img/EB06.JPG
+
+    .. image:: img/EA07.JPG
+
+    ベースボードにある二箇所のUSBにケーブルを接続し、PCにつなげます。
+
+    片方はLinuxのコンソールとして働き、もう片方は電源とUSBメモリとして働きます。
+
+    Arduinoベースボードは、USB側にSWがあり、マイクロB側にSWを移動してください。
+
+
+4. 起動の確認
+-----------------------------------------------------------------------------------------------------
+
+
+        ベースボードに付いているLEDが点灯すればOK。
+
+        PC側では少し時間が経つとEdisonというUSBメモリが認識されます。
+
+
+5. ドライバーや開発環境、ファームウェアのアップデート等のインストール
+-----------------------------------------------------------------------------------------------------
+
+        .. image:: screen/03.png
+            :target: https://software.intel.com/en-us/iot/hardware/edison/downloads
+
+- https://software.intel.com/en-us/iot/hardware/edison/downloads
+- URLよりダウンロードページに行き、
+
+        .. image:: screen/04.png
+
+- 丸線で囲まれた箇所をクリックして必要なファイルをダウンロードします。
+
+        .. image:: screen/05.png
+
+- ダウンロードが完了したら、exeファイルを実行します。
+
+        .. image:: screen/06.png
+
+- 写真の様な画面になれば、少し時間をまち、
+
+        .. image:: screen/07.png
+
+- で、Nest
+
+        .. image:: screen/08.png
+
+- 写真のような画面になれば、次のUSBの接続を行ってください。
+
+- EdisonとPCとの接続に問題がなければ、この画面は表示されません。
+
+        .. image:: screen/09.png
+
+- 「I accept the terms of the license」を選択し、Next
+
+        .. image:: screen/10.png
+
+- デフォルトのままで問題ありませんので、このままNext
+
+- もし、興味がある項目があれば選択してNext。ただしファイル量が増えるためダウンロードに時間がかかります。
+
+        .. image:: screen/11.png
+
+- 保存先と保存領域の確認。特に問題がなければこのままNextを。
+
+        .. image:: screen/35.png
+
+- ダウンロードが始まります。（約３０分間お待ちください）
+
+        .. image:: screen/14.png
+
+- ダウンロード後、以下の画面になれば無事に成功です。　
+
+        .. image:: screen/15.png
+
+- ちなみに、この時点でEdisonは自動的に最新になりました。
+
+
+
+
+        お疲れ様でした。インストール完了です。
+
+-----------------------------------------------------------------------------------------------------
+
+|
+
+|
+★　次のセットアップへ
+
+.. toctree::
+    :maxdepth: 1
+
+    03
+
+|
+
+|
+
+提供
+--------------------------------
+
+ArtifactNoise.
+
+.. image:: ../img/ANlogoMark02.png
+	:alt: ArtifactNoise
+	:scale: 40%
+	:target: http://artifactnoise.com
+
+
+書籍化に向けて頑張り中・・・！
+
+管理情報
+------------------------------------------------
+
+:初版: 2015/06/18 Rev2用に執筆
+
+:作成者: Yuta kitagami
+:連絡先: kitagami@artifactnoise.com
+:twitter: @nonNoise

@@ -1,0 +1,228 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Edison初期化方法（工場出荷時及び最新版FW) &#8212; Edison-Note 2.0 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Edisonへ書き込み出来ない [ write error: No space left on device ]" href="NoSpace.html" />
+    <link rel="prev" title="Edison のI2Cを試してみる" href="../Hardware/hardware_i2c.html" />
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-24204483-2', 'auto');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+</script>
+
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="NoSpace.html" title="Edisonへ書き込み出来ない [ write error: No space left on device ]"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../Hardware/hardware_i2c.html" title="Edison のI2Cを試してみる"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Edison-Note 2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Edison初期化方法（工場出荷時及び最新版FW)</a><ul>
+<li><a class="reference internal" href="#edison">1.Edisonを初期化出来る環境</a></li>
+<li><a class="reference internal" href="#id1">2.初期化ファイルのダウンロード</a></li>
+<li><a class="reference internal" href="#id2">3. 初期化の手順</a></li>
+<li><a class="reference internal" href="#id3">参考資料</a></li>
+<li><a class="reference internal" href="#id4">提供</a></li>
+<li><a class="reference internal" href="#id5">管理情報</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../Hardware/hardware_i2c.html"
+                        title="previous chapter">Edison のI2Cを試してみる</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="NoSpace.html"
+                        title="next chapter">Edisonへ書き込み出来ない [ write error: No space left on device ]</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/Setup/init.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="edison-fw">
+<h1>Edison初期化方法（工場出荷時及び最新版FW)<a class="headerlink" href="#edison-fw" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="http://www.intel.com/content/www/us/en/do-it-yourself/maker.html"><img alt="../_images/intel.web.480.2701.jpg" src="../_images/intel.web.480.2701.jpg" style="width: 192.0px; height: 108.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/Edison111.JPG"><img alt="../_images/Edison111.JPG" src="../_images/Edison111.JPG" style="width: 351.0px; height: 140.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/EA051.JPG"><img alt="../_images/EA051.JPG" src="../_images/EA051.JPG" style="width: 270.0px; height: 179.7px;" /></a>
+<a class="reference internal image-reference" href="../_images/Edison_top_view1.png"><img alt="../_images/Edison_top_view1.png" src="../_images/Edison_top_view1.png" style="width: 255.6px; height: 158.4px;" /></a>
+<div class="section" id="edison">
+<h2>1.Edisonを初期化出来る環境<a class="headerlink" href="#edison" title="Permalink to this headline">¶</a></h2>
+<p>Edisonの初期化は結構難しい。RasPiならSDカードを交換すれば良いのだが、EdisonはオンボードのフラッシュROMなので、
+外部から書き換えを行う必要があります。</p>
+<p>Intel社から紹介されている方法は、LinuxとWindowsのみに対応しており、Macに関しては随時行うそうです。</p>
+<p>Edisonの初期化は、本当に全部初期化にしますので、各設定類はすべて削除されます。</p>
+<p>例えば、僕見たいにパスワードを忘れたり間違えたりして、どうにもならなくなった際に使って見てください。</p>
+<p>あと、最新版のFWにするには、この方法が一番です。逆に、古いFWに戻したくてもROMがどこにあるのか探すのも一苦労汗w</p>
+</div>
+<div class="section" id="id1">
+<h2>2.初期化ファイルのダウンロード<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://communities.intel.com/docs/DOC-23242">https://communities.intel.com/docs/DOC-23242</a> より、「　Edison Yocto complete 　」
+をダウンロードしてください。</p>
+<p>ダウンロードしたら、zipファイルなので解答してください。</p>
+<p>解答したら、コマンドプロントで解答したフォルダーまで移動します。</p>
+</div>
+<div class="section" id="id2">
+<h2>3. 初期化の手順<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>EdisonをPCに接続します</li>
+</ol>
+<p>(2-1) Linux上から書き換えを実行</p>
+<blockquote>
+<div><p>自分のUnintu環境では、dfu-utilが無かった為、 「apt-get install dfu-util」を行った後に実行しました。</p>
+<ul class="simple">
+<li>sudo ./flashall.sh</li>
+</ul>
+</div></blockquote>
+<p>(2-2) Winsowsの場合（Intel非純正のサピート方法です。）</p>
+<blockquote>
+<div><p>以下のリンクより、dfu-util.exeをダウンロード。
+<a class="reference external" href="https://dl.dropboxusercontent.com/u/54378433/dfu-util/dfu-util.exe">https://dl.dropboxusercontent.com/u/54378433/dfu-util/dfu-util.exe</a></p>
+<p>ダウンロードしたdfu-util.exeを、解答したedison-image-ww36-14ファイルに移動します。</p>
+<p>cdコマンドを使い、edison-image-ww36-14ファイルまでコマンドで移動します。</p>
+<dl class="docutils">
+<dt>移動先で、</dt>
+<dd><ul class="first last simple">
+<li>flashall</li>
+</ul>
+</dd>
+</dl>
+<p>を実行すると、数秒間の待ち状態になります。</p>
+<p>参考資料： <a class="reference external" href="https://communities.intel.com/message/256593">https://communities.intel.com/message/256593</a></p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Edisonの電源側を抜いて、差し直す。（なるべくFTDI側は残しておいた方がいいです。完了時が分かりますので)</li>
+<li>コマンドが流れて行って、１０秒近くたったら、自動的に再起動します。</li>
+<li>edison login: が表示されたが完了。</li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h2>参考資料<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.adafruit.com/datasheets/EdisonUserGuide.pdf">http://www.adafruit.com/datasheets/EdisonUserGuide.pdf</a></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>提供<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>ArtifactNoise.</p>
+<a class="reference external image-reference" href="http://artifactnoise.com"><img alt="ArtifactNoise" src="../_images/ANlogoMark021.png" style="width: 157.2px; height: 33.6px;" /></a>
+</div>
+<div class="section" id="id5">
+<h2>管理情報<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">初版:</th><td class="field-body">2014/10/25</td>
+</tr>
+<tr class="field-even field"><th class="field-name">作成者:</th><td class="field-body">Yuta kitagami</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">連絡先:</th><td class="field-body"><a class="reference external" href="mailto:kitagami&#37;&#52;&#48;artifactnoise&#46;com">kitagami<span>&#64;</span>artifactnoise<span>&#46;</span>com</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">twitter:</th><td class="field-body">&#64;nonNoise</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="NoSpace.html" title="Edisonへ書き込み出来ない [ write error: No space left on device ]"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../Hardware/hardware_i2c.html" title="Edison のI2Cを試してみる"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Edison-Note 2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2014, ArtifactNoise..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>
