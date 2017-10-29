@@ -62,6 +62,19 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Systemdを使った Edisonでプログラムを自動起動する方法</a><ul>
+<li><a class="reference internal" href="#systemd-systemctl">▼Systemd(systemctl)について</a></li>
+<li><a class="reference internal" href="#id1">▼自動起動するための準備</a></li>
+<li><a class="reference internal" href="#systemd">▼systemd用のスクリプト作成</a></li>
+<li><a class="reference internal" href="#id2">▼サービスの実行</a></li>
+<li><a class="reference internal" href="#id3">▼サービスの自動起動の設定</a></li>
+<li><a class="reference internal" href="#id4">▼　最後に</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="ntpdate.html"
                         title="previous chapter">Edisonの時計合わせ</a></p>
@@ -95,6 +108,120 @@
             
   <div class="section" id="systemd-edison">
 <h1>Systemdを使った Edisonでプログラムを自動起動する方法<a class="headerlink" href="#systemd-edison" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="systemd-systemctl">
+<h2>▼Systemd(systemctl)について<a class="headerlink" href="#systemd-systemctl" title="Permalink to this headline">¶</a></h2>
+<p>Linuxでは古くから自動起動プロセスにかんして　init.d　を使用する事があり、
+init.d の仕組みや管理は魔術の様に難しく、その魔術を簡易に管理する為のプログラムが多数出てきたりしてました。</p>
+<p>そんな中、２０１１年頃からinit.dに代わる起動プログラムとしてsystemdが急激に流行りだし、
+今までの魔術的処理を行ったinit.dから、言語化され文明の力を持ったsystemdを使用することになりました。</p>
+<p><a class="reference external" href="https://ja.wikipedia.org/wiki/Systemd">https://ja.wikipedia.org/wiki/Systemd</a></p>
+<p>勿論、Linuxで動いているEdisonも例外でんはなく、Edisonの中に標準でsystem.dが起動プロセスを制御しています。</p>
+<p>ここではEdisonで自作プログラムを自動起動するための方法をまとめます。</p>
+</div>
+<div class="section" id="id1">
+<h2>▼自動起動するための準備<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>まず、自動実行したいプログラムが正常に動いているかを確認してください。</p>
+<p>自動実行のプログラムを走らせますと、起動しなかった際の原因を調べることは大変難しいです。</p>
+<p>特に多いミスが、そもそも設定したコマンドが動かないということです。</p>
+<p>例として</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">main</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>と行ったプログラムがあるとしたら、これでは動作しません。</p>
+<p>pwd コマンドを使い、現在のディレクトリをフルパスで指定します。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">/</span><span class="n">home</span><span class="o">/&lt;</span><span class="n">user名</span><span class="o">&gt;/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>この状態で実行して、上手く動作するのであれば起動スクリプトを記述しても動く様な気がします。</p>
+<p>ここが一番ミスをしやすい箇所なので、自分に言い聞かせるように強くおすすめします。</p>
+</div>
+<div class="section" id="systemd">
+<h2>▼systemd用のスクリプト作成<a class="headerlink" href="#systemd" title="Permalink to this headline">¶</a></h2>
+<p>Systemdのフォルダにサービスファイルを作成します。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">nano</span> <span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">system</span><span class="o">/&lt;</span><span class="n">ご自由に</span><span class="o">&gt;.</span><span class="n">service</span>
+</pre></div>
+</div>
+<p>以下の内容を記述します。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Unit</span><span class="p">]</span>
+<span class="n">Description</span> <span class="o">=</span> <span class="n">Test</span>
+
+<span class="p">[</span><span class="n">Service</span><span class="p">]</span>
+<span class="n">ExecStart</span><span class="o">=</span><span class="n">python</span> <span class="o">/</span><span class="n">home</span><span class="o">/&lt;</span><span class="n">user名</span><span class="o">&gt;/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span>
+<span class="n">Restart</span><span class="o">=</span><span class="n">always</span>
+<span class="n">Type</span><span class="o">=</span><span class="n">simple</span>
+
+<span class="p">[</span><span class="n">Install</span><span class="p">]</span>
+<span class="n">WantedBy</span><span class="o">=</span><span class="n">multi</span><span class="o">-</span><span class="n">user</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+</div>
+<p>こんな感じになります。</p>
+<p>注目点は、</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Service</span><span class="p">]</span>
+<span class="n">ExecStart</span><span class="o">=</span><span class="n">python</span> <span class="o">/</span><span class="n">home</span><span class="o">/&lt;</span><span class="n">user名</span><span class="o">&gt;/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>です。</p>
+<p>ExecStartは実行するコマンド名です。ここで、先ほどのフルパスで実行したコマンドを貼り付けます。</p>
+<p>より細かなsystemdの記述を行いたい方は、以下のサイトが大変判りやすくオススメです。</p>
+<p><a class="reference external" href="http://enakai00.hatenablog.com/entry/20130917/1379374797">http://enakai00.hatenablog.com/entry/20130917/1379374797</a></p>
+</div>
+<div class="section" id="id2">
+<h2>▼サービスの実行<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>以下のコマンドでサービスを実行します。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">systemctl</span> <span class="n">start</span> <span class="o">&lt;</span><span class="n">先ほど決めたファイル名</span><span class="o">&gt;.</span><span class="n">service</span>
+</pre></div>
+</div>
+<p>これでプログラムが無事に実行されれば良いです。</p>
+<p>特にコマンドプロントに文字が表示されないので、以下のコマンドで確認します</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">systemctl</span> <span class="n">status</span> <span class="o">&lt;</span><span class="n">先ほど決めたファイル名</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>で状態を確認することが出来ます。</p>
+<p>もしエラー表示があれば英文を読み一個ずつ対処するしかありませんが、
+自分の経験上大半の問題は先のフルパスが上手く出来ておらず、コマンドがそもそも動かない点ですね。</p>
+<p>ここで、プログラムを間違えた！変更したい！って時は、一度サービスと停止させます。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">systemctl</span> <span class="n">stop</span> <span class="o">&lt;</span><span class="n">先ほど決めたファイル名</span><span class="o">&gt;.</span><span class="n">service</span>
+</pre></div>
+</div>
+<p>で、プログラムを書き換えて、再度試したい際は、前のstartを実行すればOKです。</p>
+<p>この３つのコマンドの繰り返しでデバックを進めていきます。</p>
+</div>
+<div class="section" id="id3">
+<h2>▼サービスの自動起動の設定<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>実は、前の３種類のコマンドはOSが起動後の制御コマンドになり、自動起動するようにしたというコマンドではありません。</p>
+<p>（自分は良く間違えてstart出来るのに自動起動しない。何でな？って首をかしげます）</p>
+<p>以下のコマンドで、自動起動するように設定できます。　（自動起動を指示するコマンドは別なんですよ）</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">systemctl</span> <span class="n">enable</span> <span class="o">&lt;</span><span class="n">先ほど決めたファイル名</span><span class="o">&gt;.</span><span class="n">service</span>
+</pre></div>
+</div>
+<p>これで起動時に自動起動が出来るように成ります。</p>
+<p>おもむろに、</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">reboot</span>
+</pre></div>
+</div>
+<p>これで再起動して、起動時のパラパラに自分のサービスが表示されるはずです（早すぎて見えませんが）</p>
+<p>起動後、ちゃんと動作しているかは先程の status で状態を確認することが出来ます。</p>
+<p>以上！</p>
+</div>
+<div class="section" id="id4">
+<h2>▼　最後に<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>自動起動については以上です。覚えることは少ないでしょう、自分としても書くことが少なくて大変有り難いです。</p>
+<p>実は、systemdが登場する前のinit.dについて記事をまとめると途方もない量（実際にinit.dだけの本が出ている）になるので、</p>
+<p>2011年より登場したsystemdが流行る理由が物凄くわかります。みんな苦労してたんだ・・・</p>
+<p>起動プロセスに関してはLinux固有の内容が多く含まれますので、できればその辺りも調べつつ知りつつ行っていただきたいですが、
+systemdの様に簡単にサービスを登録できる機能もありますので、エイヤ！っと試して頂ければと思います。</p>
+<p>それでは。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>2017/10/29 初版</p>
+</div>
 </div>
 
 
